@@ -11,6 +11,7 @@
 #import "WSUploadCell.h"
 
 #import "NoticeVC.h"
+#import "LocalFileVC.h"
 
 @interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) LXSegmentView *mySegmentView;
@@ -86,6 +87,9 @@
 
 - (void)RightBtnAction{
     
+    LocalFileVC *vc = [[LocalFileVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

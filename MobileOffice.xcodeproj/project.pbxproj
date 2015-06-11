@@ -16,6 +16,9 @@
 		09C9C3831B295EFD00B1F902 /* NoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3821B295EFD00B1F902 /* NoticeVC.m */; };
 		09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3851B295F3400B1F902 /* NoticeVCCell.m */; };
 		09C9C3881B295F4A00B1F902 /* NoticeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */; };
+		09C9C38C1B29671200B1F902 /* LocalFileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C38B1B29671200B1F902 /* LocalFileVC.m */; };
+		09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C38E1B29673300B1F902 /* LocalFileVCCell.m */; };
+		09C9C3911B29674A00B1F902 /* LocalFileVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3901B29674A00B1F902 /* LocalFileVCCell.xib */; };
 		A6981E291B156CFA00F45DAC /* WorkSpaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */; };
 		A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */; };
 		A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E2C1B156D3E00F45DAC /* ChatVC.m */; };
@@ -159,6 +162,11 @@
 		09C9C3841B295F3400B1F902 /* NoticeVCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeVCCell.h; sourceTree = "<group>"; };
 		09C9C3851B295F3400B1F902 /* NoticeVCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeVCCell.m; sourceTree = "<group>"; };
 		09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeVCCell.xib; sourceTree = "<group>"; };
+		09C9C38A1B29671200B1F902 /* LocalFileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileVC.h; sourceTree = "<group>"; };
+		09C9C38B1B29671200B1F902 /* LocalFileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileVC.m; sourceTree = "<group>"; };
+		09C9C38D1B29673300B1F902 /* LocalFileVCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalFileVCCell.h; sourceTree = "<group>"; };
+		09C9C38E1B29673300B1F902 /* LocalFileVCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalFileVCCell.m; sourceTree = "<group>"; };
+		09C9C3901B29674A00B1F902 /* LocalFileVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalFileVCCell.xib; sourceTree = "<group>"; };
 		A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSpaceVC.h; sourceTree = "<group>"; };
 		A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkSpaceVC.m; sourceTree = "<group>"; };
 		A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkSpaceVC.xib; sourceTree = "<group>"; };
@@ -390,6 +398,18 @@
 				09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */,
 			);
 			path = NoticeVC;
+			sourceTree = "<group>";
+		};
+		09C9C3891B2966ED00B1F902 /* LocalFileVC */ = {
+			isa = PBXGroup;
+			children = (
+				09C9C38A1B29671200B1F902 /* LocalFileVC.h */,
+				09C9C38B1B29671200B1F902 /* LocalFileVC.m */,
+				09C9C38D1B29673300B1F902 /* LocalFileVCCell.h */,
+				09C9C38E1B29673300B1F902 /* LocalFileVCCell.m */,
+				09C9C3901B29674A00B1F902 /* LocalFileVCCell.xib */,
+			);
+			path = LocalFileVC;
 			sourceTree = "<group>";
 		};
 		A6981EB41B15BD4600F45DAC /* KissXML */ = {
@@ -771,6 +791,7 @@
 		A6BEA5831B05CA3800EA2934 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				09C9C3891B2966ED00B1F902 /* LocalFileVC */,
 				09C9C3801B295EE300B1F902 /* NoticeVC */,
 				09C9C3711B2943BE00B1F902 /* LXSegmentView.h */,
 				09C9C3721B2943BE00B1F902 /* LXSegmentView.m */,
@@ -978,6 +999,7 @@
 				A6981E4A1B1593CB00F45DAC /* tabbarItem_workSpace@2x.png in Resources */,
 				A6BEA4F61B05C3B300EA2934 /* LaunchScreen.xib in Resources */,
 				A6BEA5A31B05DDD400EA2934 /* nav_backButtonBg.png in Resources */,
+				09C9C3911B29674A00B1F902 /* LocalFileVCCell.xib in Resources */,
 				A6981E4C1B1593CB00F45DAC /* tabbarItem_fileUpload@2x.png in Resources */,
 				A6981E4B1B1593CB00F45DAC /* tabbarItem_fileUpload.png in Resources */,
 				A6BEA4F31B05C3B300EA2934 /* Images.xcassets in Resources */,
@@ -1054,6 +1076,7 @@
 				A6981EB31B15B94100F45DAC /* ContentItems.m in Sources */,
 				A6BEA5771B05CA1800EA2934 /* UIProgressView+AFNetworking.m in Sources */,
 				A6BC6ED91B1EE330007FFA93 /* PropertyItem.m in Sources */,
+				09C9C38C1B29671200B1F902 /* LocalFileVC.m in Sources */,
 				A6981EAE1B15AFCC00F45DAC /* TreeViewNode.m in Sources */,
 				A6BEA56C1B05CA1800EA2934 /* MJRefreshConst.m in Sources */,
 				A6981E681B159AFD00F45DAC /* SetingsOneCell.m in Sources */,
@@ -1095,6 +1118,7 @@
 				A6BEA5A81B05DE8200EA2934 /* MMLog.m in Sources */,
 				A6981EAF1B15AFCC00F45DAC /* TreeNodeSecondLevel.m in Sources */,
 				A6981E9E1B15AD3700F45DAC /* ContactsSecondCell.m in Sources */,
+				09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */,
 				A6BEA55E1B05CA1800EA2934 /* AFNetworkReachabilityManager.m in Sources */,
 				A6981ECD1B15BDCE00F45DAC /* XMLParser.m in Sources */,
 				A69E4A881B1334C200749A0B /* CloudOperation.m in Sources */,
