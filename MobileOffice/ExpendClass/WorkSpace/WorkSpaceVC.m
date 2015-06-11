@@ -10,6 +10,8 @@
 #import "LXSegmentView.h"
 #import "WSUploadCell.h"
 
+#import "NoticeVC.h"
+
 @interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) LXSegmentView *mySegmentView;
 @property (nonatomic, strong) UITableView *tableView1;
@@ -25,6 +27,8 @@
 }
 
 - (void)initUI{
+    
+    [super initUI];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -42,12 +46,49 @@
     self.tableView1.dataSource = self;
     
     [self.mySegmentView.mainScrollView addSubview:self.tableView1];
+    
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBtn setFrame:CGRectMake(10, 6, 80, 30)];
+    [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [leftBtn setTitle:@"公告列表" forState:UIControlStateNormal];
+    [leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [leftBtn addTarget:self action:@selector(LeftBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftBtnItem;
+    
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setFrame:CGRectMake(kScreenWidth-90, 6, 80, 30)];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightBtn setTitle:@"本地文件" forState:UIControlStateNormal];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [rightBtn addTarget:self action:@selector(RightBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightBtnItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - My Action
+- (void)LeftBtnAction{
+    
+    NoticeVC *vc = [[NoticeVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)RightBtnAction{
+    
+}
+
+
 
 #pragma mark - UITableView DataSource
 
@@ -78,6 +119,11 @@
 }
 
 #pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     

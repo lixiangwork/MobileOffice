@@ -13,6 +13,9 @@
 		09C9C37B1B29521F00B1F902 /* WSUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C37A1B29521F00B1F902 /* WSUploadCell.m */; };
 		09C9C37D1B29523B00B1F902 /* WSUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C37C1B29523B00B1F902 /* WSUploadCell.xib */; };
 		09C9C37F1B2959FA00B1F902 /* wsupload.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C37E1B2959FA00B1F902 /* wsupload.png */; };
+		09C9C3831B295EFD00B1F902 /* NoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3821B295EFD00B1F902 /* NoticeVC.m */; };
+		09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3851B295F3400B1F902 /* NoticeVCCell.m */; };
+		09C9C3881B295F4A00B1F902 /* NoticeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */; };
 		A6981E291B156CFA00F45DAC /* WorkSpaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */; };
 		A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */; };
 		A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E2C1B156D3E00F45DAC /* ChatVC.m */; };
@@ -151,6 +154,11 @@
 		09C9C37A1B29521F00B1F902 /* WSUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUploadCell.m; sourceTree = "<group>"; };
 		09C9C37C1B29523B00B1F902 /* WSUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSUploadCell.xib; sourceTree = "<group>"; };
 		09C9C37E1B2959FA00B1F902 /* wsupload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wsupload.png; sourceTree = "<group>"; };
+		09C9C3811B295EFD00B1F902 /* NoticeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeVC.h; sourceTree = "<group>"; };
+		09C9C3821B295EFD00B1F902 /* NoticeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeVC.m; sourceTree = "<group>"; };
+		09C9C3841B295F3400B1F902 /* NoticeVCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeVCCell.h; sourceTree = "<group>"; };
+		09C9C3851B295F3400B1F902 /* NoticeVCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeVCCell.m; sourceTree = "<group>"; };
+		09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeVCCell.xib; sourceTree = "<group>"; };
 		A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSpaceVC.h; sourceTree = "<group>"; };
 		A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkSpaceVC.m; sourceTree = "<group>"; };
 		A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkSpaceVC.xib; sourceTree = "<group>"; };
@@ -370,6 +378,18 @@
 				09C9C3761B294A1100B1F902 /* select_flag.png */,
 			);
 			path = WorkSpace;
+			sourceTree = "<group>";
+		};
+		09C9C3801B295EE300B1F902 /* NoticeVC */ = {
+			isa = PBXGroup;
+			children = (
+				09C9C3811B295EFD00B1F902 /* NoticeVC.h */,
+				09C9C3821B295EFD00B1F902 /* NoticeVC.m */,
+				09C9C3841B295F3400B1F902 /* NoticeVCCell.h */,
+				09C9C3851B295F3400B1F902 /* NoticeVCCell.m */,
+				09C9C3871B295F4A00B1F902 /* NoticeVCCell.xib */,
+			);
+			path = NoticeVC;
 			sourceTree = "<group>";
 		};
 		A6981EB41B15BD4600F45DAC /* KissXML */ = {
@@ -751,6 +771,7 @@
 		A6BEA5831B05CA3800EA2934 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				09C9C3801B295EE300B1F902 /* NoticeVC */,
 				09C9C3711B2943BE00B1F902 /* LXSegmentView.h */,
 				09C9C3721B2943BE00B1F902 /* LXSegmentView.m */,
 				A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */,
@@ -969,6 +990,7 @@
 				A6981E4F1B1593CB00F45DAC /* tabbarItem_txl.png in Resources */,
 				A6981E511B1593CB00F45DAC /* tabbarItem_setting.png in Resources */,
 				A6981E831B15A1CF00F45DAC /* h5.jpg in Resources */,
+				09C9C3881B295F4A00B1F902 /* NoticeVCCell.xib in Resources */,
 				A6981E891B15A1CF00F45DAC /* h11.jpg in Resources */,
 				A6981E801B15A1CF00F45DAC /* h2.jpg in Resources */,
 				A6981E861B15A1CF00F45DAC /* h8.jpg in Resources */,
@@ -1052,6 +1074,7 @@
 				A6981E3D1B156D7C00F45DAC /* SettingVC.m in Sources */,
 				A6981EA01B15AD3700F45DAC /* ContactsThirdCell.m in Sources */,
 				A6BEA5631B05CA1800EA2934 /* AFURLSessionManager.m in Sources */,
+				09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */,
 				A6BEA56E1B05CA1800EA2934 /* MJRefreshHeaderView.m in Sources */,
 				A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */,
 				A6981E9C1B15AD3700F45DAC /* ContactsFirstCell.m in Sources */,
@@ -1077,6 +1100,7 @@
 				A69E4A881B1334C200749A0B /* CloudOperation.m in Sources */,
 				A6BEA4E81B05C3B300EA2934 /* main.m in Sources */,
 				A6BEA5721B05CA1800EA2934 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				09C9C3831B295EFD00B1F902 /* NoticeVC.m in Sources */,
 				A69E4A8B1B1337B600749A0B /* CloudService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
