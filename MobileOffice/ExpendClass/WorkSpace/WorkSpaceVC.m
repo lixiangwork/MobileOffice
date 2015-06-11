@@ -8,9 +8,11 @@
 
 #import "WorkSpaceVC.h"
 #import "LXSegmentView.h"
+#import "WSUploadCell.h"
 
-@interface WorkSpaceVC ()
+@interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) LXSegmentView *mySegmentView;
+@property (nonatomic, strong) UITableView *tableView1;
 
 @end
 
@@ -34,12 +36,71 @@
     [self.mySegmentView setTabButton1Title:@"我上传的" andButton2Title:@"我分享的" andButton3Title:@"分享给我的"];
     
     [self.view addSubview:self.mySegmentView];
+    
+    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    self.tableView1.delegate = self;
+    self.tableView1.dataSource = self;
+    
+    [self.mySegmentView.mainScrollView addSubview:self.tableView1];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableView DataSource
+
+- (NSInteger )numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 10;
+}
+
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *reuse = @"WorkSpaceUploadCell";
+    
+    [tableView registerNib:[UINib nibWithNibName:@"WSUploadCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:reuse];
+    
+    WSUploadCell *cell = [tableView dequeueReusableCellWithIdentifier:reuse];
+    
+    if (cell == nil) {
+        cell = [[WSUploadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
+    }
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 100.0f;
+}
+
+- (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (section == 0) {
+        return 10.0f;
+    }
+    else{
+        return 5.0f;
+    }
+}
+
+
+- (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 5.0f;
+}
+
+
+
 
 /*
 #pragma mark - Navigation

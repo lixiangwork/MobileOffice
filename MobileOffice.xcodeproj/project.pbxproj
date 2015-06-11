@@ -10,6 +10,9 @@
 		09C9C3731B2943BE00B1F902 /* LXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3721B2943BE00B1F902 /* LXSegmentView.m */; };
 		09C9C3771B294A1100B1F902 /* bg_tab_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3751B294A1100B1F902 /* bg_tab_selected.png */; };
 		09C9C3781B294A1100B1F902 /* select_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3761B294A1100B1F902 /* select_flag.png */; };
+		09C9C37B1B29521F00B1F902 /* WSUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C37A1B29521F00B1F902 /* WSUploadCell.m */; };
+		09C9C37D1B29523B00B1F902 /* WSUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C37C1B29523B00B1F902 /* WSUploadCell.xib */; };
+		09C9C37F1B2959FA00B1F902 /* wsupload.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C37E1B2959FA00B1F902 /* wsupload.png */; };
 		A6981E291B156CFA00F45DAC /* WorkSpaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */; };
 		A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */; };
 		A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E2C1B156D3E00F45DAC /* ChatVC.m */; };
@@ -144,6 +147,10 @@
 		09C9C3721B2943BE00B1F902 /* LXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSegmentView.m; sourceTree = "<group>"; };
 		09C9C3751B294A1100B1F902 /* bg_tab_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_tab_selected.png; sourceTree = "<group>"; };
 		09C9C3761B294A1100B1F902 /* select_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_flag.png; sourceTree = "<group>"; };
+		09C9C3791B29521F00B1F902 /* WSUploadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUploadCell.h; sourceTree = "<group>"; };
+		09C9C37A1B29521F00B1F902 /* WSUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUploadCell.m; sourceTree = "<group>"; };
+		09C9C37C1B29523B00B1F902 /* WSUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSUploadCell.xib; sourceTree = "<group>"; };
+		09C9C37E1B2959FA00B1F902 /* wsupload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wsupload.png; sourceTree = "<group>"; };
 		A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSpaceVC.h; sourceTree = "<group>"; };
 		A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkSpaceVC.m; sourceTree = "<group>"; };
 		A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkSpaceVC.xib; sourceTree = "<group>"; };
@@ -358,6 +365,7 @@
 		09C9C3741B294A1100B1F902 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				09C9C37E1B2959FA00B1F902 /* wsupload.png */,
 				09C9C3751B294A1100B1F902 /* bg_tab_selected.png */,
 				09C9C3761B294A1100B1F902 /* select_flag.png */,
 			);
@@ -748,6 +756,9 @@
 				A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */,
 				A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */,
 				A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */,
+				09C9C3791B29521F00B1F902 /* WSUploadCell.h */,
+				09C9C37A1B29521F00B1F902 /* WSUploadCell.m */,
+				09C9C37C1B29523B00B1F902 /* WSUploadCell.xib */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -979,6 +990,8 @@
 				A6981E8D1B15A1CF00F45DAC /* h15.jpg in Resources */,
 				A6981EA71B15AD9E00F45DAC /* tree_view_icon_open.png in Resources */,
 				A6BEA5B51B05F02D00EA2934 /* login_logo.png in Resources */,
+				09C9C37D1B29523B00B1F902 /* WSUploadCell.xib in Resources */,
+				09C9C37F1B2959FA00B1F902 /* wsupload.png in Resources */,
 				A6981EA11B15AD3700F45DAC /* ContactsThirdCell.xib in Resources */,
 				A6981E841B15A1CF00F45DAC /* h6.jpg in Resources */,
 				09C9C3781B294A1100B1F902 /* select_flag.png in Resources */,
@@ -1031,6 +1044,7 @@
 				A6BEA55B1B05CA1800EA2934 /* AFHTTPRequestOperation.m in Sources */,
 				A6BEA5761B05CA1800EA2934 /* UIImageView+AFNetworking.m in Sources */,
 				A6BEA5711B05CA1800EA2934 /* UIView+MJExtension.m in Sources */,
+				09C9C37B1B29521F00B1F902 /* WSUploadCell.m in Sources */,
 				A6981E331B156D5000F45DAC /* ContactsVC.m in Sources */,
 				A6BEA56B1B05CA1800EA2934 /* MJRefreshBaseView.m in Sources */,
 				A6BEA56F1B05CA1800EA2934 /* UIScrollView+MJExtension.m in Sources */,
