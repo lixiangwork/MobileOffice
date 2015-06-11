@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C9C3731B2943BE00B1F902 /* LXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C3721B2943BE00B1F902 /* LXSegmentView.m */; };
+		09C9C3771B294A1100B1F902 /* bg_tab_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3751B294A1100B1F902 /* bg_tab_selected.png */; };
+		09C9C3781B294A1100B1F902 /* select_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3761B294A1100B1F902 /* select_flag.png */; };
 		A6981E291B156CFA00F45DAC /* WorkSpaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */; };
 		A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */; };
 		A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E2C1B156D3E00F45DAC /* ChatVC.m */; };
@@ -137,6 +140,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09C9C3711B2943BE00B1F902 /* LXSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSegmentView.h; sourceTree = "<group>"; };
+		09C9C3721B2943BE00B1F902 /* LXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSegmentView.m; sourceTree = "<group>"; };
+		09C9C3751B294A1100B1F902 /* bg_tab_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_tab_selected.png; sourceTree = "<group>"; };
+		09C9C3761B294A1100B1F902 /* select_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_flag.png; sourceTree = "<group>"; };
 		A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSpaceVC.h; sourceTree = "<group>"; };
 		A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkSpaceVC.m; sourceTree = "<group>"; };
 		A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkSpaceVC.xib; sourceTree = "<group>"; };
@@ -348,6 +355,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09C9C3741B294A1100B1F902 /* WorkSpace */ = {
+			isa = PBXGroup;
+			children = (
+				09C9C3751B294A1100B1F902 /* bg_tab_selected.png */,
+				09C9C3761B294A1100B1F902 /* select_flag.png */,
+			);
+			path = WorkSpace;
+			sourceTree = "<group>";
+		};
 		A6981EB41B15BD4600F45DAC /* KissXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +743,8 @@
 		A6BEA5831B05CA3800EA2934 /* WorkSpace */ = {
 			isa = PBXGroup;
 			children = (
+				09C9C3711B2943BE00B1F902 /* LXSegmentView.h */,
+				09C9C3721B2943BE00B1F902 /* LXSegmentView.m */,
 				A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */,
 				A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */,
 				A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */,
@@ -737,13 +755,13 @@
 		A6BEA5841B05CA3800EA2934 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				09C9C3741B294A1100B1F902 /* WorkSpace */,
 				A6BEA5851B05CA3800EA2934 /* Chat */,
 				A6BEA5861B05CA3800EA2934 /* Contacts */,
 				A6BEA5871B05CA3800EA2934 /* FileUpload */,
 				A6BEA5881B05CA3800EA2934 /* Login */,
 				A6BEA5891B05CA3800EA2934 /* Setting */,
 				A6BEA58A1B05CA3800EA2934 /* Tab_Nav */,
-				A6BEA58B1B05CA3800EA2934 /* WorkSpace */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -832,13 +850,6 @@
 			path = Tab_Nav;
 			sourceTree = "<group>";
 		};
-		A6BEA58B1B05CA3800EA2934 /* WorkSpace */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WorkSpace;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -924,6 +935,7 @@
 				A69E4A7F1B12FC9100749A0B /* LoginVC.xib in Resources */,
 				A6981E921B15A1FB00F45DAC /* comm_head.png in Resources */,
 				A6981E881B15A1CF00F45DAC /* h10.jpg in Resources */,
+				09C9C3771B294A1100B1F902 /* bg_tab_selected.png in Resources */,
 				A6981E8A1B15A1CF00F45DAC /* h12.jpg in Resources */,
 				A6981E491B1593CB00F45DAC /* tabbarItem_workSpace.png in Resources */,
 				A6981E2F1B156D3E00F45DAC /* ChatVC.xib in Resources */,
@@ -969,6 +981,7 @@
 				A6BEA5B51B05F02D00EA2934 /* login_logo.png in Resources */,
 				A6981EA11B15AD3700F45DAC /* ContactsThirdCell.xib in Resources */,
 				A6981E841B15A1CF00F45DAC /* h6.jpg in Resources */,
+				09C9C3781B294A1100B1F902 /* select_flag.png in Resources */,
 				A6BC6ED41B1ED522007FFA93 /* btn_upload.png in Resources */,
 				A6BEA5B31B05F02D00EA2934 /* login_yhBg.png in Resources */,
 				A6BEA5B81B05F02D00EA2934 /* login_Btn.png in Resources */,
@@ -1028,6 +1041,7 @@
 				A6BEA56E1B05CA1800EA2934 /* MJRefreshHeaderView.m in Sources */,
 				A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */,
 				A6981E9C1B15AD3700F45DAC /* ContactsFirstCell.m in Sources */,
+				09C9C3731B2943BE00B1F902 /* LXSegmentView.m in Sources */,
 				A6BEA5731B05CA1800EA2934 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A6BEA5691B05CA1800EA2934 /* MBProgressHUD.m in Sources */,
 				A6BEA5621B05CA1800EA2934 /* AFURLResponseSerialization.m in Sources */,
