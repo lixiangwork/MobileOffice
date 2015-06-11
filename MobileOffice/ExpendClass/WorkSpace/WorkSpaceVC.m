@@ -72,6 +72,7 @@
     if (cell == nil) {
         cell = [[WSUploadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
     }
+    cell.cellEdge = 10;
     
     return cell;
 }
