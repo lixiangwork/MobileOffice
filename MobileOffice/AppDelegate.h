@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LoginVC;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) LoginVC *loginVC;
 
 
 @end

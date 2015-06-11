@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginVC.h"
+#import "AppCore.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +17,38 @@
 
 @implementation AppDelegate
 
+#pragma mark -
+- (void)setNavAndTabBg{
+    
+    [[UINavigationBar appearance] setBarTintColor:RGBCOLOR(0, 190, 156)];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:20]}];
+    
+    //[[UITabBar appearance] setBarTintColor:RGBCOLOR(80, 99, 114)];
+    [[UITabBar appearance] setSelectedImageTintColor:RGBCOLOR(0, 190, 156)];
+    
+}
+
+#pragma mark -
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.backgroundColor = RGBCOLOR(236, 236, 236);
+    
+    _loginVC = [[LoginVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_loginVC];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    
+    ////////////
+    [self setNavAndTabBg];
+    
+    ///初始化UserGlobalDic
+    [[User sharedUser] initUserGlobalDic];
+    
+    ////////
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     return YES;
 }
 
