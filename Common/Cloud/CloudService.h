@@ -20,5 +20,9 @@
 ///上传文档
 - (void)insertContentWithPropertyList:(NSArray*)propertyList andContentType:(NSString*)contentType andSourceFileName:(NSString*)fileName andInputstream:(NSData*)inputStream withBlock:(void (^)(NSString *contentID, NSError *error))block;
 
+///sql
+- (void)sqlSearch:(NSString *)contentType andCondition:(NSString *)condition withBlock:(void (^)(NSMutableArray *result, NSError *error))block;
+
+- (void) SQLSearch2:(NSString*)contentType andCondition:(NSString*)condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist withBlock:(void (^)(NSMutableArray *result, NSError *error))block;
 
 @end

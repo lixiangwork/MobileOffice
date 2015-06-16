@@ -199,7 +199,7 @@
 #pragma mark - textField delegate
 -(void) slideFrame:(BOOL)up
 {
-    const int movementDistance = (isRetina ? 160 : 100); // tweak as needed
+    const int movementDistance = (isRetina ? 130 : 100); // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     
     int movement = (up ? -movementDistance : movementDistance);

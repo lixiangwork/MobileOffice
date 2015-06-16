@@ -46,7 +46,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block(nil,nil,error);
+            block(NO,nil,error);
         }
     }];
 }
@@ -97,6 +97,58 @@
             block(nil, error);
         }
     }];
+}
+
+////sql
+- (void)sqlSearch:(NSString *)contentType andCondition:(NSString *)condition withBlock:(void (^)(NSMutableArray *result, NSError *error))block {
+    AFHTTPRequestOperation *operation = [CloudOperation sqlSearch:contentType andCondition:condition];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        [[XMLParser sharedInstance] parsedContentWithXMLString:responseStr];
+        NSLog(@"result:%@",[XMLParser sharedInstance].parserResultArray);
+        
+        if (block) {
+            block([XMLParser sharedInstance].parserResultArray, nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+
+}
+
+- (void) SQLSearch2:(NSString*)contentType andCondition:(NSString*)condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist withBlock:(void (^)(NSMutableArray *result, NSError *error))block {
+    
+    AFHTTPRequestOperation *operation = [CloudOperation SQLSearch2:contentType andCondition:condition andSize:size andOrderby:orderby andColumnlist:columnlist];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        [[XMLParser sharedInstance] parsedContentWithXMLString:responseStr];
+        NSLog(@"result:%@",[XMLParser sharedInstance].parserResultArray);
+        
+        if (block) {
+            block([XMLParser sharedInstance].parserResultArray, nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+
 }
 
 @end

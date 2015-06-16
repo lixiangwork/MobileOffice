@@ -16,9 +16,14 @@
 + (AFHTTPRequestOperation *)testUser:(NSString *)username andPassWord:(NSString *)password;
 
 ///获得某文档类的所有文档
-+(AFHTTPRequestOperation *)getAllContentTypeInfo:(NSString *)contentType userName:(NSString *)uname password:(NSString *)password;
++ (AFHTTPRequestOperation *)getAllContentTypeInfo:(NSString *)contentType userName:(NSString *)uname password:(NSString *)password;
 
 //导入文档
-+(AFHTTPRequestOperation *) insertContent:(NSString*)uname password:(NSString*)password andPropertyList:(NSArray*)propertyList andFolder:(NSString*)Folder andContentType:(NSString*)contentType andSourceFileName:(NSString*)fileName andFileType:(NSString*) fileType andInputstream:(NSData*)inputStream;
++ (AFHTTPRequestOperation *) insertContent:(NSString*)uname password:(NSString*)password andPropertyList:(NSArray*)propertyList andFolder:(NSString*)Folder andContentType:(NSString*)contentType andSourceFileName:(NSString*)fileName andFileType:(NSString*) fileType andInputstream:(NSData*)inputStream;
+
+///sql查询
++ (AFHTTPRequestOperation *)sqlSearch:(NSString *)contentType andCondition:(NSString *)condition;
+
++ (AFHTTPRequestOperation *) SQLSearch2: (NSString*)contentType andCondition: (NSString*) condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist;
 
 @end

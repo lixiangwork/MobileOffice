@@ -57,6 +57,8 @@
     else{
         
         NSData* imgData =  [[NSData alloc] initWithData:UIImageJPEGRepresentation(_selectImage, 0.5)];
+        //NSData* imgData =  [[NSData alloc] initWithData:UIImagePNGRepresentation(_selectImage)];
+
         
         NSMutableArray *properties = [[NSMutableArray alloc] init];
         PropertyItem *pItem1 = [[PropertyItem alloc] init];
@@ -81,7 +83,7 @@
         PropertyItem *pItem4 = [[PropertyItem alloc] init];
         pItem4.name = @"creater";
         pItem4.type = @"12";
-        pItem4.value = [[[User sharedUser] getUserGlobalDic] objectForKey:uNickName];
+        pItem4.value = [[[User sharedUser] getUserGlobalDic] objectForKey:uUserName];
         [properties addObject:pItem4];
 
         [self showHudWithMsg:@"上传中..."];

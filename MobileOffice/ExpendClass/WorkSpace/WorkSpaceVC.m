@@ -13,9 +13,18 @@
 #import "NoticeVC.h"
 #import "LocalFileVC.h"
 
-@interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate, LXSegmentViewDelegate>
+
 @property (nonatomic, strong) LXSegmentView *mySegmentView;
 @property (nonatomic, strong) UITableView *tableView1;
+@property (strong, nonatomic) UITableView *tableView2;
+@property (strong, nonatomic) UITableView *tableView3;
+
+@property (strong, nonatomic) NSMutableArray *tableList1;
+@property (strong, nonatomic) NSMutableArray *tableList2;
+@property (strong, nonatomic) NSMutableArray *tableList3;
+
+@property (nonatomic) NSInteger currentIndex;
 
 @end
 
@@ -25,6 +34,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"我的文档";
+    
+    _currentIndex = 0;
+    
+    [self setupRefresh:@"table1"];
 }
 
 - (void)initUI{
@@ -39,20 +52,34 @@
     self.mySegmentView.tabButtonColor = [UIColor blackColor];
     self.mySegmentView.tabButtonSelectCorlor = [UIColor redColor];
     [self.mySegmentView setTabButton1Title:@"我上传的" andButton2Title:@"我分享的" andButton3Title:@"分享给我的"];
-    
+    self.mySegmentView.delegate = self;
     [self.view addSubview:self.mySegmentView];
     
-    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    ///tableView1
+    self.tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.mySegmentView.mainScrollView.frame.size.height) style:UITableViewStyleGrouped];
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
-    
     [self.mySegmentView.mainScrollView addSubview:self.tableView1];
     
+    ///tableView2
+    self.tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.mySegmentView.mainScrollView.frame.size.height) style:UITableViewStyleGrouped];
+    self.tableView2.delegate = self;
+    self.tableView2.dataSource = self;
+    [self.mySegmentView.mainScrollView addSubview:self.tableView2];
+    
+    ///tableView3
+    self.tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, self.mySegmentView.mainScrollView.frame.size.height) style:UITableViewStyleGrouped];
+    self.tableView3.delegate = self;
+    self.tableView3.dataSource = self;
+    [self.mySegmentView.mainScrollView addSubview:self.tableView3];
+    
+    
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBtn setFrame:CGRectMake(10, 6, 80, 30)];
-    [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [leftBtn setTitle:@"公告列表" forState:UIControlStateNormal];
-    [leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [leftBtn setFrame:CGRectMake(10, 0, 44, 44)];
+    //[leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[leftBtn setTitle:@"公告列表" forState:UIControlStateNormal];
+    //[leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [leftBtn setImage:[UIImage imageNamed:@"notice.png"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(LeftBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
@@ -60,10 +87,11 @@
     
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setFrame:CGRectMake(kScreenWidth-90, 6, 80, 30)];
-    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightBtn setTitle:@"本地文件" forState:UIControlStateNormal];
-    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [rightBtn setFrame:CGRectMake(kScreenWidth-90, 2, 40, 40)];
+    //[rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[rightBtn setTitle:@"本地文件" forState:UIControlStateNormal];
+    //[rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [rightBtn setImage:[UIImage imageNamed:@"localfile.png"] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(RightBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -92,13 +120,198 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - Clound Request
+- (void)getMyCreateDocument {
+    
+    //order by 'LASTCHANGEDDATE' DESC fetch first 10 rows only
+    NSString *condition = [NSString stringWithFormat:@" creater = '%@' ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
+    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+        
+        if (!error) {
+            if (result.count > 0) {
+                
+                _tableList1 = [NSMutableArray arrayWithArray:[result sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    NSString *time1 = ((ContentItems *)obj1).LastChangedTime;
+                    NSString *time2 = ((ContentItems *)obj2).LastChangedTime;
+                    
+                    return [time2 compare:time1];
+                }]] ;
+                //_tableList1 = result;
+                [self.tableView1 reloadData];
+                [self.tableView1 headerEndRefreshing];
+            }
+            else {
+                
+            }
+        }
+        else {
+            //[UIFactory showAlert:@"网络错误"];
+        }
+    }];
+    //LASTCHANGEDDATE DESC
+    /*[[CloudService sharedInstance] SQLSearch2:@"upload_table" andCondition:condition andSize:@"10" andOrderby:@" 'LASTCHANGEDDATE' DESC" andColumnlist:@"" withBlock:^(NSMutableArray *result, NSError *error) {
+        if (!error) {
+            if (result.count > 0) {
+                _tableList1 = result;
+                [self.tableView1 reloadData];
+            }
+            else {
+                
+            }
+        }
+        else {
+            //[UIFactory showAlert:@"网络错误"];
+        }
+
+    }];*/
+}
+
+/////////getMyshare
+
+- (void)getMySharedDocument {
+    NSString *condition = [NSString stringWithFormat:@" CONTENTID in (select content_id from share where share_from = '%@') ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
+    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+        
+        if (!error) {
+            if (result.count > 0) {
+                _tableList2 = result;
+                [self.tableView2 reloadData];
+                [self.tableView2 headerEndRefreshing];
+            }
+            else {
+                
+            }
+        }
+        else {
+            //[UIFactory showAlert:@"网络错误"];
+        }
+    }];
+
+}
+
+- (void)getDocumentSharedToMe {
+    NSString *condition = [NSString stringWithFormat:@" CONTENTID in (select content_id from share where share_to = '%@') ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
+    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+        
+        if (!error) {
+            if (result.count > 0) {
+                _tableList3 = result;
+                [self.tableView3 reloadData];
+                [self.tableView3 headerEndRefreshing];
+            }
+            else {
+                
+            }
+        }
+        else {
+            //[UIFactory showAlert:@"网络错误"];
+        }
+    }];
+}
+
+
+#pragma mark - LXSegmentView delegate
+- (void)lxSegmentViewTurnTabWithCurrentIndex:(NSInteger)currentIndex {
+    
+    _currentIndex = currentIndex;
+    
+    if (currentIndex == 0) {
+        if (_tableList1.count == 0) {
+            [self setupRefresh:@"table1"];
+        }
+    }
+    else if (currentIndex == 1) {
+        if (_tableList2.count == 0) {
+            [self setupRefresh:@"table2"];
+        }
+    }
+    else if (currentIndex == 2) {
+        if (_tableList3 == 0) {
+            [self setupRefresh:@"table3"];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark - MJRefresh
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh:(NSString *)dateKey
+{
+    if (_currentIndex == 0) {
+        // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+        // dateKey用于存储刷新时间，可以保证不同界面拥有不同的刷新时间
+        [_tableView1 addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:dateKey];
+        //#warning 自动刷新(一进入程序就下拉刷新)
+        [_tableView1 headerBeginRefreshing];
+        
+        // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
+        //[self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+        
+        // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+        _tableView1.headerPullToRefreshText = @"下拉可以刷新";
+        _tableView1.headerReleaseToRefreshText = @"松开马上刷新";
+        _tableView1.headerRefreshingText = @"正在努力帮您刷新中,不客气";
+        
+        //    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据";
+        //    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据";
+        //    self.tableView.footerRefreshingText = @"正在努力帮您加载中,不客气";
+    }
+    else if (_currentIndex == 1) {
+        [_tableView2 addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:dateKey];
+        [_tableView2 headerBeginRefreshing];
+        
+        _tableView2.headerPullToRefreshText = @"下拉可以刷新";
+        _tableView2.headerReleaseToRefreshText = @"松开马上刷新";
+        _tableView2.headerRefreshingText = @"正在努力帮您刷新中,不客气";
+    }
+    else if (_currentIndex == 2) {
+        [_tableView3 addHeaderWithTarget:self action:@selector(headerRereshing) dateKey:dateKey];
+        [_tableView3 headerBeginRefreshing];
+        
+        _tableView3.headerPullToRefreshText = @"下拉可以刷新";
+        _tableView3.headerReleaseToRefreshText = @"松开马上刷新";
+        _tableView3.headerRefreshingText = @"正在努力帮您刷新中,不客气";
+    }
+   
+}
+
+- (void)headerRereshing
+{
+    if (_currentIndex == 0) {
+        [self getMyCreateDocument];
+    }
+    else if (_currentIndex == 1) {
+        [self getMySharedDocument];
+    }
+    else if (_currentIndex == 2) {
+        [self getDocumentSharedToMe];
+    }
+    // 刷新表格
+    //[self.tableView reloadData];
+    
+    // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+    //[self.tableView headerEndRefreshing];
+    
+}
 
 
 #pragma mark - UITableView DataSource
 
 - (NSInteger )numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 10;
+    if (tableView == _tableView1) {
+        return _tableList1.count;
+    }
+    else if (tableView == _tableView2) {
+        return _tableList2.count;
+    }
+    else if (tableView == _tableView3) {
+        return _tableList3.count;
+    }
+    
+    return 0;
 }
 
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -119,6 +332,20 @@
     }
     cell.cellEdge = 10;
     
+    
+    if (tableView == _tableView1) {
+        
+        cell.contentItem = [_tableList1 objectAtIndex:indexPath.section];
+        
+    }
+    else if (tableView == _tableView2) {
+        cell.contentItem = [_tableList2 objectAtIndex:indexPath.section];
+    }
+    else if (tableView == _tableView3) {
+        cell.contentItem = [_tableList3 objectAtIndex:indexPath.section];
+    }
+    
+    
     return cell;
 }
 
@@ -131,23 +358,23 @@
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 100.0f;
+    return 80.0f;
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 10.0f;
+        return 8.0f;
     }
     else{
-        return 5.0f;
+        return 2.0f;
     }
 }
 
 
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 5.0f;
+    return 3.0f;
 }
 
 

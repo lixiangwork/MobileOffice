@@ -120,4 +120,85 @@
 
 }
 
+////////////////////sql
++ (AFHTTPRequestOperation *)sqlSearch:(NSString *)contentType andCondition:(NSString *)condition {
+    NSURL* WebURL = [NSURL URLWithString:CLOUDURL];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+    [req setURL:WebURL];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    NSMutableData* postbody = [[NSMutableData alloc] init];
+    [postbody appendData:[[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Envelope  xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body><REQUEST><AUTHENTICATION><SERVERDEF><SERVERNAME>server</SERVERNAME></SERVERDEF><LOGONDATA><USERNAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"docadmin" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</USERNAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"passw0rd" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD></LOGONDATA></AUTHENTICATION><COMMAND>SEARCHYOUNGCONTENT</COMMAND><DATA><CONTENTTYPENAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTTYPENAME><QUERY>from (select * from "] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@" where "] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[condition dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@")"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</QUERY><RETENTIONDOC>TRUE</RETENTIONDOC><CHECKDOCONLY>FALSE</CHECKDOCONLY><SIMPLESEARCH>false</SIMPLESEARCH><NOCHECKEDOUTSTATU>true</NOCHECKEDOUTSTATU></DATA></REQUEST></Body></Envelope>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [req setHTTPBody:postbody];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    return operation;
+}
+
++ (AFHTTPRequestOperation *) SQLSearch2: (NSString*)contentType andCondition: (NSString*) condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist
+{
+    
+    NSURL* WebURL = [NSURL URLWithString:CLOUDURL];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+    [req setURL:WebURL];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    NSMutableData* postbody = [[NSMutableData alloc] init];
+    [postbody appendData:[[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Envelope  xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body><REQUEST><AUTHENTICATION><SERVERDEF><SERVERNAME>server</SERVERNAME></SERVERDEF><LOGONDATA><USERNAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"docadmin" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</USERNAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"passw0rd" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD></LOGONDATA></AUTHENTICATION><COMMAND>SEARCHYOUNGCONTENT</COMMAND><DATA><SIMPLESEARCH>false</SIMPLESEARCH><CONTENTTYPENAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTTYPENAME><QUERY>from(select * from "] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@" where "] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[condition dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@")"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</QUERY><SIZE>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[size dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</SIZE><ORDERBY>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[orderby dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</ORDERBY><COLUMNLIST>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[columnlist dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</COLUMNLIST><RETENTIONDOC>TRUE</RETENTIONDOC><CHECKDOCONLY>TRUE</CHECKDOCONLY><NOCHECKEDOUTSTATU>true</NOCHECKEDOUTSTATU><NOTINCLUDEDOCINFO>false</NOTINCLUDEDOCINFO></DATA></REQUEST></Body></Envelope>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [req setHTTPBody:postbody];
+    
+    
+    // NSString* content = [[NSString alloc] initWithData:postbody encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@",content);
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    
+    return operation;
+    
+}
+
+
 @end

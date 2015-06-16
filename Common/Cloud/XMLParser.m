@@ -46,6 +46,11 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
             //NSLog(aContent.ContentID);
         }
         
+        DDXMLElement *aLastChangedTime = [obj elementForName:@"LASTCHANGEDDATE"];//LastChangedTime
+        if (aLastChangedTime) {
+            aContent.LastChangedTime = aLastChangedTime.stringValue;
+            //NSLog(@"LastChangedTime:%@",aLastChangedTime.stringValue);
+        }
         ////////////////////表里面的属性名称和值
         //NSArray *properties = [obj nodesForXPath:kPropertyStart error:nil];
         DDXMLElement *Properties = [obj elementForName:@"YOUNGPROPERTIES"];//
@@ -87,6 +92,12 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
                 if(aDocumentID){
                     aContent.DocumentID = aDocumentID.stringValue;
                     //NSLog(aContent.DocumentID);
+                }
+                
+                DDXMLElement *aMimeType = [aDocument elementForName:@"MIMETYPE"];
+                if (aMimeType) {
+                    aContent.MimeType = aMimeType.stringValue;
+                    //NSLog(@"MimeType:%@",aMimeType.stringValue);
                 }
                 
             }
