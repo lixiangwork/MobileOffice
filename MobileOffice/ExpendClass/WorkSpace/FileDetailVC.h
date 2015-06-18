@@ -9,7 +9,15 @@
 #import "BaseVC.h"
 #import "ContentItems.h"
 
+@protocol FileDetailVCDelegate <NSObject>
+
+- (void)alterCommentSuccess;
+
+@end
+
 @interface FileDetailVC : BaseVC
+
+@property (assign, nonatomic) id<FileDetailVCDelegate>delegate;
 
 @property (strong, nonatomic) ContentItems *contentItem;
 

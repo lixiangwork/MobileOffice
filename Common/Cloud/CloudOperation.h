@@ -32,4 +32,7 @@
 ///更新评论
 +(AFHTTPRequestOperation *) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType;
 
+///更新表里面的一个属性
++(AFHTTPRequestOperation *) alterContentProperty: (NSString*)ContentID andPropertyName:(NSString*)proName andPropertyType:(NSString*)proType andPropertyValue:(NSString*) proValue andContentType:(NSString*)contentType ;
+
 @end

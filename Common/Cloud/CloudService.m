@@ -178,7 +178,7 @@
 }
 
 ///更新评论
--(void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(NSMutableArray *result, NSError *error))block {
+-(void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block {
     
     AFHTTPRequestOperation *operation = [CloudOperation alterComment:ContentID andComment:comment andDocumentID:documentID andCommentID:commentID andContentType:contentType];
     
@@ -189,11 +189,11 @@
         NSString *responseStr = operation.responseString;
         NSLog(@"responseStr:%@",responseStr);
         
-        //[[XMLParser sharedInstance] parsedDocumentXMLString:responseStr];
+        BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
         
-        //if (block) {
-            //block([XMLParser sharedInstance].parserResultArray, nil);
-       // }
+        if (block) {
+            block(isSuccess, nil);
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
@@ -203,6 +203,30 @@
 
 }
 
+///更新表里面的一个属性
+-(void) alterContentProperty: (NSString*)ContentID andPropertyName:(NSString*)proName andPropertyType:(NSString*)proType andPropertyValue:(NSString*) proValue andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block {
+    
+    AFHTTPRequestOperation *operation = [CloudOperation alterContentProperty:ContentID andPropertyName:proName andPropertyType:proType andPropertyValue:proValue andContentType:contentType];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
+        
+        if (block) {
+            block(isSuccess, nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+
+}
 
 @end
 

@@ -263,6 +263,40 @@
     
 }
 
+///更新表里面的一个属性
++(AFHTTPRequestOperation *) alterContentProperty: (NSString*)ContentID andPropertyName:(NSString*)proName andPropertyType:(NSString*)proType andPropertyValue:(NSString*) proValue andContentType:(NSString*)contentType {
+    
+    NSURL* WebURL = [NSURL URLWithString:CLOUDURL];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+    [req setURL:WebURL];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    NSMutableData* postbody = [[NSMutableData alloc] init];
+    [postbody appendData:[[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Envelope  xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body><REQUEST><AUTHENTICATION><SERVERDEF><SERVERNAME>server</SERVERNAME></SERVERDEF><LOGONDATA><USERNAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"docadmin" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</USERNAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"passw0rd" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD></LOGONDATA></AUTHENTICATION><COMMAND>IMPORTYOUNGCONTENT</COMMAND><DATA><CONTENTID>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[ContentID dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTID><CONTENTTYPENAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTTYPENAME><FOLDER>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"false" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</FOLDER><YOUNGPROPERTIES><YOUNGPROPERTY><NAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[proName dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</NAME><TYPE>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[proType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</TYPE><VALUE>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[proValue dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</VALUE></YOUNGPROPERTY></YOUNGPROPERTIES></DATA></REQUEST></Body></Envelope>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [req setHTTPBody:postbody];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    return operation;
+}
+
+
 
 
 @end

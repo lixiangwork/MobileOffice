@@ -15,9 +15,9 @@
 
 #define DeleteActionSheetTag 1
 //#define ShareActionSheetTag 2
-#define HandleActionSheetTag 3
+#define HandleActionTag 9999
 
-@interface FileDetailVC ()<UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate>
+@interface FileDetailVC ()<UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
 - (IBAction)lookupButtonClicked:(id)sender;
 - (IBAction)commentButtonClicked:(id)sender;
@@ -56,7 +56,7 @@
     
     _commentArray = [[NSMutableArray alloc] init];
     
-    
+    [self getCommentFromClound];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -146,6 +146,7 @@
     [alert setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
         //NSLog(@"Block: Button at position %d is clicked on alertView %d.", buttonIndex, (int)[alertView tag]);
         NSLog(@"comment:%@",_commentTextView.text);
+        [_commentTextView resignFirstResponder];
         
         if (buttonIndex == 1) {
             if ([_commentTextView.text isEqualToString:@""]) {
@@ -169,8 +170,6 @@
                     [self.tableView reloadData];
                 //});
                 
-                
-                
                 [self alertCommentToClound:_commentArray];
                 
                 
@@ -187,7 +186,8 @@
 }
 
 - (IBAction)handleButtonClicked:(id)sender {
-    
+    NSString *titleStr = [NSString stringWithFormat:@"您确定要归档文件%@吗？",[_contentItem.Properties objectForKey:@"zh_wzbt"]];
+    [UIFactory showConfirm:titleStr tag:HandleActionTag delegate:self];
 }
 
 - (IBAction)shareButtonClicked:(id)sender {
@@ -250,10 +250,34 @@
 - (void)getCommentFromClound
 {
     if (_contentItem.CommentID) {
-        //[_actIndicator startAnimating];
         
+        [self showHud];
         ///获取评论
-        //[];
+        [[CloudService sharedInstance] getDocumentInfo:_contentItem.CommentID withBlock:^(NSMutableArray *result, NSError *error) {
+            [self hideHud];
+            if (!error) {
+                if (result.count > 0) {
+                    DocumentItem *dItem = result[0];
+                    NSLog(@"documentResult:%@\t%@\t%@",dItem.DocumentID,dItem.SourceFileName,dItem.InputStream);
+                    
+                    NSData* dataContent = [GTMBase64 decodeString:dItem.InputStream];
+                    
+                    NSString* wholeString = [[NSString alloc] initWithData:dataContent encoding:-2147481296];//kCFStringEncodingGB_18030_2000];//Simplified Chinese (EUC) === -2147481296
+                    NSLog(@"wholeString:%@",wholeString);
+                    
+                    _commentArray = [CommentItems handleComment:wholeString];
+                    [self.tableView reloadData];
+                    
+                }
+                else {
+                    [UIFactory showAlert:@"下载失败"];
+                }
+
+            }
+            else {
+                [UIFactory showAlert:@"网络错误"];
+            }
+        }];
         
     }
     else{
@@ -271,7 +295,7 @@
 #pragma mark - alert comment
 - (void)alertCommentToClound:(NSMutableArray *)commArr {
     
-   /* NSMutableString* newCommentsStr  = [[NSMutableString alloc] init];
+    NSMutableString* newCommentsStr  = [[NSMutableString alloc] init];
     for (CommentItems *item in commArr) {
         [newCommentsStr appendString:[NSString stringWithFormat:@"%@_%@_%@",item.commentor,item.date,item.content]];
         [newCommentsStr appendString:@"\n"];
@@ -284,10 +308,81 @@
     NSString *commentID = @"";
     if (_contentItem.CommentID) {
         commentID = _contentItem.CommentID;
-    }*/
+    }
+    
+    [self showHudWithMsg:@"提交中..."];
+    [[CloudService sharedInstance] alterComment:_contentItem.ContentID andComment:encoderedData andDocumentID:_contentItem.DocumentID andCommentID:commentID andContentType:@"test_table_1" withBlock:^(BOOL success, NSError *error) {
+        
+        if (!error) {
+            if (success) {
+                NSLog(@"更新评论成功");
+                [self alertCommentNum];
+            }
+            else {
+                NSLog(@"更新评论失败%@",[error description]);
+                [self hideHud];
+            }
+        }
+        else {
+            //[UIFactory showAlert:@"网络错误"];
+            [self hideHud];
+        }
+    }];
 
 }
 
+- (void)alertCommentNum
+{
+    NSString *newvalue = [NSString stringWithFormat:@"%lu",(unsigned long)_commentArray.count];
+    
+    [_contentItem.Properties setObject:newvalue forKey:@"comment_num"];
+    
+    [[CloudService sharedInstance] alterContentProperty:_contentItem.ContentID andPropertyName:@"comment_num" andPropertyType:@"12" andPropertyValue:newvalue andContentType:@"test_table_1" withBlock:^(BOOL success, NSError *error) {
+        if (!error) {
+            [self hideHud];
+            if (success) {
+                NSLog(@"更新评论数目成功");
+                if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
+                    [self.delegate alterCommentSuccess];
+                }
+            }
+            else {
+                NSLog(@"更新评论数目失败%@",[error description]);
+            }
+        }
+        else {
+            [UIFactory showAlert:@"网络错误"];
+        }
+
+    }];
+}
+
+#pragma mark - dealedDocument
+- (void)dealedDocument {
+    NSString *oldValue = [_contentItem.Properties objectForKey:@"ProcessedUser"];
+    NSString *newValue = [NSString stringWithFormat:@"%@%@,",oldValue,[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
+    
+    [self showHudWithMsg:@"归档中..."];
+    [[CloudService sharedInstance] alterContentProperty:_contentItem.ContentID andPropertyName:@"ProcessedUser" andPropertyType:@"12" andPropertyValue:newValue andContentType:@"test_table_1" withBlock:^(BOOL success, NSError *error) {
+        [self hideHud];
+        if (!error) {
+            [self hideHud];
+            if (success) {
+                
+                if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
+                    [self.delegate alterCommentSuccess];
+                }
+                [self showHudOnlyMsg:@"归档成功"];
+            }
+            else {
+                [UIFactory showAlert:@"归档失败"];
+            }
+        }
+        else {
+            [UIFactory showAlert:@"网络错误"];
+        }
+    }];
+}
 
 #pragma mark - UITableView datasource delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -372,7 +467,14 @@
         NSArray *shareArr = [shareMens componentsSeparatedByString:@","];
         //NSLog(@"shareArr:%@",shareArr);
         
-        headerLabel.text = [NSString stringWithFormat:@"已共享%lu人",(unsigned long)shareArr.count ];
+        NSMutableArray *mutShareArr = [shareArr mutableCopy];
+        for (NSString *str in mutShareArr) {
+            if ([str isEqualToString:@""] || [str isEqualToString:@" "]) {
+                [mutShareArr removeObject:str];
+            }
+        }
+        
+        headerLabel.text = [NSString stringWithFormat:@"已共享%lu人",(unsigned long)mutShareArr.count ];
     }
     else if(section == 2){
         headerLabel.text = [NSString stringWithFormat:@"评论 %@",[_contentItem.Properties objectForKey:@"comment_num"]];
@@ -446,6 +548,14 @@
             [alert show];
             //            self.parentView.IsChanged = YES;
         }
+    }
+}
+
+#pragma alertView delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == HandleActionTag && buttonIndex == 1) {
+        NSLog(@"buttonIdex:%li",(long)buttonIndex);
+        [self dealedDocument];
     }
 }
 

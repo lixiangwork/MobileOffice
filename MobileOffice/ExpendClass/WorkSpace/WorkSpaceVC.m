@@ -15,7 +15,7 @@
 #import "FileDetailVC.h"
 #import "FileDealedVC.h"
 
-@interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate, LXSegmentViewDelegate>
+@interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate, LXSegmentViewDelegate, FileDetailVCDelegate>
 
 @property (nonatomic, strong) LXSegmentView *mySegmentView;
 @property (nonatomic, strong) UITableView *tableView1;
@@ -375,6 +375,7 @@
     
     FileDetailVC *detailVC = [[FileDetailVC alloc] initWithNibName:@"FileDetailVC" bundle:nil];
     [detailVC setHidesBottomBarWhenPushed:YES];
+    detailVC.delegate = self;
     if (tableView == _tableView1) {
         
         detailVC.contentItem = [_tableList1 objectAtIndex:indexPath.section];
@@ -412,17 +413,25 @@
     return 3.0f;
 }
 
+#pragma mark - FileDetailVC delegate
+- (void)alterCommentSuccess {
+    if (_currentIndex == 0) {
+        
+        [self setupRefresh:@"table1"];
+       
+    }
+    else if (_currentIndex == 1) {
+        
+        [self setupRefresh:@"table2"];
+        
+    }
+    else if (_currentIndex == 2) {
+       
+        [self setupRefresh:@"table3"];
+        
+    }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

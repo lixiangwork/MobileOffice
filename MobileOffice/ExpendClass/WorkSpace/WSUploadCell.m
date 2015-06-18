@@ -70,8 +70,14 @@
     
     NSArray *shareArr = [shareMens componentsSeparatedByString:@","];
     //NSLog(@"shareArr:%@",shareArr);
+    NSMutableArray *mutShareArr = [shareArr mutableCopy];
+    for (NSString *str in mutShareArr) {
+        if ([str isEqualToString:@""] || [str isEqualToString:@" "]) {
+            [mutShareArr removeObject:str];
+        }
+    }
 
-    _detailLabel.text = [NSString stringWithFormat:@"分享人数 %lu  评论次数 %@  来源于：共享",(unsigned long)shareArr.count, [cItem.Properties objectForKey:@"comment_num"]];
+    _detailLabel.text = [NSString stringWithFormat:@"分享人数 %lu  评论次数 %@  来源于：共享",(unsigned long)mutShareArr.count, [cItem.Properties objectForKey:@"comment_num"]];
     
     NSString *timeStr;
     if ([cItem.LastChangedTime length] >= 19) {

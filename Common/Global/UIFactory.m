@@ -461,7 +461,7 @@ backgroundImageHighLight:(NSString *)backgroundImageHighLight
 
 + (void)showConfirm:(NSString *)message tag:(NSUInteger)tag delegate:(id)delegate
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                         message:message
                                                        delegate:delegate
                                               cancelButtonTitle:@"取消"

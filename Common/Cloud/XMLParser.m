@@ -90,17 +90,35 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
             NSArray *documentsArr = [Documents nodesForXPath:@"YOUNGDOCUMENT" error:nil];
             
             for (DDXMLElement *aDocument in documentsArr) {
-                DDXMLElement *aDocumentID = [aDocument elementForName:KDocumentID];
-                if(aDocumentID){
-                    aContent.DocumentID = aDocumentID.stringValue;
-                    //NSLog(aContent.DocumentID);
+                
+                DDXMLElement *dTypeName = [aDocument elementForName:@"DOCUMENTTYPENAME"];
+                if(dTypeName){
+                    //NSLog(@"dTypeName:%@",dTypeName.stringValue);
+                    if ([dTypeName.stringValue isEqualToString:@"FILE"]) {
+                        
+                        DDXMLElement *aDocumentID = [aDocument elementForName:KDocumentID];
+                        if(aDocumentID){
+                            aContent.DocumentID = aDocumentID.stringValue;
+                            NSLog(@"DocumentID:%@",aContent.DocumentID);
+                        }
+                        
+                        DDXMLElement *aMimeType = [aDocument elementForName:@"MIMETYPE"];
+                        if (aMimeType) {
+                            aContent.MimeType = aMimeType.stringValue;
+                            //NSLog(@"MimeType:%@",aMimeType.stringValue);
+                        }
+
+                    }
+                    else {
+                        DDXMLElement *aCommentID = [aDocument elementForName:KDocumentID];
+                        if(aCommentID){
+                            aContent.CommentID = aCommentID.stringValue;
+                            NSLog(@"CommentID:%@",aContent.CommentID);
+                        }
+
+                    }
                 }
                 
-                DDXMLElement *aMimeType = [aDocument elementForName:@"MIMETYPE"];
-                if (aMimeType) {
-                    aContent.MimeType = aMimeType.stringValue;
-                    //NSLog(@"MimeType:%@",aMimeType.stringValue);
-                }
                 
             }
         }
@@ -187,10 +205,10 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
 }
 
 
-- (BOOL)ifReplaySuccessFromData:(NSData *)data
+- (BOOL)ifReplaySuccessFromXMLString:(NSString *)xmlString
 {
     /////解析
-    DDXMLDocument *doc = [[DDXMLDocument alloc] initWithData:data options:0 error:nil];
+    DDXMLDocument *doc = [[DDXMLDocument alloc] initWithXMLString:xmlString options:0 error:nil];
     
     
     NSArray *items = [doc nodesForXPath:@"//REPLY" error:nil];
@@ -199,12 +217,13 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
         DDXMLElement *element = [obj elementForName:@"SUCCESS"];
         NSLog(@"%@",element);
         if(element){
-            if ([element.stringValue isEqualToString:@"1000"]) {
-                return YES;
-            }
-            else{
-                return NO;
-            }
+//            if ([element.stringValue isEqualToString:@"1000"]) {
+//                return YES;
+//            }
+//            else{
+//                return NO;
+//            }
+            return YES;
             
         }
         else{

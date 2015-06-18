@@ -21,7 +21,7 @@
 
 - (BOOL)parsedUserWithXMLString:(NSString *)xmlString;
 
-- (BOOL)ifReplaySuccessFromData:(NSData *)data;
+- (BOOL)ifReplaySuccessFromXMLString:(NSString *)xmlString;
 
 - (NSString *)parsedInsertXMLString:(NSString *)xmlString;
 

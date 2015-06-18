@@ -30,6 +30,9 @@
 
 
 ///更新评论
-- (void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(NSMutableArray *result, NSError *error))block;
+- (void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block;
+
+///更新表里面的一个属性
+-(void) alterContentProperty: (NSString*)ContentID andPropertyName:(NSString*)proName andPropertyType:(NSString*)proType andPropertyValue:(NSString*) proValue andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block;
 
 @end
