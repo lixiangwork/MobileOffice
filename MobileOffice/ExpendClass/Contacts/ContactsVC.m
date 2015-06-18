@@ -17,6 +17,8 @@
 #import "ContactsSecondCell.h"
 #import "ContactsThirdCell.h"
 
+#import "NoticeVC.h"
+
 
 
 @interface ContactsVC ()<UITableViewDelegate, UITableViewDataSource>
@@ -70,6 +72,18 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"通讯录";
     
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBtn setFrame:CGRectMake(10, 0, 44, 44)];
+    //[leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[leftBtn setTitle:@"公告列表" forState:UIControlStateNormal];
+    //[leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [leftBtn setImage:[UIImage imageNamed:@"notice.png"] forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(LeftBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftBtnItem;
+
+    
     [self getContentData];
 }
 
@@ -77,6 +91,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - My Action
+- (void)LeftBtnAction{
+    
+    NoticeVC *vc = [[NoticeVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 #pragma mark - getDataFromNet
 - (void)getContentData{

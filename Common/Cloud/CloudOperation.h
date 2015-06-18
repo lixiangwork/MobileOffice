@@ -26,4 +26,10 @@
 
 + (AFHTTPRequestOperation *) SQLSearch2: (NSString*)contentType andCondition: (NSString*) condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist;
 
+///获取文档附件
++(AFHTTPRequestOperation *) getDocumentInfo: (NSString*)DocumentID;
+
+///更新评论
++(AFHTTPRequestOperation *) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType;
+
 @end

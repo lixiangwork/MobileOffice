@@ -25,4 +25,11 @@
 
 - (void) SQLSearch2:(NSString*)contentType andCondition:(NSString*)condition andSize:(NSString *)size andOrderby:(NSString *)orderby andColumnlist:(NSString *)columnlist withBlock:(void (^)(NSMutableArray *result, NSError *error))block;
 
+///获取文档附件
+- (void)getDocumentInfo:(NSString *)documentID withBlock:(void (^)(NSMutableArray *result, NSError *error))block ;//andProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock ;
+
+
+///更新评论
+- (void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(NSMutableArray *result, NSError *error))block;
+
 @end

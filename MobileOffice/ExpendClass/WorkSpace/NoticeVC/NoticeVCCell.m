@@ -10,12 +10,12 @@
 
 @implementation NoticeVCCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _noticeTitleLabel.text = [_contentItem.Properties objectForKey:@"news_title"];
+    _noticeTimeLable.text = [_contentItem.Properties objectForKey:@"news_createtime"];
+    _noticeBriefLable.text = [_contentItem.Properties objectForKey:@"news_detail"];
 }
-*/
 
 @end

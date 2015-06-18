@@ -32,4 +32,5 @@
 -(void)showHudOnlyMsg:(NSString*)msg;
 -(void)showHudWithMsg:(NSString*)msg;
 
+
 @end

@@ -73,12 +73,12 @@
         pItem2.value = @"0";
         [properties addObject:pItem2];
         
-        PropertyItem *pItem3 = [[PropertyItem alloc] init];
-        pItem3.name = @"shares";
-        pItem3.type = @"12";
-        
-        pItem3.value = @"";
-        [properties addObject:pItem3];
+//        PropertyItem *pItem3 = [[PropertyItem alloc] init];
+//        pItem3.name = @"shares";
+//        pItem3.type = @"12";
+//        
+//        pItem3.value = @"";
+//        [properties addObject:pItem3];
         
         PropertyItem *pItem4 = [[PropertyItem alloc] init];
         pItem4.name = @"creater";
@@ -88,7 +88,7 @@
 
         [self showHudWithMsg:@"上传中..."];
         ////////////
-        [[CloudService sharedInstance] insertContentWithPropertyList:properties andContentType:@"upload_table" andSourceFileName:_fileNameTF.text andInputstream:[GTMBase64 encodeData:imgData] withBlock:^(NSString *contentID, NSError *error) {
+        [[CloudService sharedInstance] insertContentWithPropertyList:properties andContentType:@"test_table_1" andSourceFileName:_fileNameTF.text andInputstream:[GTMBase64 encodeData:imgData] withBlock:^(NSString *contentID, NSError *error) {
             [self hideHud];
             if (!error) {
                 if (contentID) {
@@ -170,7 +170,7 @@
     NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:imageURL resultBlock:^(ALAsset *asset) {
-        _fileNameTF.text = asset.defaultRepresentation.filename;
+        _fileNameTF.text = [asset.defaultRepresentation.filename stringByDeletingPathExtension];
     } failureBlock:^(NSError *error) {
         NSLog(@"error:%@",[error description]);
     }];

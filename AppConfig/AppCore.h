@@ -25,6 +25,7 @@
 #import "CloudService.h"
 #import "XMLParser.h"
 #import "User.h"
+#import "LocalFileDic.h"
 
 
 

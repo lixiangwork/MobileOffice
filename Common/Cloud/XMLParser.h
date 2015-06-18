@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ContentItems.h"
 #import "UserItems.h"
+#import "DocumentItem.h"
 
 @interface XMLParser : NSObject
 
@@ -23,6 +24,8 @@
 - (BOOL)ifReplaySuccessFromData:(NSData *)data;
 
 - (NSString *)parsedInsertXMLString:(NSString *)xmlString;
+
+- (void)parsedDocumentXMLString:(NSString *)xmlString;
 
 
 @end

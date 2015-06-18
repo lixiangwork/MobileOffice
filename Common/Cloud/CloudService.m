@@ -9,6 +9,7 @@
 #import "CloudService.h"
 #import "AppCore.h"
 
+
 @implementation CloudService
 
 + (CloudService *)sharedInstance{
@@ -150,6 +151,58 @@
     }];
 
 }
+
+- (void)getDocumentInfo:(NSString *)documentID withBlock:(void (^)(NSMutableArray *result, NSError *error))block {//andProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock {
+    
+    AFHTTPRequestOperation *operation = [CloudOperation getDocumentInfo:documentID];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        //NSLog(@"responseStr:%@",responseStr);
+        
+        [[XMLParser sharedInstance] parsedDocumentXMLString:responseStr];
+        
+        if (block) {
+            block([XMLParser sharedInstance].parserResultArray, nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+    
+    //[operation setDownloadProgressBlock:progressBlock];
+}
+
+///更新评论
+-(void) alterComment:(NSString*)ContentID andComment:(NSData*)comment andDocumentID:(NSString*)documentID andCommentID: (NSString*) commentID andContentType:(NSString*)contentType withBlock:(void (^)(NSMutableArray *result, NSError *error))block {
+    
+    AFHTTPRequestOperation *operation = [CloudOperation alterComment:ContentID andComment:comment andDocumentID:documentID andCommentID:commentID andContentType:contentType];
+    
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        //[[XMLParser sharedInstance] parsedDocumentXMLString:responseStr];
+        
+        //if (block) {
+            //block([XMLParser sharedInstance].parserResultArray, nil);
+       // }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+
+}
+
 
 @end
 

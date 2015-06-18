@@ -44,6 +44,8 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
         if(aContentID){
             aContent.ContentID = aContentID.stringValue;
             //NSLog(aContent.ContentID);
+            
+            aContent.IsLocalFile = [self whetherLocalFile:aContent.ContentID];
         }
         
         DDXMLElement *aLastChangedTime = [obj elementForName:@"LASTCHANGEDDATE"];//LastChangedTime
@@ -104,8 +106,20 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
         }
         /////
         
+        
         [self.parserResultArray addObject:aContent];
         //[self performSelectorInBackground:@selector(parsedXml:) withObject:XmlDictionary];
+    }
+}
+
+-(BOOL)whetherLocalFile:(NSString *)contentID
+{
+    NSDictionary* localDic = [[LocalFileDic sharedInstance] getLocalFileGlobalDic];;
+    if ([[localDic allKeys] containsObject:contentID]) {
+        return YES;
+    }
+    else {
+        return NO;
     }
 }
 
@@ -223,6 +237,40 @@ static NSString *KDocumentID =	    @"DOCUMENTID";
     
     return nil;
     
+}
+
+- (void)parsedDocumentXMLString:(NSString *)xmlString {
+    self.parserResultArray = [[NSMutableArray alloc] init];
+    /////解析
+    DDXMLDocument *doc = [[DDXMLDocument alloc] initWithXMLString:xmlString options:0 error:nil];
+    
+    
+    NSArray *items = [doc nodesForXPath:@"//YOUNGDOCUMENT" error:nil];
+    
+    for (DDXMLElement *obj in items) {
+        
+        DocumentItem *aDocument = [[DocumentItem alloc] init];//一个附件
+        
+        DDXMLElement *documentID = [obj elementForName:@"DOCUMENTID"];
+        //NSLog(@"%@",element);
+        if (documentID) {
+            aDocument.DocumentID = documentID.stringValue;
+        }
+        
+        DDXMLElement *sourceFileName = [obj elementForName:@"SOURCEFILENAME"];
+        if (sourceFileName) {
+            aDocument.SourceFileName = sourceFileName.stringValue;
+        }
+
+        DDXMLElement *inputStream = [obj elementForName:@"INPUTSTREAM"];
+        if (inputStream) {
+            aDocument.InputStream = inputStream.stringValue;
+        }
+
+        [self.parserResultArray addObject:aDocument];
+        
+    }
+
 }
 
 

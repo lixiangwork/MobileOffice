@@ -41,6 +41,7 @@
 
 #pragma mark - MBProgressHUD
 - (void)showHud{
+    [self.view bringSubviewToFront:self.hud];
     //self.hud.mode = MBProgressHUDModeIndeterminate;
     //self.hud.labelText = @"";
     self.hud.dimBackground = YES;
@@ -49,6 +50,7 @@
 
 -(void)showHudWithMsg:(NSString*)msg
 {
+    [self.view bringSubviewToFront:self.hud];
     self.hud.dimBackground = YES;
     self.hud.labelText  = msg;
     [self.hud show:YES];
@@ -56,6 +58,7 @@
 
 -(void)showHudOnlyMsg:(NSString*)msg
 {
+    [self.view bringSubviewToFront:self.hud];
     self.hud.mode       = MBProgressHUDModeText;
     self.hud.labelText  = msg;
     [self.hud show:YES];

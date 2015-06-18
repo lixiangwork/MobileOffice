@@ -29,6 +29,11 @@
 #define uRemenberPassword   @"uRemenberPassword"
 #define uAotoLogin          @"uAotoLogin"
 
+//本地文件
+#define LocalFileGlobalKey  @"LocalFileGlobalKey"
+
+#define DOCUMENT_FOLDER_DIR [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
+
 
 
 

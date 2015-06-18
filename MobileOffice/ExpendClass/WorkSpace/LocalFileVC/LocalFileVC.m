@@ -9,8 +9,12 @@
 #import "LocalFileVC.h"
 #import "LocalFileVCCell.h"
 
-@interface LocalFileVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface LocalFileVC ()<UITableViewDataSource,UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (strong, nonatomic) NSMutableArray *allLoaclFiles;
+
+@property (strong, nonatomic) UIDocumentInteractionController *documentController;
 
 @end
 
@@ -20,6 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"本地文件";
+    
+    NSDictionary* LocalDic = [[LocalFileDic sharedInstance] getLocalFileGlobalDic] ;
+    _allLoaclFiles = [[LocalDic allValues] mutableCopy];
 }
 
 - (void)initUI{
@@ -38,12 +45,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - myself
+-(NSURL*) ConstituteURL:(NSString*) subPath
+{
+    NSString* filePath = [NSString stringWithFormat:@"%@/%@",DOCUMENT_FOLDER_DIR,subPath];
+    return [NSURL fileURLWithPath:filePath isDirectory:NO];
+}
+
 
 #pragma mark - UITableView DataSource
 
 - (NSInteger )numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 10;
+    return _allLoaclFiles.count;
 }
 
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -63,6 +77,7 @@
         cell = [[LocalFileVCCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
     }
     cell.cellEdge = 10;
+    cell.fileName = [_allLoaclFiles objectAtIndex:indexPath.section];
     
     return cell;
 }
@@ -72,37 +87,53 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSURL *fileURL = [self ConstituteURL:[_allLoaclFiles objectAtIndex:indexPath.section]];
+    _documentController = [[UIDocumentInteractionController alloc] init];
+    _documentController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+    _documentController.delegate = self;
+    //[_documentController presentPreviewAnimated:YES];
+    [_documentController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 90.0f;
+    return 60.0f;
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 10.0f;
+        return 8.0f;
     }
     else{
-        return 5.0f;
+        return 2.0f;
     }
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 5.0f;
+    return 3.0f;
+}
+
+#pragma mark - documentInteractionController delegate
+
+- (UIViewController*)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController*)controller
+{
+    return self;
+}
+- (UIView*)documentInteractionControllerViewForPreview:(UIDocumentInteractionController*)controller
+{
+    return self.view;
+}
+- (CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController*)controller
+{
+    
+    return self.view.frame;
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

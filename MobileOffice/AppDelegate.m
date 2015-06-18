@@ -46,6 +46,9 @@
     ///初始化UserGlobalDic
     [[User sharedUser] initUserGlobalDic];
     
+    //初始化LocalFileDic
+    [[LocalFileDic sharedInstance] initLocalFileGlobalDic];
+    
     ////////
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     

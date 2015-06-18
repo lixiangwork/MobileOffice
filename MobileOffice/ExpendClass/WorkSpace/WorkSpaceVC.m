@@ -12,6 +12,8 @@
 
 #import "NoticeVC.h"
 #import "LocalFileVC.h"
+#import "FileDetailVC.h"
+#import "FileDealedVC.h"
 
 @interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate, LXSegmentViewDelegate>
 
@@ -79,7 +81,7 @@
     //[leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     //[leftBtn setTitle:@"公告列表" forState:UIControlStateNormal];
     //[leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
-    [leftBtn setImage:[UIImage imageNamed:@"notice.png"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"localfile.png"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(LeftBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
@@ -91,7 +93,7 @@
     //[rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     //[rightBtn setTitle:@"本地文件" forState:UIControlStateNormal];
     //[rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
-    [rightBtn setImage:[UIImage imageNamed:@"localfile.png"] forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"menu_dealed.png"] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(RightBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -108,14 +110,17 @@
 #pragma mark - My Action
 - (void)LeftBtnAction{
     
-    NoticeVC *vc = [[NoticeVC alloc] init];
+//    NoticeVC *vc = [[NoticeVC alloc] init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+    LocalFileVC *vc = [[LocalFileVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)RightBtnAction{
     
-    LocalFileVC *vc = [[LocalFileVC alloc] init];
+    FileDealedVC *vc = [[FileDealedVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -124,8 +129,10 @@
 - (void)getMyCreateDocument {
     
     //order by 'LASTCHANGEDDATE' DESC fetch first 10 rows only
-    NSString *condition = [NSString stringWithFormat:@" creater = '%@' ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
-    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+    NSString *uName = [[[User sharedUser] getUserGlobalDic] objectForKey:uUserName];
+    NSString *temp = @"%";
+    NSString *condition = [NSString stringWithFormat:@" creater = '%@' and (ProcessedUser not  like '%@%@%@' or ProcessedUser is NULL )",uName, temp, uName, temp];
+    [[CloudService sharedInstance] sqlSearch:@"test_table_1" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
         
         if (!error) {
             if (result.count > 0) {
@@ -138,15 +145,17 @@
                 }]] ;
                 //_tableList1 = result;
                 [self.tableView1 reloadData];
-                [self.tableView1 headerEndRefreshing];
+                
             }
             else {
-                
+                [self showHudOnlyMsg:@"没有内容"];
             }
         }
         else {
             //[UIFactory showAlert:@"网络错误"];
         }
+        
+        [self.tableView1 headerEndRefreshing];
     }];
     //LASTCHANGEDDATE DESC
     /*[[CloudService sharedInstance] SQLSearch2:@"upload_table" andCondition:condition andSize:@"10" andOrderby:@" 'LASTCHANGEDDATE' DESC" andColumnlist:@"" withBlock:^(NSMutableArray *result, NSError *error) {
@@ -169,43 +178,52 @@
 /////////getMyshare
 
 - (void)getMySharedDocument {
-    NSString *condition = [NSString stringWithFormat:@" CONTENTID in (select content_id from share where share_from = '%@') ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
-    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+    
+    NSString *uName = [[[User sharedUser] getUserGlobalDic] objectForKey:uUserName];
+    NSString *temp = @"%";
+    
+    NSString *condition = [NSString stringWithFormat:@"shares_from like '%@%@%@' and (ProcessedUser not  like '%@%@%@' or ProcessedUser is NULL )",temp, uName, temp, temp, uName, temp];
+    [[CloudService sharedInstance] sqlSearch:@"test_table_1" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
         
         if (!error) {
             if (result.count > 0) {
                 _tableList2 = result;
                 [self.tableView2 reloadData];
-                [self.tableView2 headerEndRefreshing];
+               
             }
             else {
-                
+                [self showHudOnlyMsg:@"没有内容"];
             }
         }
         else {
             //[UIFactory showAlert:@"网络错误"];
         }
+         [self.tableView2 headerEndRefreshing];
     }];
 
 }
 
 - (void)getDocumentSharedToMe {
-    NSString *condition = [NSString stringWithFormat:@" CONTENTID in (select content_id from share where share_to = '%@') ",[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]];
-    [[CloudService sharedInstance] sqlSearch:@"upload_table" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
+    NSString *uName = [[[User sharedUser] getUserGlobalDic] objectForKey:uUserName];
+    NSString *temp = @"%";
+    
+    NSString *condition = [NSString stringWithFormat:@"shares like '%@%@%@' and (ProcessedUser not  like '%@%@%@' or ProcessedUser is NULL )", temp, uName, temp, temp, uName, temp];
+    [[CloudService sharedInstance] sqlSearch:@"test_table_1" andCondition:condition withBlock:^(NSMutableArray *result, NSError *error) {
         
         if (!error) {
             if (result.count > 0) {
                 _tableList3 = result;
                 [self.tableView3 reloadData];
-                [self.tableView3 headerEndRefreshing];
+                
             }
             else {
-                
+                [self showHudOnlyMsg:@"没有内容"];
             }
         }
         else {
             //[UIFactory showAlert:@"网络错误"];
         }
+        [self.tableView3 headerEndRefreshing];
     }];
 }
 
@@ -354,6 +372,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    FileDetailVC *detailVC = [[FileDetailVC alloc] initWithNibName:@"FileDetailVC" bundle:nil];
+    [detailVC setHidesBottomBarWhenPushed:YES];
+    if (tableView == _tableView1) {
+        
+        detailVC.contentItem = [_tableList1 objectAtIndex:indexPath.section];
+        
+    }
+    else if (tableView == _tableView2) {
+        detailVC.contentItem = [_tableList2 objectAtIndex:indexPath.section];
+    }
+    else if (tableView == _tableView3) {
+        detailVC.contentItem = [_tableList3 objectAtIndex:indexPath.section];
+    }
+
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
