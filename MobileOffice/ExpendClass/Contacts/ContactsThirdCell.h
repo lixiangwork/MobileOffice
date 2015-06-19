@@ -10,6 +10,7 @@
 
 @interface ContactsThirdCell : UITableViewCell
 
+
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *phoneTV;
 

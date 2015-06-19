@@ -35,4 +35,7 @@
 ///更新表里面的一个属性
 -(void) alterContentProperty: (NSString*)ContentID andPropertyName:(NSString*)proName andPropertyType:(NSString*)proType andPropertyValue:(NSString*) proValue andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block;
 
+//更新或导入文档，可以更新多个属性
+- (void)alterContentProperties:(NSString*)ContentID andPropertyList:(NSArray *)propertyList andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block;
+
 @end

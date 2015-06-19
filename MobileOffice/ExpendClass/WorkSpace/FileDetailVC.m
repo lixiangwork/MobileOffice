@@ -12,12 +12,13 @@
 #import "CommentCell.h"
 #import "CustomIOSAlertView.h"
 #import "CommentItems.h"
+#import "ChooseSharerVC.h"
 
 #define DeleteActionSheetTag 1
 //#define ShareActionSheetTag 2
 #define HandleActionTag 9999
 
-@interface FileDetailVC ()<UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface FileDetailVC ()<UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ChooseSharerVCDelegate>
 
 - (IBAction)lookupButtonClicked:(id)sender;
 - (IBAction)commentButtonClicked:(id)sender;
@@ -191,6 +192,12 @@
 }
 
 - (IBAction)shareButtonClicked:(id)sender {
+    
+    ChooseSharerVC *chooseSharerVC = [[ChooseSharerVC alloc] init];
+    chooseSharerVC.cItem = _contentItem;
+    chooseSharerVC.delegate = self;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chooseSharerVC];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (IBAction)deleteButtonClicked:(id)sender {
@@ -559,6 +566,15 @@
     }
 }
 
+#pragma mark - chooseSharerVC delegate
+- (void)chooseSharerVCSharedSuccess:(NSString *)shares {
+    if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
+        [self.delegate alterCommentSuccess];
+    }
+
+    [_contentItem.Properties setObject:shares forKey:@"shares"];
+    [self.tableView reloadData];
+}
 
 
 @end

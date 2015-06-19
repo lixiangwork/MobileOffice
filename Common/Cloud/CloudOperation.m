@@ -296,6 +296,44 @@
     return operation;
 }
 
++ (AFHTTPRequestOperation *)alterContentProperties:(NSString*)ContentID andPropertyList:(NSArray *)propertyList andContentType:(NSString*)contentType {
+    
+    NSURL* WebURL = [NSURL URLWithString:CLOUDURL];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+    [req setURL:WebURL];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    NSMutableData* postbody = [[NSMutableData alloc] init];
+    [postbody appendData:[[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Envelope  xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body><REQUEST><AUTHENTICATION><SERVERDEF><SERVERNAME>server</SERVERNAME></SERVERDEF><LOGONDATA><USERNAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"docadmin" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</USERNAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"passw0rd" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD></LOGONDATA></AUTHENTICATION><COMMAND>IMPORTYOUNGCONTENT</COMMAND><DATA><CONTENTID>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[ContentID dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTID><CONTENTTYPENAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</CONTENTTYPENAME><FOLDER>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"false" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</FOLDER><YOUNGPROPERTIES>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    for (int i = 0 ; i < [propertyList count] ; i++) {
+        PropertyItem* item = (PropertyItem*)[propertyList objectAtIndex:i];
+        [postbody appendData:[[NSString stringWithFormat:@"<YOUNGPROPERTY><NAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[item.name dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[[NSString stringWithFormat:@"</NAME><TYPE>"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[item.type dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[[NSString stringWithFormat:@"</TYPE><VALUE>"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[item.value dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[[NSString stringWithFormat:@"</VALUE></YOUNGPROPERTY>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    [postbody appendData:[[NSString stringWithFormat:@"</YOUNGPROPERTIES></DATA></REQUEST></Body></Envelope>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [req setHTTPBody:postbody];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    return operation;
+    
+}
 
 
 

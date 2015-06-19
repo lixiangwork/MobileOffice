@@ -109,6 +109,10 @@
 		A69E4A881B1334C200749A0B /* CloudOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A69E4A871B1334C200749A0B /* CloudOperation.m */; };
 		A69E4A8B1B1337B600749A0B /* CloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = A69E4A8A1B1337B600749A0B /* CloudService.m */; };
 		A6B6C6041B31421400D57E3B /* CommentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6C6031B31421400D57E3B /* CommentItems.m */; };
+		A6B989C01B33A45000AE8DDE /* checkbox_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B989BE1B33A45000AE8DDE /* checkbox_selected.png */; };
+		A6B989C11B33A45000AE8DDE /* checkbox_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B989BF1B33A45000AE8DDE /* checkbox_unselect.png */; };
+		A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B989C31B33A85300AE8DDE /* ChooseSharerVC.m */; };
+		A6B989C61B33A85300AE8DDE /* ChooseSharerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B989C41B33A85300AE8DDE /* ChooseSharerVC.xib */; };
 		A6BC6ED21B1ED4DA007FFA93 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC6ED11B1ED4DA007FFA93 /* upload_add.png */; };
 		A6BC6ED41B1ED522007FFA93 /* btn_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC6ED31B1ED522007FFA93 /* btn_upload.png */; };
 		A6BC6ED61B1EE113007FFA93 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */; };
@@ -173,6 +177,13 @@
 		A6C8B89D1B32AD090010E7F4 /* DocumentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B89C1B32AD090010E7F4 /* DocumentItem.m */; };
 		A6C8B8A11B32D9100010E7F4 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B8A01B32D9100010E7F4 /* CustomIOSAlertView.m */; };
 		A6C8B8A31B32E03A0010E7F4 /* comm_head.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8A21B32E03A0010E7F4 /* comm_head.png */; };
+		A6C8B8B11B33158E0010E7F4 /* SharerFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B8A81B33158E0010E7F4 /* SharerFirstCell.m */; };
+		A6C8B8B21B33158E0010E7F4 /* SharerFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8A91B33158E0010E7F4 /* SharerFirstCell.xib */; };
+		A6C8B8B31B33158F0010E7F4 /* SharerSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B8AB1B33158E0010E7F4 /* SharerSecondCell.m */; };
+		A6C8B8B41B33158F0010E7F4 /* SharerSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8AC1B33158E0010E7F4 /* SharerSecondCell.xib */; };
+		A6C8B8B51B33158F0010E7F4 /* SharerThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B8AE1B33158E0010E7F4 /* SharerThirdCell.m */; };
+		A6C8B8B61B33158F0010E7F4 /* SharerThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */; };
+		A6C8B8B81B33173B0010E7F4 /* nav_quedingButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +340,11 @@
 		A69E4A8A1B1337B600749A0B /* CloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudService.m; sourceTree = "<group>"; };
 		A6B6C6021B31421400D57E3B /* CommentItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItems.h; sourceTree = "<group>"; };
 		A6B6C6031B31421400D57E3B /* CommentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentItems.m; sourceTree = "<group>"; };
+		A6B989BE1B33A45000AE8DDE /* checkbox_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_selected.png; sourceTree = "<group>"; };
+		A6B989BF1B33A45000AE8DDE /* checkbox_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unselect.png; sourceTree = "<group>"; };
+		A6B989C21B33A85300AE8DDE /* ChooseSharerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSharerVC.h; sourceTree = "<group>"; };
+		A6B989C31B33A85300AE8DDE /* ChooseSharerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSharerVC.m; sourceTree = "<group>"; };
+		A6B989C41B33A85300AE8DDE /* ChooseSharerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseSharerVC.xib; sourceTree = "<group>"; };
 		A6BC6ED11B1ED4DA007FFA93 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
 		A6BC6ED31B1ED522007FFA93 /* btn_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_upload.png; sourceTree = "<group>"; };
 		A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -442,6 +458,16 @@
 		A6C8B89F1B32D9100010E7F4 /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
 		A6C8B8A01B32D9100010E7F4 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
 		A6C8B8A21B32E03A0010E7F4 /* comm_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comm_head.png; sourceTree = "<group>"; };
+		A6C8B8A71B33158E0010E7F4 /* SharerFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharerFirstCell.h; sourceTree = "<group>"; };
+		A6C8B8A81B33158E0010E7F4 /* SharerFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharerFirstCell.m; sourceTree = "<group>"; };
+		A6C8B8A91B33158E0010E7F4 /* SharerFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharerFirstCell.xib; sourceTree = "<group>"; };
+		A6C8B8AA1B33158E0010E7F4 /* SharerSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharerSecondCell.h; sourceTree = "<group>"; };
+		A6C8B8AB1B33158E0010E7F4 /* SharerSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharerSecondCell.m; sourceTree = "<group>"; };
+		A6C8B8AC1B33158E0010E7F4 /* SharerSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharerSecondCell.xib; sourceTree = "<group>"; };
+		A6C8B8AD1B33158E0010E7F4 /* SharerThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharerThirdCell.h; sourceTree = "<group>"; };
+		A6C8B8AE1B33158E0010E7F4 /* SharerThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharerThirdCell.m; sourceTree = "<group>"; };
+		A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharerThirdCell.xib; sourceTree = "<group>"; };
+		A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_quedingButtonBg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +505,9 @@
 				A600B1DA1B2FD33B00C1BC18 /* select_flag.png */,
 				09C9C3751B294A1100B1F902 /* bg_tab_selected1.png */,
 				09C9C3761B294A1100B1F902 /* select_flag1.png */,
+				A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */,
+				A6B989BE1B33A45000AE8DDE /* checkbox_selected.png */,
+				A6B989BF1B33A45000AE8DDE /* checkbox_unselect.png */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -953,6 +982,7 @@
 				A6C8B8901B32A2AF0010E7F4 /* FileDealedVC.h */,
 				A6C8B8911B32A2AF0010E7F4 /* FileDealedVC.m */,
 				A6C8B8921B32A2AF0010E7F4 /* FileDealedVC.xib */,
+				A6C8B8A41B33157A0010E7F4 /* ChooseSharer */,
 			);
 			path = WorkSpace;
 			sourceTree = "<group>";
@@ -1078,6 +1108,25 @@
 			path = CustomIOSAlertView;
 			sourceTree = "<group>";
 		};
+		A6C8B8A41B33157A0010E7F4 /* ChooseSharer */ = {
+			isa = PBXGroup;
+			children = (
+				A6B989C21B33A85300AE8DDE /* ChooseSharerVC.h */,
+				A6B989C31B33A85300AE8DDE /* ChooseSharerVC.m */,
+				A6B989C41B33A85300AE8DDE /* ChooseSharerVC.xib */,
+				A6C8B8A71B33158E0010E7F4 /* SharerFirstCell.h */,
+				A6C8B8A81B33158E0010E7F4 /* SharerFirstCell.m */,
+				A6C8B8A91B33158E0010E7F4 /* SharerFirstCell.xib */,
+				A6C8B8AA1B33158E0010E7F4 /* SharerSecondCell.h */,
+				A6C8B8AB1B33158E0010E7F4 /* SharerSecondCell.m */,
+				A6C8B8AC1B33158E0010E7F4 /* SharerSecondCell.xib */,
+				A6C8B8AD1B33158E0010E7F4 /* SharerThirdCell.h */,
+				A6C8B8AE1B33158E0010E7F4 /* SharerThirdCell.m */,
+				A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */,
+			);
+			path = ChooseSharer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1190,6 +1239,8 @@
 				A6C8B88D1B326E5D0010E7F4 /* documentCellBg.png in Resources */,
 				A600B1D11B2FD11300C1BC18 /* txt.png in Resources */,
 				A6BEA4F31B05C3B300EA2934 /* Images.xcassets in Resources */,
+				A6B989C01B33A45000AE8DDE /* checkbox_selected.png in Resources */,
+				A6C8B8B21B33158E0010E7F4 /* SharerFirstCell.xib in Resources */,
 				A6981E9F1B15AD3700F45DAC /* ContactsSecondCell.xib in Resources */,
 				A6981EA61B15AD9E00F45DAC /* tree_view_icon_close.png in Resources */,
 				A6981E821B15A1CF00F45DAC /* h4.jpg in Resources */,
@@ -1197,13 +1248,17 @@
 				A6981E8F1B15A1CF00F45DAC /* h17.jpg in Resources */,
 				A6981E4E1B1593CB00F45DAC /* tabbarItem_jishitong@2x.png in Resources */,
 				A6BEA5B61B05F02D00EA2934 /* login_check.png in Resources */,
+				A6B989C11B33A45000AE8DDE /* checkbox_unselect.png in Resources */,
 				A6981E4F1B1593CB00F45DAC /* tabbarItem_txl.png in Resources */,
 				A6C8B8A31B32E03A0010E7F4 /* comm_head.png in Resources */,
 				A6981E511B1593CB00F45DAC /* tabbarItem_setting.png in Resources */,
 				A6981E831B15A1CF00F45DAC /* h5.jpg in Resources */,
 				09C9C3881B295F4A00B1F902 /* NoticeVCCell.xib in Resources */,
+				A6C8B8B61B33158F0010E7F4 /* SharerThirdCell.xib in Resources */,
 				A600B1D61B2FD26400C1BC18 /* bg_tab_selected.png in Resources */,
+				A6C8B8B81B33173B0010E7F4 /* nav_quedingButtonBg.png in Resources */,
 				A6981E891B15A1CF00F45DAC /* h11.jpg in Resources */,
+				A6C8B8B41B33158F0010E7F4 /* SharerSecondCell.xib in Resources */,
 				A6981E801B15A1CF00F45DAC /* h2.jpg in Resources */,
 				A6981E861B15A1CF00F45DAC /* h8.jpg in Resources */,
 				A600B1E11B30231E00C1BC18 /* notice_content.png in Resources */,
@@ -1239,6 +1294,7 @@
 				A6981E841B15A1CF00F45DAC /* h6.jpg in Resources */,
 				09C9C3781B294A1100B1F902 /* select_flag1.png in Resources */,
 				A600B1D21B2FD11300C1BC18 /* unknow.png in Resources */,
+				A6B989C61B33A85300AE8DDE /* ChooseSharerVC.xib in Resources */,
 				A6BC6ED41B1ED522007FFA93 /* btn_upload.png in Resources */,
 				A6BEA5B31B05F02D00EA2934 /* login_yhBg.png in Resources */,
 				A6C8B8861B3259E10010E7F4 /* FileDetailVC.xib in Resources */,
@@ -1302,6 +1358,7 @@
 				A6981EA01B15AD3700F45DAC /* ContactsThirdCell.m in Sources */,
 				A6BEA5631B05CA1800EA2934 /* AFURLSessionManager.m in Sources */,
 				09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */,
+				A6C8B8B11B33158E0010E7F4 /* SharerFirstCell.m in Sources */,
 				A6BEA56E1B05CA1800EA2934 /* MJRefreshHeaderView.m in Sources */,
 				A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */,
 				A6981E9C1B15AD3700F45DAC /* ContactsFirstCell.m in Sources */,
@@ -1322,7 +1379,9 @@
 				A6981EC41B15BD4600F45DAC /* DDXMLElementAdditions.m in Sources */,
 				A6981E691B159AFD00F45DAC /* SetingsTwoCell.m in Sources */,
 				A6C8B8A11B32D9100010E7F4 /* CustomIOSAlertView.m in Sources */,
+				A6C8B8B31B33158F0010E7F4 /* SharerSecondCell.m in Sources */,
 				A6981E581B1599E000F45DAC /* SetingsItem.m in Sources */,
+				A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */,
 				A6BEA55C1B05CA1800EA2934 /* AFHTTPRequestOperationManager.m in Sources */,
 				A6BEA5A81B05DE8200EA2934 /* MMLog.m in Sources */,
 				A6981EAF1B15AFCC00F45DAC /* TreeNodeSecondLevel.m in Sources */,
@@ -1336,6 +1395,7 @@
 				A6BEA4E81B05C3B300EA2934 /* main.m in Sources */,
 				A6BEA5721B05CA1800EA2934 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				A600B1F51B31068200C1BC18 /* CommentCell.m in Sources */,
+				A6C8B8B51B33158F0010E7F4 /* SharerThirdCell.m in Sources */,
 				A6C8B88B1B325C2F0010E7F4 /* fileToolButton.m in Sources */,
 				09C9C3831B295EFD00B1F902 /* NoticeVC.m in Sources */,
 				A69E4A8B1B1337B600749A0B /* CloudService.m in Sources */,

@@ -7,61 +7,15 @@
 //
 
 #import "ContactsVC.h"
-#import "AppCore.h"
-#import "TreeViewNode.h"
-#import "ContentItems.h"
-#import "TreeNodeSecondLevel.h"
-#import "TreeNodeThirdLevel.h"
 
-#import "ContactsFirstCell.h"
-#import "ContactsSecondCell.h"
-#import "ContactsThirdCell.h"
 
 #import "NoticeVC.h"
 
 
 
-@interface ContactsVC ()<UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-///nodes
-@property (strong, nonatomic) NSMutableArray *nodes;
-@property (strong, nonatomic) NSMutableArray *displayArray;
-@property (strong, nonatomic) NSMutableArray *firstLevelArr;
-@property (strong, nonatomic) NSMutableArray *secondLevelArr;
-@property (strong, nonatomic) NSMutableArray *thirdLevelArr;
-
-///////////////////////////////////////////////////////////////////////////
-
-/**
- *	@brief	初始树形结构的数组
- */
-- (void)fillNodesArray;
-
-/**
- *	@brief	根据父结点title找到相对应的二级结点
- *  @param  fatherTitle  父结点名称
- */
-- (NSArray *)fillChildrenForNode:(NSString *)fatherTitle;
-
-/**
- *	@brief	根据父结点titlehe二级结点title找到对应的三级结点
- *  @param  fatherTitle  父结点名称
- *  @param  sonTitle  二级结点名称
- */
--(NSArray *)fillGrandsonForNode:(NSString *)fatherTitle andSonTitle:(NSString *)sonTitle;
-
-//////////////////////////////////////////////////////////////////////////////////////////////
+@interface ContactsVC ()
 
 
-/**
- *	@brief	填充显示tableView上的数组
- */
-- (void)fillDisplayArray;
-- (void)fillNodeWithChildrenArray:(NSArray *)childrenArray;
-
-////////////////////////////////////////////////////////////////////
 
 @end
 
@@ -71,6 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"通讯录";
+    
+    
+    [self getContentData];
+}
+
+- (void)initUI {
+    [super initUI];
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftBtn setFrame:CGRectMake(10, 0, 44, 44)];
@@ -82,9 +43,8 @@
     
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftBtnItem;
-
     
-    [self getContentData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -218,7 +178,7 @@
             SecondLevelNode.nodeObject = sl;
             SecondLevelNode.isNodeSelected = NO;
             
-            SecondLevelNode.nodeChildren = [[self fillGrandsonForNode:fatherTitle andSonTitle:sl.secondLevelTitle] mutableCopy];
+            SecondLevelNode.nodeChildren = [[self fillGrandsonForNode:fatherTitle andSonTitle:sl.secondLevelTitle andFatherNodeSelected:NO] mutableCopy];
             
             [childrenArray addObject:SecondLevelNode];
         }
@@ -228,7 +188,7 @@
     
 }
 
--(NSArray *)fillGrandsonForNode:(NSString *)fatherTitle andSonTitle:(NSString *)sonTitle
+-(NSArray *)fillGrandsonForNode:(NSString *)fatherTitle andSonTitle:(NSString *)sonTitle andFatherNodeSelected:(BOOL)isSelected
 {
     NSMutableArray *grandsonArray = [[NSMutableArray alloc] init];
     
@@ -242,7 +202,7 @@
             
             thirdLevelNode.nodeObject = thirdLevel;
             
-            thirdLevelNode.isNodeSelected = NO;
+            thirdLevelNode.isNodeSelected = isSelected;
             
             thirdLevelNode.nodeChildren = nil;
             
@@ -330,7 +290,6 @@
         ContactsThirdCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3];
         
         TreeNodeThirdLevel *thirdLevel = (TreeNodeThirdLevel *)node.nodeObject;
-        
         cell.titleLabel.text = thirdLevel.thirdLevelTitle;
         //cell.positionLabel.text = thirdLevel.description;
         cell.phoneTV.text = thirdLevel.phoneNum;

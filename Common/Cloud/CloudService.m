@@ -228,6 +228,32 @@
 
 }
 
+//更新或导入文档，可以更新多个属性
+- (void)alterContentProperties:(NSString*)ContentID andPropertyList:(NSArray *)propertyList andContentType:(NSString*)contentType withBlock:(void (^)(BOOL success, NSError *error))block{
+    
+    AFHTTPRequestOperation *operation = [CloudOperation alterContentProperties:ContentID andPropertyList:propertyList andContentType:contentType];
+    
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
+        
+        if (block) {
+            block(isSuccess, nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+
+}
+
 @end
 
 
