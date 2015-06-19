@@ -1176,7 +1176,7 @@
 				TargetAttributes = {
 					A6BEA4E11B05C3B300EA2934 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = HTZB37YP6L;
+						DevelopmentTeam = 9BFR35697C;
 					};
 					A6BEA4FA1B05C3B400EA2934 = {
 						CreatedOnToolsVersion = 6.2;
@@ -1513,14 +1513,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = MobileOffice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bac7f0fc-fa21-49cc-9786-49f4f4c9a317";
 			};
 			name = Debug;
 		};
@@ -1536,7 +1536,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bac7f0fc-fa21-49cc-9786-49f4f4c9a317";
 			};
 			name = Release;
 		};

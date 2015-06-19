@@ -197,7 +197,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block(nil, error);
+            block(NO, error);
         }
     }];
 
@@ -222,7 +222,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block(nil, error);
+            block(NO, error);
         }
     }];
 
@@ -248,7 +248,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block(nil, error);
+            block(NO, error);
         }
     }];
 

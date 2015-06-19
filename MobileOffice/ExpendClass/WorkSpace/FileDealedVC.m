@@ -41,7 +41,13 @@
         
         if (!error) {
             if (result.count > 0) {
-                _tableList = result;
+                //_tableList = result;
+                _tableList = [NSMutableArray arrayWithArray:[result sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    NSString *time1 = ((ContentItems *)obj1).LastChangedTime;
+                    NSString *time2 = ((ContentItems *)obj2).LastChangedTime;
+                    
+                    return [time2 compare:time1];
+                }]] ;
                 [self.tableView reloadData];
                 
             }

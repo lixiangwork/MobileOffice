@@ -137,7 +137,10 @@
 
 - (void)buttonClicked:(UIButton *)button
 {
-    _currentIndex = button.frame.origin.x/(self.frame.size.width/3);
+    _currentIndex = button.tag-1;//button.frame.origin.x/(self.frame.size.width/3);
+    
+    NSLog(@"_currentIndex:%li",(long)_currentIndex);
+    NSLog(@"tag:%li",(long)button.tag);
     
     [self scrolltabButtonSeclectImageViewAndSelectButtonForIndex:_currentIndex];
     

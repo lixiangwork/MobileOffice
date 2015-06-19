@@ -475,11 +475,19 @@
         //NSLog(@"shareArr:%@",shareArr);
         
         NSMutableArray *mutShareArr = [shareArr mutableCopy];
-        for (NSString *str in mutShareArr) {
-            if ([str isEqualToString:@""] || [str isEqualToString:@" "]) {
-                [mutShareArr removeObject:str];
+//        for (NSString *str in mutShareArr) {
+//            if ([str isEqualToString:@""] || [str isEqualToString:@" "]) {
+//                [mutShareArr removeObject:str];
+//            }
+//        }
+        [mutShareArr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if ([obj isEqualToString:@""] || [obj isEqualToString:@" "]) {
+                *stop = YES;
+                [mutShareArr removeObject:obj];
             }
-        }
+            
+        }];
+
         
         headerLabel.text = [NSString stringWithFormat:@"已共享%lu人",(unsigned long)mutShareArr.count ];
     }
