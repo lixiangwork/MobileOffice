@@ -13,6 +13,8 @@
 #import "SetingsItem.h"
 #import "AppCore.h"
 
+#import "HelpVC.h"
+
 @interface SettingVC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -205,8 +207,12 @@
     if (indexPath.section == 0 && indexPath.row == 2) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    else if(indexPath.section == 3 && indexPath.row == 0){
+        HelpVC *vc = [[HelpVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
-
 
 
 @end
