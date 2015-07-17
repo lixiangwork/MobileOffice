@@ -13,11 +13,13 @@
 #import "SetingsItem.h"
 #import "AppCore.h"
 
+#import "ImagePickerVC.h"
 #import "HelpVC.h"
 
-@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate>
+@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIImage *personImage;
 
 @end
 
@@ -27,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"设置";
+    self.personImage = [UIImage imageNamed:@"comm_head.png"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -212,6 +215,91 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (indexPath.section == 0 && indexPath.row == 1) {
+//        ImagePickerVC *vc = [[ImagePickerVC alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+        [self changeImage];
+    }
+}
+
+#pragma mark - ChangeImage
+//用UIActionSheet控件来选择相片的来源
+- (void)changeImage{
+    
+    UIActionSheet *imagesheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"默认图片",@"相片",@"拍照", nil];
+    [imagesheet showFromRect:self.view.bounds inView:self.view animated:YES];
+}
+
+
+#pragma mark - UIActionSheet Delegate
+
+//实现用UIActionSheet控件来选择相片来源的 Delegate方法
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+        {
+            ImagePickerVC *vc = [[ImagePickerVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 1:
+        {
+            [self localPhone];
+            break;
+        }
+        case 2:
+        {
+            [self takePhone];
+            break;
+        }
+
+        default:
+            break;
+    }
+}
+
+//从相册选择
+- (void)localPhone{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//拍照
+- (void)takePhone{
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+    else{
+        NSLog(@"该设备没有摄像头");
+    }
+}
+
+#pragma mark - UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.personImage = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 

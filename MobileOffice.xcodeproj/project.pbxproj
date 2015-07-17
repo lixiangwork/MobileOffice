@@ -20,6 +20,7 @@
 		09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9C38E1B29673300B1F902 /* LocalFileVCCell.m */; };
 		09C9C3911B29674A00B1F902 /* LocalFileVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09C9C3901B29674A00B1F902 /* LocalFileVCCell.xib */; };
 		09CC65D11B33A7D100F2F08E /* HelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CC65D01B33A7D100F2F08E /* HelpVC.m */; };
+		09CC65D41B33C12100F2F08E /* ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CC65D31B33C12100F2F08E /* ImagePickerVC.m */; };
 		A600B1CD1B2FD11300C1BC18 /* doc.png in Resources */ = {isa = PBXBuildFile; fileRef = A600B1C61B2FD11300C1BC18 /* doc.png */; };
 		A600B1CE1B2FD11300C1BC18 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = A600B1C71B2FD11300C1BC18 /* img.png */; };
 		A600B1CF1B2FD11300C1BC18 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = A600B1C81B2FD11300C1BC18 /* pdf.png */; };
@@ -217,6 +218,8 @@
 		09C9C3901B29674A00B1F902 /* LocalFileVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalFileVCCell.xib; sourceTree = "<group>"; };
 		09CC65CF1B33A7D100F2F08E /* HelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpVC.h; sourceTree = "<group>"; };
 		09CC65D01B33A7D100F2F08E /* HelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpVC.m; sourceTree = "<group>"; };
+		09CC65D21B33C12100F2F08E /* ImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerVC.h; sourceTree = "<group>"; };
+		09CC65D31B33C12100F2F08E /* ImagePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerVC.m; sourceTree = "<group>"; };
 		A600B1C61B2FD11300C1BC18 /* doc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doc.png; sourceTree = "<group>"; };
 		A600B1C71B2FD11300C1BC18 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		A600B1C81B2FD11300C1BC18 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf.png; sourceTree = "<group>"; };
@@ -544,6 +547,8 @@
 			children = (
 				09CC65CF1B33A7D100F2F08E /* HelpVC.h */,
 				09CC65D01B33A7D100F2F08E /* HelpVC.m */,
+				09CC65D21B33C12100F2F08E /* ImagePickerVC.h */,
+				09CC65D31B33C12100F2F08E /* ImagePickerVC.m */,
 			);
 			path = OtherVC;
 			sourceTree = "<group>";
@@ -1383,6 +1388,7 @@
 				A6981E581B1599E000F45DAC /* SetingsItem.m in Sources */,
 				A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */,
 				A6BEA55C1B05CA1800EA2934 /* AFHTTPRequestOperationManager.m in Sources */,
+				09CC65D41B33C12100F2F08E /* ImagePickerVC.m in Sources */,
 				A6BEA5A81B05DE8200EA2934 /* MMLog.m in Sources */,
 				A6981EAF1B15AFCC00F45DAC /* TreeNodeSecondLevel.m in Sources */,
 				A6981E9E1B15AD3700F45DAC /* ContactsSecondCell.m in Sources */,
