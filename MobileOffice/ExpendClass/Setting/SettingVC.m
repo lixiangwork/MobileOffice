@@ -17,6 +17,7 @@
 #import "PickUserIconImageVC.h"
 #import "HelpVC.h"
 #import "ChangePassword.h"
+#import <PgySDK/PgyManager.h>
 
 @interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickUserIconImageVCDelegate>
 
@@ -168,7 +169,7 @@
 
         }
         else if (indexPath.row == 1){
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"关于我们" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"检查更新" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
         }
@@ -232,12 +233,25 @@
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else if (indexPath.row == 1) {//关于我们
-            
+        else if (indexPath.row == 1) {//检查更新
+            [[PgyManager sharedPgyManager] checkUpdateWithDelegete:self selector:@selector(updateMethod:)];
         }
         
     }
 }
+
+- (void)updateMethod:(id)infos {
+    NSLog(@"infos:%@",infos);
+    
+    if (infos) {
+        [[PgyManager sharedPgyManager] checkUpdate];
+    }
+    else {
+        [UIFactory showAlert:@"当前为最新版本"];
+    }
+    
+}
+
 
 #pragma mark - ChangeImage
 //用UIActionSheet控件来选择相片的来源
@@ -248,6 +262,7 @@
                                                    cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"默认图片",@"相片",@"拍照", nil];
     [imagesheet showFromRect:self.view.bounds inView:self.view animated:YES];
 }
+
 
 
 #pragma mark - UIActionSheet Delegate
@@ -334,5 +349,8 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark - pgy delegate
+
 
 @end

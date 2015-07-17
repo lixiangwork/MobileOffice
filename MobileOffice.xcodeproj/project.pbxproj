@@ -192,6 +192,14 @@
 		A6C8B8B81B33173B0010E7F4 /* nav_quedingButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */; };
 		A6E68EDD1B58F87A0030C25E /* PickUserIconImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E68EDB1B58F87A0030C25E /* PickUserIconImageVC.m */; };
 		A6E68EDE1B58F87A0030C25E /* PickUserIconImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E68EDC1B58F87A0030C25E /* PickUserIconImageVC.xib */; };
+		A6E68EE01B5907900030C25E /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EDF1B5907900030C25E /* PgySDK.framework */; };
+		A6E68EE21B5907B10030C25E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE11B5907B10030C25E /* CoreTelephony.framework */; };
+		A6E68EE41B5907BB0030C25E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE31B5907BB0030C25E /* OpenGLES.framework */; };
+		A6E68EE61B5907C30030C25E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE51B5907C30030C25E /* SceneKit.framework */; };
+		A6E68EE81B5907CC0030C25E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE71B5907CC0030C25E /* CoreMotion.framework */; };
+		A6E68EEA1B5907D40030C25E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE91B5907D40030C25E /* AudioToolbox.framework */; };
+		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
+		A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EED1B5908070030C25E /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -487,6 +495,14 @@
 		A6E68EDA1B58F87A0030C25E /* PickUserIconImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickUserIconImageVC.h; sourceTree = "<group>"; };
 		A6E68EDB1B58F87A0030C25E /* PickUserIconImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickUserIconImageVC.m; sourceTree = "<group>"; };
 		A6E68EDC1B58F87A0030C25E /* PickUserIconImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickUserIconImageVC.xib; sourceTree = "<group>"; };
+		A6E68EDF1B5907900030C25E /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDK.framework; sourceTree = "<group>"; };
+		A6E68EE11B5907B10030C25E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A6E68EE31B5907BB0030C25E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A6E68EE51B5907C30030C25E /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		A6E68EE71B5907CC0030C25E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A6E68EE91B5907D40030C25E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A6E68EED1B5908070030C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,7 +510,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */,
+				A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */,
+				A6E68EEA1B5907D40030C25E /* AudioToolbox.framework in Frameworks */,
+				A6E68EE81B5907CC0030C25E /* CoreMotion.framework in Frameworks */,
+				A6E68EE61B5907C30030C25E /* SceneKit.framework in Frameworks */,
+				A6E68EE41B5907BB0030C25E /* OpenGLES.framework in Frameworks */,
+				A6E68EE21B5907B10030C25E /* CoreTelephony.framework in Frameworks */,
 				A6BC6ED61B1EE113007FFA93 /* AssetsLibrary.framework in Frameworks */,
+				A6E68EE01B5907900030C25E /* PgySDK.framework in Frameworks */,
 				A6981ECA1B15BD6000F45DAC /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +713,14 @@
 		A6BEA4D91B05C3B300EA2934 = {
 			isa = PBXGroup;
 			children = (
+				A6E68EED1B5908070030C25E /* SystemConfiguration.framework */,
+				A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */,
+				A6E68EE91B5907D40030C25E /* AudioToolbox.framework */,
+				A6E68EE71B5907CC0030C25E /* CoreMotion.framework */,
+				A6E68EE51B5907C30030C25E /* SceneKit.framework */,
+				A6E68EE31B5907BB0030C25E /* OpenGLES.framework */,
+				A6E68EE11B5907B10030C25E /* CoreTelephony.framework */,
+				A6E68EDF1B5907900030C25E /* PgySDK.framework */,
 				A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */,
 				A6981EC91B15BD6000F45DAC /* libxml2.dylib */,
 				A6BEA50B1B05CA1700EA2934 /* AppConfig */,
@@ -1553,6 +1585,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = MobileOffice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1569,6 +1605,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = MobileOffice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

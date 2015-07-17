@@ -10,6 +10,7 @@
 #import "LoginVC.h"
 #import "AppCore.h"
 #import "User.h"
+#import <PgySDK/PgyManager.h>
 
 @interface AppDelegate ()
 
@@ -51,6 +52,9 @@
     
     ////////
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    //蒲公英
+    [[PgyManager sharedPgyManager] startManagerWithAppId:@"308bfce12f32238b4987963947a1e57a"];
     
     return YES;
 }
