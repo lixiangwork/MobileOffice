@@ -174,7 +174,7 @@
             ((SetingsOneCell *)cell).cellEdge = 10;
         }
         else{
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"移动办公Beta2版" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"移动办公Beta1.0.2版" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
 
