@@ -190,6 +190,8 @@
 		A6C8B8B51B33158F0010E7F4 /* SharerThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8B8AE1B33158E0010E7F4 /* SharerThirdCell.m */; };
 		A6C8B8B61B33158F0010E7F4 /* SharerThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */; };
 		A6C8B8B81B33173B0010E7F4 /* nav_quedingButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */; };
+		A6E68EDD1B58F87A0030C25E /* PickUserIconImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E68EDB1B58F87A0030C25E /* PickUserIconImageVC.m */; };
+		A6E68EDE1B58F87A0030C25E /* PickUserIconImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E68EDC1B58F87A0030C25E /* PickUserIconImageVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -482,6 +484,9 @@
 		A6C8B8AE1B33158E0010E7F4 /* SharerThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharerThirdCell.m; sourceTree = "<group>"; };
 		A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharerThirdCell.xib; sourceTree = "<group>"; };
 		A6C8B8B71B33173B0010E7F4 /* nav_quedingButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_quedingButtonBg.png; sourceTree = "<group>"; };
+		A6E68EDA1B58F87A0030C25E /* PickUserIconImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickUserIconImageVC.h; sourceTree = "<group>"; };
+		A6E68EDB1B58F87A0030C25E /* PickUserIconImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickUserIconImageVC.m; sourceTree = "<group>"; };
+		A6E68EDC1B58F87A0030C25E /* PickUserIconImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickUserIconImageVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +563,9 @@
 			children = (
 				09CC65CF1B33A7D100F2F08E /* HelpVC.h */,
 				09CC65D01B33A7D100F2F08E /* HelpVC.m */,
+				A6E68EDA1B58F87A0030C25E /* PickUserIconImageVC.h */,
+				A6E68EDB1B58F87A0030C25E /* PickUserIconImageVC.m */,
+				A6E68EDC1B58F87A0030C25E /* PickUserIconImageVC.xib */,
 				09CC65D21B33C12100F2F08E /* ImagePickerVC.h */,
 				09CC65D31B33C12100F2F08E /* ImagePickerVC.m */,
 				A6BDECBC1B58CE5E000D03CA /* ChangePassword.h */,
@@ -1198,7 +1206,7 @@
 				TargetAttributes = {
 					A6BEA4E11B05C3B300EA2934 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9BFR35697C;
+						DevelopmentTeam = HTZB37YP6L;
 					};
 					A6BEA4FA1B05C3B400EA2934 = {
 						CreatedOnToolsVersion = 6.2;
@@ -1254,6 +1262,7 @@
 				A6C8B8801B3257E00010E7F4 /* file_look.png in Resources */,
 				A600B1CF1B2FD11300C1BC18 /* pdf.png in Resources */,
 				A6BEA5A31B05DDD400EA2934 /* nav_backButtonBg.png in Resources */,
+				A6E68EDE1B58F87A0030C25E /* PickUserIconImageVC.xib in Resources */,
 				09C9C3911B29674A00B1F902 /* LocalFileVCCell.xib in Resources */,
 				A6981E4C1B1593CB00F45DAC /* tabbarItem_fileUpload@2x.png in Resources */,
 				A6C8B88F1B32A2340010E7F4 /* menu_dealed.png in Resources */,
@@ -1391,6 +1400,7 @@
 				A6981E9C1B15AD3700F45DAC /* ContactsFirstCell.m in Sources */,
 				09C9C3731B2943BE00B1F902 /* LXSegmentView.m in Sources */,
 				A6C8B8931B32A2AF0010E7F4 /* FileDealedVC.m in Sources */,
+				A6E68EDD1B58F87A0030C25E /* PickUserIconImageVC.m in Sources */,
 				A6BEA5731B05CA1800EA2934 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A6BEA5691B05CA1800EA2934 /* MBProgressHUD.m in Sources */,
 				A6BEA5621B05CA1800EA2934 /* AFURLResponseSerialization.m in Sources */,
@@ -1541,8 +1551,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = MobileOffice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1557,8 +1567,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = MobileOffice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

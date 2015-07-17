@@ -25,6 +25,7 @@
 }
 
 - (void)initUI{
+    [super initUI];
     
     self.images = @[[UIImage imageNamed:@"h0.jpg"],
                     [UIImage imageNamed:@"h1.jpg"],

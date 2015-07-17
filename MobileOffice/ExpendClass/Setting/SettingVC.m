@@ -13,11 +13,12 @@
 #import "SetingsItem.h"
 #import "AppCore.h"
 
-#import "ImagePickerVC.h"
+//#import "ImagePickerVC.h"
+#import "PickUserIconImageVC.h"
 #import "HelpVC.h"
 #import "ChangePassword.h"
 
-@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickUserIconImageVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (strong, nonatomic) UIImage *personImage;
@@ -257,8 +258,9 @@
     switch (buttonIndex) {
         case 0:
         {
-            ImagePickerVC *vc = [[ImagePickerVC alloc] init];
+            PickUserIconImageVC *vc = [[PickUserIconImageVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
+            vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -325,5 +327,12 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - PickUserIconImageVC delegate
+- (void)pickUserIconImageVCSelectedOneImage:(UIImage *)image {
+    //本地化存储图片
+    [[User sharedUser] saveImage:image];
+    
+    [self.tableView reloadData];
+}
 
 @end
