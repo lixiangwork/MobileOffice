@@ -15,6 +15,9 @@
 ///登陆
 + (AFHTTPRequestOperation *)testUser:(NSString *)username andPassWord:(NSString *)password;
 
+//创建用户，用户存在时是修改密码。
++(AFHTTPRequestOperation *)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password;
+
 ///获得某文档类的所有文档
 + (AFHTTPRequestOperation *)getAllContentTypeInfo:(NSString *)contentType userName:(NSString *)uname password:(NSString *)password;
 

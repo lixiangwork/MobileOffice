@@ -14,6 +14,9 @@
 
 - (void)testUser:(NSString *)username andPassword:(NSString *)password withBlock:(void (^)(BOOL isSuccess, NSString *nickName, NSError *error))block;
 
+//添加用户和修改密码
+- (void)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password withBlock:(void (^)(BOOL isSuccess, NSError *error))block;
+
 //////获得某文档类的所有文档
 - (void)getAllContentTypeInfo:(NSString *)contentType withBlock:(void (^)(NSArray *results, NSError *error))block;
 

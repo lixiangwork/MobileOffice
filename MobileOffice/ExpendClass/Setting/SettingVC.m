@@ -15,6 +15,7 @@
 
 #import "ImagePickerVC.h"
 #import "HelpVC.h"
+#import "ChangePassword.h"
 
 @interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -207,19 +208,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    if (indexPath.section == 0 ) {
+        
+        if (indexPath.row == 0) {//修改密码
+            
+            ChangePassword *vc = [[ChangePassword alloc] initWithNibName:@"ChangePassword" bundle:nil];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        else if (indexPath.row == 1) {//选择头像
+            [self changeImage];
+        }
+        else if (indexPath.row == 2) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
     }
-    else if(indexPath.section == 3 && indexPath.row == 0){
-        HelpVC *vc = [[HelpVC alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if (indexPath.section == 0 && indexPath.row == 1) {
-//        ImagePickerVC *vc = [[ImagePickerVC alloc] init];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
-        [self changeImage];
+    else if(indexPath.section == 3 ){
+        if (indexPath.row == 0) {//帮助
+            HelpVC *vc = [[HelpVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if (indexPath.row == 1) {//关于我们
+            
+        }
+        
     }
 }
 

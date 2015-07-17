@@ -26,7 +26,26 @@
 
 - (void)initUI{
     
-    self.images = @[[UIImage imageNamed:@"h0.jpg"],[UIImage imageNamed:@"h1.jpg"],[UIImage imageNamed:@"h2.jpg"],[UIImage imageNamed:@"h3.jpg"],[UIImage imageNamed:@"h4.jpg"],[UIImage imageNamed:@"h5.jpg"],[UIImage imageNamed:@"h6.jpg"],[UIImage imageNamed:@"h7.jpg"],[UIImage imageNamed:@"h8.jpg"],[UIImage imageNamed:@"h9.jpg"],[UIImage imageNamed:@"h10.jpg"],[UIImage imageNamed:@"h11.jpg"],[UIImage imageNamed:@"h12.jpg"],[UIImage imageNamed:@"h13.jpg"],[UIImage imageNamed:@"h14.jpg"],[UIImage imageNamed:@"h15.jpg"],[UIImage imageNamed:@"h16.jpg"],[UIImage imageNamed:@"h17.jpg"],[UIImage imageNamed:@"h18.jpg"]];
+    self.images = @[[UIImage imageNamed:@"h0.jpg"],
+                    [UIImage imageNamed:@"h1.jpg"],
+                    [UIImage imageNamed:@"h2.jpg"],
+                    [UIImage imageNamed:@"h3.jpg"],
+                    [UIImage imageNamed:@"h4.jpg"],
+                    [UIImage imageNamed:@"h5.jpg"],
+                    [UIImage imageNamed:@"h6.jpg"],
+                    [UIImage imageNamed:@"h7.jpg"],
+                    [UIImage imageNamed:@"h8.jpg"],
+                    [UIImage imageNamed:@"h9.jpg"],
+                    [UIImage imageNamed:@"h10.jpg"],
+                    [UIImage imageNamed:@"h11.jpg"],
+                    [UIImage imageNamed:@"h12.jpg"],
+                    [UIImage imageNamed:@"h13.jpg"],
+                    [UIImage imageNamed:@"h14.jpg"],
+                    [UIImage imageNamed:@"h15.jpg"],
+                    [UIImage imageNamed:@"h16.jpg"],
+                    [UIImage imageNamed:@"h17.jpg"],
+                    [UIImage imageNamed:@"h18.jpg"]
+                    ];
     
     self.imagePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)];
     self.imagePicker.center = self.view.center;

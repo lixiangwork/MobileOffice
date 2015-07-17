@@ -52,6 +52,35 @@
     }];
 }
 
+- (void)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password withBlock:(void (^)(BOOL isSuccess, NSError *error))block{
+    
+    AFHTTPRequestOperation *opration = [CloudOperation addUserWithUserName:userName andPassword:password];
+    [opration start];
+    
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *responseStr = operation.responseString;
+        NSLog(@"responseStr:%@",responseStr);
+        
+        if ([[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr]) {
+            if (block) {
+                block(YES, nil);
+            }
+        }
+        else {
+            if (block) {
+                block(NO, nil);
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(NO, error);
+        }
+    }];
+    
+}
+
 - (void)getAllContentTypeInfo:(NSString *)contentType withBlock:(void (^)(NSArray *results, NSError *error))block{
     
     AFHTTPRequestOperation *opration = [CloudOperation getAllContentTypeInfo:contentType userName:@"docadmin" password:@"passw0rd"];

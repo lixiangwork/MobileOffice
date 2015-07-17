@@ -31,6 +31,36 @@
     return operation;
 }
 
++(AFHTTPRequestOperation *)addUserWithUserName:(NSString *)userName andPassword:(NSString *)password {
+    
+    NSURL* WebURL = [NSURL URLWithString:CLOUDURL];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
+    [req setURL:WebURL];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    NSMutableData* postbody = [[NSMutableData alloc] init];
+    [postbody appendData:[[NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><Envelope  xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body><REQUEST><AUTHENTICATION><SERVERDEF><SERVERNAME>server</SERVERNAME></SERVERDEF><LOGONDATA><USERNAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"docadmin" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</USERNAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"passw0rd" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD></LOGONDATA></AUTHENTICATION><COMMAND>IMPORTYOUNGUSER</COMMAND><DATA><NAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[userName dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</NAME><PASSWORD>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[password dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"</PASSWORD><YOUNGSECURITYROLE><NAME>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[@"Administrator" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</NAME></YOUNGSECURITYROLE><STATUS>0</STATUS><EXTATTR1></EXTATTR1><EXTATTR2></EXTATTR2><YOUNGUSERGROUPS>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postbody appendData:[[NSString stringWithFormat:@"</YOUNGUSERGROUPS></DATA></REQUEST></Body></Envelope>"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [req setHTTPBody:postbody];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    return operation;
+
+}
+
 +(AFHTTPRequestOperation *)getAllContentTypeInfo:(NSString *)contentType userName:(NSString *)uname password:(NSString *)password{
     
     NSURL* WebURL = [NSURL URLWithString:CLOUDURL];

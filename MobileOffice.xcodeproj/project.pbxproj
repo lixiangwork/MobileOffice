@@ -119,6 +119,11 @@
 		A6BC6ED61B1EE113007FFA93 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */; };
 		A6BC6ED91B1EE330007FFA93 /* PropertyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BC6ED81B1EE330007FFA93 /* PropertyItem.m */; };
 		A6BC6EDE1B1EE9B3007FFA93 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BC6EDC1B1EE9B3007FFA93 /* GTMBase64.m */; };
+		A6BDECBF1B58CE5E000D03CA /* ChangePassword.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BDECBD1B58CE5E000D03CA /* ChangePassword.m */; };
+		A6BDECC01B58CE5E000D03CA /* ChangePassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BDECBE1B58CE5E000D03CA /* ChangePassword.xib */; };
+		A6BDECC21B58CF9E000D03CA /* login_psw_new.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BDECC11B58CF9E000D03CA /* login_psw_new.png */; };
+		A6BDECC61B58D072000D03CA /* login_psw_old.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BDECC51B58D072000D03CA /* login_psw_old.png */; };
+		A6BDECC81B58D28D000D03CA /* btn_change_psw_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BDECC71B58D28D000D03CA /* btn_change_psw_normal.png */; };
 		A6BEA4E81B05C3B300EA2934 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA4E71B05C3B300EA2934 /* main.m */; };
 		A6BEA4EB1B05C3B300EA2934 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA4EA1B05C3B300EA2934 /* AppDelegate.m */; };
 		A6BEA4F31B05C3B300EA2934 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6BEA4F21B05C3B300EA2934 /* Images.xcassets */; };
@@ -356,6 +361,12 @@
 		A6BC6EDB1B1EE9B3007FFA93 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		A6BC6EDC1B1EE9B3007FFA93 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		A6BC6EDD1B1EE9B3007FFA93 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		A6BDECBC1B58CE5E000D03CA /* ChangePassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePassword.h; sourceTree = "<group>"; };
+		A6BDECBD1B58CE5E000D03CA /* ChangePassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePassword.m; sourceTree = "<group>"; };
+		A6BDECBE1B58CE5E000D03CA /* ChangePassword.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePassword.xib; sourceTree = "<group>"; };
+		A6BDECC11B58CF9E000D03CA /* login_psw_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_psw_new.png; sourceTree = "<group>"; };
+		A6BDECC51B58D072000D03CA /* login_psw_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_psw_old.png; sourceTree = "<group>"; };
+		A6BDECC71B58D28D000D03CA /* btn_change_psw_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_change_psw_normal.png; sourceTree = "<group>"; };
 		A6BEA4E21B05C3B300EA2934 /* MobileOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6BEA4E61B05C3B300EA2934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6BEA4E71B05C3B300EA2934 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -549,6 +560,9 @@
 				09CC65D01B33A7D100F2F08E /* HelpVC.m */,
 				09CC65D21B33C12100F2F08E /* ImagePickerVC.h */,
 				09CC65D31B33C12100F2F08E /* ImagePickerVC.m */,
+				A6BDECBC1B58CE5E000D03CA /* ChangePassword.h */,
+				A6BDECBD1B58CE5E000D03CA /* ChangePassword.m */,
+				A6BDECBE1B58CE5E000D03CA /* ChangePassword.xib */,
 			);
 			path = OtherVC;
 			sourceTree = "<group>";
@@ -1034,6 +1048,9 @@
 		A6BEA5881B05CA3800EA2934 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A6BDECC71B58D28D000D03CA /* btn_change_psw_normal.png */,
+				A6BDECC51B58D072000D03CA /* login_psw_old.png */,
+				A6BDECC11B58CF9E000D03CA /* login_psw_new.png */,
 				A6BEA5AD1B05F02D00EA2934 /* login_yhBg.png */,
 				A6BEA5AE1B05F02D00EA2934 /* login_mmBg.png */,
 				A6BEA5AF1B05F02D00EA2934 /* login_logo.png */,
@@ -1256,6 +1273,7 @@
 				A6B989C11B33A45000AE8DDE /* checkbox_unselect.png in Resources */,
 				A6981E4F1B1593CB00F45DAC /* tabbarItem_txl.png in Resources */,
 				A6C8B8A31B32E03A0010E7F4 /* comm_head.png in Resources */,
+				A6BDECC01B58CE5E000D03CA /* ChangePassword.xib in Resources */,
 				A6981E511B1593CB00F45DAC /* tabbarItem_setting.png in Resources */,
 				A6981E831B15A1CF00F45DAC /* h5.jpg in Resources */,
 				09C9C3881B295F4A00B1F902 /* NoticeVCCell.xib in Resources */,
@@ -1266,9 +1284,11 @@
 				A6C8B8B41B33158F0010E7F4 /* SharerSecondCell.xib in Resources */,
 				A6981E801B15A1CF00F45DAC /* h2.jpg in Resources */,
 				A6981E861B15A1CF00F45DAC /* h8.jpg in Resources */,
+				A6BDECC81B58D28D000D03CA /* btn_change_psw_normal.png in Resources */,
 				A600B1E11B30231E00C1BC18 /* notice_content.png in Resources */,
 				A6BEA56A1B05CA1800EA2934 /* MJRefresh.bundle in Resources */,
 				A6981E4D1B1593CB00F45DAC /* tabbarItem_jishitong.png in Resources */,
+				A6BDECC61B58D072000D03CA /* login_psw_old.png in Resources */,
 				A6981E8B1B15A1CF00F45DAC /* h13.jpg in Resources */,
 				A6981E811B15A1CF00F45DAC /* h3.jpg in Resources */,
 				A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */,
@@ -1292,6 +1312,7 @@
 				A6981EA71B15AD9E00F45DAC /* tree_view_icon_open.png in Resources */,
 				A6C8B87F1B3257E00010E7F4 /* file_handle.png in Resources */,
 				A6C8B8811B3257E00010E7F4 /* file_share.png in Resources */,
+				A6BDECC21B58CF9E000D03CA /* login_psw_new.png in Resources */,
 				A6BEA5B51B05F02D00EA2934 /* login_logo.png in Resources */,
 				09C9C37D1B29523B00B1F902 /* WSUploadCell.xib in Resources */,
 				09C9C37F1B2959FA00B1F902 /* wsupload.png in Resources */,
@@ -1362,6 +1383,7 @@
 				A6981E3D1B156D7C00F45DAC /* SettingVC.m in Sources */,
 				A6981EA01B15AD3700F45DAC /* ContactsThirdCell.m in Sources */,
 				A6BEA5631B05CA1800EA2934 /* AFURLSessionManager.m in Sources */,
+				A6BDECBF1B58CE5E000D03CA /* ChangePassword.m in Sources */,
 				09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */,
 				A6C8B8B11B33158E0010E7F4 /* SharerFirstCell.m in Sources */,
 				A6BEA56E1B05CA1800EA2934 /* MJRefreshHeaderView.m in Sources */,
