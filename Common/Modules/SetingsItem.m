@@ -10,10 +10,9 @@
 
 @implementation SetingsItem
 
-- (id)initWithIconImgName:(NSString *)imgName andTitleName:(NSString *)titleName andIsSwitchOn:(BOOL)isSwitchOn
-{
+- (id)initWithIconImg:(UIImage *)img andTitleName:(NSString *)titleName andIsSwitchOn:(BOOL)isSwitchOn {
     if ([super init]) {
-        self.iconImgName = imgName;
+        self.iconImg = img;
         self.titleName = titleName;
         self.isSwitchOn = isSwitchOn;
     }

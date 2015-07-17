@@ -20,7 +20,7 @@
 @interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) UIImage *personImage;
+//@property (strong, nonatomic) UIImage *personImage;
 
 @end
 
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"设置";
-    self.personImage = [UIImage imageNamed:@"comm_head.png"];
+    //self.personImage = [UIImage imageNamed:@"comm_head.png"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +80,7 @@
                 cell = [[SetingsTwoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer2];
             }
             
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"退出登陆" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"退出登陆" andIsSwitchOn:NO];
             
             ((SetingsTwoCell *)cell).item = item;
             ((SetingsTwoCell *)cell).cellEdge = 10;
@@ -93,11 +93,11 @@
             }
             
             if (indexPath.row == 0) {
-                SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"修改密码" andIsSwitchOn:NO];
+                SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"修改密码" andIsSwitchOn:NO];
                 ((SetingsOneCell *)cell).item = item;
             }
             else{
-                SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:@"comm_head.png" andTitleName:@"选择头像" andIsSwitchOn:NO];
+                SetingsItem *item = [[SetingsItem alloc] initWithIconImg:[[User sharedUser] getLocalPersonImageWithPalceholderImage:[UIImage imageNamed:@"comm_head.png"]] andTitleName:@"选择头像" andIsSwitchOn:NO];
                 ((SetingsOneCell *)cell).item = item;
             }
             
@@ -117,14 +117,14 @@
             
             BOOL isOn = [[[[User sharedUser] getUserGlobalDic] objectForKey:uRemenberPassword] boolValue];
             
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"记住密码" andIsSwitchOn:isOn];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"记住密码" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
         }
         else{
             
             BOOL isOn = [[[[User sharedUser] getUserGlobalDic] objectForKey:uAotoLogin] boolValue];
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"自动登陆" andIsSwitchOn:isOn];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"自动登陆" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
             
@@ -141,14 +141,14 @@
             
             BOOL isOn = YES;
             
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"开启聊天" andIsSwitchOn:isOn];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"开启聊天" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
         }
         else{
             
             BOOL isOn = YES;
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"消息提示音" andIsSwitchOn:isOn];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"消息提示音" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
             
@@ -161,18 +161,18 @@
         }
         
         if (indexPath.row == 0) {
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"帮助" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"帮助" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
 
         }
         else if (indexPath.row == 1){
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"关于我们" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"关于我们" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
         }
         else{
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImgName:nil andTitleName:@"移动办公Beta2版" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"移动办公Beta2版" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
 
@@ -307,8 +307,16 @@
 #pragma mark - UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.personImage = image;
+    
+    //本地化存储图片
+    [[User sharedUser] saveImage:image];
+    
+    [self.tableView reloadData];
+    
+   
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

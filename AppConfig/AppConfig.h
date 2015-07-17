@@ -35,7 +35,8 @@
 #define DOCUMENT_FOLDER_DIR [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
 
-
+//用户头像名称
+#define UserIconImageName @"UserIconImageName.jpeg"
 
 
 

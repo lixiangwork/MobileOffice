@@ -32,8 +32,8 @@
 
 - (void)layoutThatContentItems:(SetingsItem *)sItem
 {
-    if (sItem.iconImgName) {
-        _iconImgView.image = [UIImage imageNamed:sItem.iconImgName];
+    if (sItem.iconImg) {
+        _iconImgView.image = sItem.iconImg;
     }
     
     

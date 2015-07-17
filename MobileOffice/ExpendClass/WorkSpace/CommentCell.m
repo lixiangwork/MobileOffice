@@ -7,6 +7,7 @@
 //
 
 #import "CommentCell.h"
+#import "AppCore.h"
 
 @implementation CommentCell
 
@@ -52,6 +53,10 @@
 
 - (CGFloat )layoutThatContentItems:(CommentItems *)item
 {
+    if ( [item.commentor isEqualToString:[[[User sharedUser] getUserGlobalDic] objectForKey:uUserName]] ) {
+        _commenterImgView.image = [[User sharedUser] getLocalPersonImageWithPalceholderImage:[UIImage imageNamed:@"comm_head.png"]];
+    }
+    
     _commenterLabel.text = item.commentor;
     _timeLabel.text = item.date;
     
