@@ -12,6 +12,10 @@
 @protocol FileDetailVCDelegate <NSObject>
 
 - (void)alterCommentSuccess;
+//- (void)shareSuccess;
+
+@optional
+- (void)guidangSuccess;
 
 @end
 

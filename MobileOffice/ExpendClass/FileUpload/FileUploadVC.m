@@ -50,13 +50,14 @@
 }
 
 - (IBAction)uploadButtonClicked:(id)sender {
+    [_fileNameTF resignFirstResponder];
     
     if (!_selectImage) {
         [UIFactory showAlert:@"请先选择上传文件"];
     }
     else{
         
-        NSData* imgData =  [[NSData alloc] initWithData:UIImageJPEGRepresentation(_selectImage, 0.5)];
+        NSData* imgData =  [[NSData alloc] initWithData:UIImageJPEGRepresentation(_selectImage, 0.2)];
         //NSData* imgData =  [[NSData alloc] initWithData:UIImagePNGRepresentation(_selectImage)];
 
         
@@ -88,7 +89,7 @@
 
         [self showHudWithMsg:@"上传中..."];
         ////////////
-        [[CloudService sharedInstance] insertContentWithPropertyList:properties andContentType:@"test_table_1" andSourceFileName:_fileNameTF.text andInputstream:[GTMBase64 encodeData:imgData] withBlock:^(NSString *contentID, NSError *error) {
+        [[CloudService sharedInstance] insertContentWithPropertyList:properties andContentType:@"test_table_1" andSourceFileName:[NSString stringWithFormat:@"%@.png",_fileNameTF.text] andInputstream:[GTMBase64 encodeData:imgData] withBlock:^(NSString *contentID, NSError *error) {
             [self hideHud];
             if (!error) {
                 if (contentID) {
@@ -97,6 +98,8 @@
                     [self.nameView setHidden:YES];
                     
                     [UIFactory showAlert:@"上传成功"];
+                    
+                    [kNotificationCenter postNotificationName:NoticeUploadFileSuccess object:nil];
                     
                 }
                 else {
@@ -171,6 +174,15 @@
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:imageURL resultBlock:^(ALAsset *asset) {
         _fileNameTF.text = [asset.defaultRepresentation.filename stringByDeletingPathExtension];
+        
+        if (_fileNameTF.text.length <= 0) {
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MMddHHMMSS"];
+            
+            _fileNameTF.text = [NSString stringWithFormat:@"IMG_%@",[formatter stringFromDate:[NSDate date]]];
+        }
+        
     } failureBlock:^(NSError *error) {
         NSLog(@"error:%@",[error description]);
     }];

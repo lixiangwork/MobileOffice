@@ -14,6 +14,7 @@
 #import "LocalFileVC.h"
 #import "FileDetailVC.h"
 #import "FileDealedVC.h"
+//#import "GuidangFileDetailVC.h"
 
 @interface WorkSpaceVC ()<UITableViewDataSource,UITableViewDelegate, LXSegmentViewDelegate, FileDetailVCDelegate>
 
@@ -28,6 +29,13 @@
 
 @property (nonatomic) NSInteger currentIndex;
 
+@property (nonatomic) BOOL isUploadSuccess;
+@property (nonatomic) BOOL isGuidangSuccess1;
+@property (nonatomic) BOOL isGuidangSuccess2;
+@property (nonatomic) BOOL isGuidangSuccess3;
+
+//@property (nonatomic) BOOL isShareSuccess;
+
 @end
 
 @implementation WorkSpaceVC
@@ -38,8 +46,15 @@
     self.navigationItem.title = @"我的文档";
     
     _currentIndex = 0;
+    _isUploadSuccess = NO;
+    _isGuidangSuccess1 = NO;
+    _isGuidangSuccess2 = NO;
+    _isGuidangSuccess3 = NO;
     
     [self setupRefresh:@"table1"];
+    
+    [kNotificationCenter addObserver:self selector:@selector(updateMyCreateDocument) name:NoticeUploadFileSuccess object:nil];
+    
 }
 
 - (void)initUI{
@@ -99,12 +114,25 @@
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightBtnItem;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    if (_currentIndex == 0 && _isUploadSuccess) {
+        _isUploadSuccess = NO;
+        [self setupRefresh:@"table1"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - notifcation
+- (void)updateMyCreateDocument {
+    _isUploadSuccess = YES;
 }
 
 #pragma mark - My Action
@@ -123,6 +151,7 @@
     FileDealedVC *vc = [[FileDealedVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 #pragma mark - Clound Request
@@ -248,17 +277,22 @@
     _currentIndex = currentIndex;
     
     if (currentIndex == 0) {
-        if (_tableList1.count == 0) {
+        
+        if (_tableList1.count == 0 || _isUploadSuccess || _isGuidangSuccess1) {
+            _isUploadSuccess = NO;
+            _isGuidangSuccess1 = NO;
             [self setupRefresh:@"table1"];
         }
     }
     else if (currentIndex == 1) {
-        if (_tableList2.count == 0) {
+        if (_tableList2.count == 0 || _isGuidangSuccess2) {
+            _isGuidangSuccess2 = NO;
             [self setupRefresh:@"table2"];
         }
     }
     else if (currentIndex == 2) {
-        if (_tableList3 == 0) {
+        if (_tableList3 == 0 || _isGuidangSuccess3) {
+            _isGuidangSuccess3 = NO;
             [self setupRefresh:@"table3"];
         }
     }
@@ -442,6 +476,32 @@
     else if (_currentIndex == 2) {
        
         [self setupRefresh:@"table3"];
+        
+    }
+}
+
+- (void)guidangSuccess {
+    
+    _isGuidangSuccess1 = YES;
+    _isGuidangSuccess2 = YES;
+    _isGuidangSuccess3 = YES;
+    
+    if (_currentIndex == 0) {
+        
+        [self setupRefresh:@"table1"];
+        _isGuidangSuccess1 = NO;
+        
+    }
+    else if (_currentIndex == 1) {
+        
+        [self setupRefresh:@"table2"];
+        _isGuidangSuccess2 = NO;
+        
+    }
+    else if (_currentIndex == 2) {
+        
+        [self setupRefresh:@"table3"];
+        _isGuidangSuccess3 = NO;
         
     }
 

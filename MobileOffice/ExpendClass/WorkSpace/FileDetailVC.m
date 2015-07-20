@@ -201,7 +201,7 @@
 }
 
 - (IBAction)deleteButtonClicked:(id)sender {
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"删除文档" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"在云平台上删除",@"从本地删除" ,nil];
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"删除文档" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从本地删除" ,nil];
     actionSheet.tag = DeleteActionSheetTag;
     actionSheet.destructiveButtonIndex = -1;
     //        actionSheet.cancelButtonIndex = 0;
@@ -376,8 +376,11 @@
             [self hideHud];
             if (success) {
                 
-                if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
+                /*if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
                     [self.delegate alterCommentSuccess];
+                }*/
+                if ([self.delegate respondsToSelector:@selector(guidangSuccess)]) {
+                    [self.delegate guidangSuccess];
                 }
                 [self showHudOnlyMsg:@"归档成功"];
             }
@@ -492,7 +495,8 @@
         headerLabel.text = [NSString stringWithFormat:@"已共享%lu人",(unsigned long)mutShareArr.count ];
     }
     else if(section == 2){
-        headerLabel.text = [NSString stringWithFormat:@"评论 %@",[_contentItem.Properties objectForKey:@"comment_num"]];
+        //headerLabel.text = [NSString stringWithFormat:@"评论 %@",[_contentItem.Properties objectForKey:@"comment_num"]];
+        headerLabel.text = [NSString stringWithFormat:@"评论 %lu",(unsigned long)_commentArray.count];
     }
     else{
         headerLabel.text = @"";
@@ -548,16 +552,18 @@
 #pragma mark ActinoSheet delegate methods
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    //    NSLog(@"button clicked :%d", buttonIndex);
+       // NSLog(@"button clicked :%d", buttonIndex);
     
     if (actionSheet.tag == DeleteActionSheetTag) {
-        if (buttonIndex == 0) {
+        /*if (buttonIndex == 0) {
             
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"您没有权限从云平台删除文件！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if(buttonIndex == 1 && _contentItem.IsLocalFile){
-            [self DeleteLocalFile];
+        else*/ if(buttonIndex == 0){
+            if ( _contentItem.IsLocalFile) {
+                [self DeleteLocalFile];
+            }
             
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"删除成功" message:@"文件已经成功在本地删除" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
             [alert show];
@@ -576,8 +582,11 @@
 
 #pragma mark - chooseSharerVC delegate
 - (void)chooseSharerVCSharedSuccess:(NSString *)shares {
-    if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
+    /*if ([self.delegate respondsToSelector:@selector(alterCommentSuccess)]) {
         [self.delegate alterCommentSuccess];
+    }*/
+    if ([self.delegate respondsToSelector:@selector(guidangSuccess)]) {//share分享完成之后 需要的操作和归档一样，所以偷懒调用的归档的委托。
+        [self.delegate guidangSuccess];
     }
 
     [_contentItem.Properties setObject:shares forKey:@"shares"];

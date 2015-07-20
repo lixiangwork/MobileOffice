@@ -9,8 +9,9 @@
 #import "FileDealedVC.h"
 #import "WSUploadCell.h"
 #import "FileDetailVC.h"
+#import "GuidangFileDetailVC.h"
 
-@interface FileDealedVC ()<UITableViewDataSource, UITableViewDelegate>
+@interface FileDealedVC ()<UITableViewDataSource, UITableViewDelegate, FileDetailVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *tableList;
@@ -135,12 +136,21 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    FileDetailVC *detailVC = [[FileDetailVC alloc] initWithNibName:@"FileDetailVC" bundle:nil];
+    /*FileDetailVC *detailVC = [[FileDetailVC alloc] initWithNibName:@"FileDetailVC" bundle:nil];
     
     detailVC.contentItem = [_tableList objectAtIndex:indexPath.section];
         
     
+    [self.navigationController pushViewController:detailVC animated:YES];*/
+    
+    GuidangFileDetailVC *detailVC = [[GuidangFileDetailVC alloc] initWithNibName:@"GuidangFileDetailVC" bundle:nil];
+    detailVC.delegate = self;
+    
+    detailVC.contentItem = [_tableList objectAtIndex:indexPath.section];
+    
+    
     [self.navigationController pushViewController:detailVC animated:YES];
+    
     
 }
 
@@ -163,6 +173,12 @@
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
     return 3.0f;
+}
+
+#pragma mark - FileDetailVC delegate
+- (void)alterCommentSuccess {
+    
+    [self setupRefresh:@"table"];
 }
 
 @end

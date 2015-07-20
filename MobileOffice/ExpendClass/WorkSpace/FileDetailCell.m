@@ -86,7 +86,14 @@
     
     _titleAndSizeLabel.text = [NSString stringWithFormat:@"%@",[cItem.Properties objectForKey:@"zh_wzbt"]];
 
-    _timeLabel.text = [NSString stringWithFormat:@"更新于 %@",cItem.LastChangedTime];
+    NSString *timeStr;
+    if ([cItem.LastChangedTime length] >= 19) {
+        timeStr = [cItem.LastChangedTime substringToIndex:19];
+    }
+    else {
+        timeStr = cItem.LastChangedTime;
+    }
+    _timeLabel.text = [NSString stringWithFormat:@"更新于 %@",timeStr];
     
     NSString *creater = [cItem.Properties objectForKey:@"creater"];
     if (!creater) {

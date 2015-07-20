@@ -124,7 +124,7 @@
     
     [postbody appendData:[[NSString stringWithFormat:@"</SOURCEFILENAME><MIMETYPE>"] dataUsingEncoding:NSUTF8StringEncoding]];
     NSString* mimetype;
-    if ([fileName rangeOfString:@"png" options:NSCaseInsensitiveSearch].location != NSNotFound)
+    if ([fileName rangeOfString:@"png" options:NSCaseInsensitiveSearch].location != NSNotFound )
     {
         mimetype = @"image/png";
     }

@@ -39,7 +39,8 @@
 #define UserIconImageName @"UserIconImageName.jpeg"
 
 
-
+//通知
+#define NoticeUploadFileSuccess @"NoticeUploadFileSuccess"
 
 
 

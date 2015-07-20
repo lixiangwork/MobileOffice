@@ -114,6 +114,8 @@
 		A6B989C11B33A45000AE8DDE /* checkbox_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B989BF1B33A45000AE8DDE /* checkbox_unselect.png */; };
 		A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B989C31B33A85300AE8DDE /* ChooseSharerVC.m */; };
 		A6B989C61B33A85300AE8DDE /* ChooseSharerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B989C41B33A85300AE8DDE /* ChooseSharerVC.xib */; };
+		A6BBBBAA1B5CA45C00D37BB8 /* GuidangFileDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BBBBA81B5CA45C00D37BB8 /* GuidangFileDetailVC.m */; };
+		A6BBBBAB1B5CA45C00D37BB8 /* GuidangFileDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BBBBA91B5CA45C00D37BB8 /* GuidangFileDetailVC.xib */; };
 		A6BC6ED21B1ED4DA007FFA93 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC6ED11B1ED4DA007FFA93 /* upload_add.png */; };
 		A6BC6ED41B1ED522007FFA93 /* btn_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC6ED31B1ED522007FFA93 /* btn_upload.png */; };
 		A6BC6ED61B1EE113007FFA93 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */; };
@@ -363,6 +365,9 @@
 		A6B989C21B33A85300AE8DDE /* ChooseSharerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSharerVC.h; sourceTree = "<group>"; };
 		A6B989C31B33A85300AE8DDE /* ChooseSharerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSharerVC.m; sourceTree = "<group>"; };
 		A6B989C41B33A85300AE8DDE /* ChooseSharerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseSharerVC.xib; sourceTree = "<group>"; };
+		A6BBBBA71B5CA45C00D37BB8 /* GuidangFileDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidangFileDetailVC.h; sourceTree = "<group>"; };
+		A6BBBBA81B5CA45C00D37BB8 /* GuidangFileDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidangFileDetailVC.m; sourceTree = "<group>"; };
+		A6BBBBA91B5CA45C00D37BB8 /* GuidangFileDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidangFileDetailVC.xib; sourceTree = "<group>"; };
 		A6BC6ED11B1ED4DA007FFA93 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
 		A6BC6ED31B1ED522007FFA93 /* btn_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_upload.png; sourceTree = "<group>"; };
 		A6BC6ED51B1EE113007FFA93 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -628,6 +633,9 @@
 				A6C8B8841B3259E10010E7F4 /* FileDetailVC.xib */,
 				A6C8B8891B325C2F0010E7F4 /* fileToolButton.h */,
 				A6C8B88A1B325C2F0010E7F4 /* fileToolButton.m */,
+				A6BBBBA71B5CA45C00D37BB8 /* GuidangFileDetailVC.h */,
+				A6BBBBA81B5CA45C00D37BB8 /* GuidangFileDetailVC.m */,
+				A6BBBBA91B5CA45C00D37BB8 /* GuidangFileDetailVC.xib */,
 			);
 			name = FileDetail;
 			sourceTree = "<group>";
@@ -1287,6 +1295,7 @@
 				A6BEA5B41B05F02D00EA2934 /* login_mmBg.png in Resources */,
 				A6981E391B156D6500F45DAC /* FileUploadVC.xib in Resources */,
 				A6981E7F1B15A1CF00F45DAC /* h1.jpg in Resources */,
+				A6BBBBAB1B5CA45C00D37BB8 /* GuidangFileDetailVC.xib in Resources */,
 				A6981E4A1B1593CB00F45DAC /* tabbarItem_workSpace@2x.png in Resources */,
 				A600B1D31B2FD11300C1BC18 /* xls.png in Resources */,
 				A600B1D01B2FD11300C1BC18 /* ppt.png in Resources */,
@@ -1449,6 +1458,7 @@
 				A6981E691B159AFD00F45DAC /* SetingsTwoCell.m in Sources */,
 				A6C8B8A11B32D9100010E7F4 /* CustomIOSAlertView.m in Sources */,
 				A6C8B8B31B33158F0010E7F4 /* SharerSecondCell.m in Sources */,
+				A6BBBBAA1B5CA45C00D37BB8 /* GuidangFileDetailVC.m in Sources */,
 				A6981E581B1599E000F45DAC /* SetingsItem.m in Sources */,
 				A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */,
 				A6BEA55C1B05CA1800EA2934 /* AFHTTPRequestOperationManager.m in Sources */,

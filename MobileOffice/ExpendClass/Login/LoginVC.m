@@ -72,6 +72,9 @@
     if (_remenberPasswordBtn.selected) {
         _passwordTF.text = [_userGlobalDic objectForKey:uPassword];
     }
+    else {
+        _passwordTF.text = @"";
+    }
 
 }
 
@@ -133,29 +136,45 @@
 }
 
 - (void)loginAchieve{
-    [self showHudWithMsg:@"登陆中..."];
-    [[CloudService sharedInstance] testUser:_userNameTF.text andPassword:_passwordTF.text withBlock:^(BOOL isSuccess, NSString *nickName, NSError *error) {
-        [self hideHud];
+    
+    if (_userNameTF.text == nil || [_userNameTF.text isEqualToString:@""]) {
         
-        if (!error) {
-            NSLog(@"nickName:%@",nickName);
-            if (isSuccess) {
-                [_userGlobalDic setObject:_userNameTF.text forKey:uUserName];
-                [_userGlobalDic setObject:_passwordTF.text forKey:uPassword];
-                if (nickName) {
-                    [_userGlobalDic setObject:nickName forKey:uNickName];
+        [UIFactory showAlert:@"用户名不能为空"];
+    }
+    else if(_passwordTF.text == nil || [_passwordTF.text isEqualToString:@""]){
+        
+        [UIFactory showAlert:@"密码不能为空"];
+    }
+    else if (!_remenberPasswordBtn.selected && _aotoLoginBtn.selected) {
+        
+        [UIFactory showAlert:@"请选择记住密码"];
+    }
+    else {
+        [self showHudWithMsg:@"登陆中..."];
+        [[CloudService sharedInstance] testUser:_userNameTF.text andPassword:_passwordTF.text withBlock:^(BOOL isSuccess, NSString *nickName, NSError *error) {
+            [self hideHud];
+            
+            if (!error) {
+                NSLog(@"nickName:%@",nickName);
+                if (isSuccess) {
+                    [_userGlobalDic setObject:_userNameTF.text forKey:uUserName];
+                    [_userGlobalDic setObject:_passwordTF.text forKey:uPassword];
+                    if (nickName) {
+                        [_userGlobalDic setObject:nickName forKey:uNickName];
+                    }
+                    [[User sharedUser] setUserGlobalDic:_userGlobalDic];
+                    [self gotoNextViewController];
                 }
-                [[User sharedUser] setUserGlobalDic:_userGlobalDic];
-                [self gotoNextViewController];
+                else{
+                    [UIFactory showAlert:@"用户名不存在或密码错误"];
+                }
             }
             else{
-                [UIFactory showAlert:@"用户名不存在或密码错误"];
+                [UIFactory showAlert:@"网络错误"];
             }
-        }
-        else{
-            [UIFactory showAlert:@"网络错误"];
-        }
-    }];
+        }];
+
+    }
 }
 
 #pragma mark - IBAction
@@ -182,17 +201,8 @@
     [_userNameTF resignFirstResponder];
     [_passwordTF resignFirstResponder];
     
-    if (_userNameTF.text == nil || [_userNameTF.text isEqualToString:@""]) {
-        
-        [UIFactory showAlert:@"用户名不能为空"];
-    }
-    else if(_passwordTF.text == nil || [_passwordTF.text isEqualToString:@""]){
-        
-        [UIFactory showAlert:@"密码不能为空"];
-    }
-    else {
-        [self loginAchieve];
-    }
+    [self loginAchieve];
+   
 
 }
 
