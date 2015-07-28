@@ -338,7 +338,7 @@
 		A6E68EE01B5907900030C25E /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EDF1B5907900030C25E /* PgySDK.framework */; };
 		A6E68EE21B5907B10030C25E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE11B5907B10030C25E /* CoreTelephony.framework */; };
 		A6E68EE41B5907BB0030C25E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE31B5907BB0030C25E /* OpenGLES.framework */; };
-		A6E68EE61B5907C30030C25E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE51B5907C30030C25E /* SceneKit.framework */; };
+		A6E68EE61B5907C30030C25E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE51B5907C30030C25E /* SceneKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A6E68EE81B5907CC0030C25E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE71B5907CC0030C25E /* CoreMotion.framework */; };
 		A6E68EEA1B5907D40030C25E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE91B5907D40030C25E /* AudioToolbox.framework */; };
 		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
