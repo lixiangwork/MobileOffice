@@ -87,11 +87,20 @@
 #pragma mark - lookup
 - (void)lookupDocument:(NSURL *)myURL
 {
-    _documentController = [[UIDocumentInteractionController alloc] init];
+    //_documentController = [[UIDocumentInteractionController alloc] init];
     _documentController = [UIDocumentInteractionController interactionControllerWithURL:myURL];
     _documentController.delegate = self;
-    //[_documentController presentPreviewAnimated:YES];
-    [_documentController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+    
+    if ([_contentItem.MimeType rangeOfString:@"image"
+                              options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        [_documentController presentPreviewAnimated:YES];
+    }
+    else {
+        [_documentController presentOptionsMenuFromRect:self.view.frame inView:self.view animated:YES];
+    }
+    //
+    //[_documentController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+    
 }
 
 
@@ -548,6 +557,7 @@
     
     return self.view.frame;
 }
+
 
 #pragma mark ActinoSheet delegate methods
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

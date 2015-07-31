@@ -343,6 +343,7 @@
 		A6E68EEA1B5907D40030C25E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EE91B5907D40030C25E /* AudioToolbox.framework */; };
 		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
 		A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EED1B5908070030C25E /* SystemConfiguration.framework */; };
+		C92189F51B6B298A004595DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92189F71B6B298A004595DE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -936,6 +937,8 @@
 		A6E68EE91B5907D40030C25E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6E68EED1B5908070030C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C92189F61B6B298A004595DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C92189F81B6B29AC004595DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2016,6 +2019,7 @@
 			isa = PBXGroup;
 			children = (
 				A6BEA4E61B05C3B300EA2934 /* Info.plist */,
+				C92189F71B6B298A004595DE /* Localizable.strings */,
 				A6BEA4E71B05C3B300EA2934 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -2620,6 +2624,7 @@
 				A6981EA71B15AD9E00F45DAC /* tree_view_icon_open.png in Resources */,
 				A6C8B87F1B3257E00010E7F4 /* file_handle.png in Resources */,
 				A6C8B8811B3257E00010E7F4 /* file_share.png in Resources */,
+				C92189F51B6B298A004595DE /* Localizable.strings in Resources */,
 				A6BDECC21B58CF9E000D03CA /* login_psw_new.png in Resources */,
 				A6BEA5B51B05F02D00EA2934 /* login_logo.png in Resources */,
 				09C9C37D1B29523B00B1F902 /* WSUploadCell.xib in Resources */,
@@ -2901,6 +2906,15 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		C92189F71B6B298A004595DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C92189F61B6B298A004595DE /* en */,
+				C92189F81B6B29AC004595DE /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2985,8 +2999,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3000,7 +3014,7 @@
 					"$(PROJECT_DIR)/ThirdPart/libidn",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bac7f0fc-fa21-49cc-9786-49f4f4c9a317";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3009,8 +3023,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3024,7 +3038,7 @@
 					"$(PROJECT_DIR)/ThirdPart/libidn",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bac7f0fc-fa21-49cc-9786-49f4f4c9a317";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

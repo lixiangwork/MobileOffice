@@ -52,6 +52,25 @@
     return [NSURL fileURLWithPath:filePath isDirectory:NO];
 }
 
+#pragma mark - lookup
+- (void)lookupDocument:(NSURL *)myURL andThefileName:(NSString *)thefileName
+{
+    //_documentController = [[UIDocumentInteractionController alloc] init];
+    _documentController = [UIDocumentInteractionController interactionControllerWithURL:myURL];
+    _documentController.delegate = self;
+    
+    if ([thefileName isEqualToString:@"png"] || [thefileName isEqualToString:@"JPG"] ||  [thefileName isEqualToString:@"jpg"] || [thefileName isEqualToString:@"jpeg"]) {
+        
+        [_documentController presentPreviewAnimated:YES];
+    }
+    else {
+        [_documentController presentOptionsMenuFromRect:self.view.frame inView:self.view animated:YES];
+    }
+    //
+    //[_documentController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+}
+
+
 
 #pragma mark - UITableView DataSource
 
@@ -88,13 +107,16 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSURL *fileURL = [self ConstituteURL:[_allLoaclFiles objectAtIndex:indexPath.section]];
-    _documentController = [[UIDocumentInteractionController alloc] init];
-    _documentController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-    _documentController.delegate = self;
-    //[_documentController presentPreviewAnimated:YES];
-    [_documentController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
-
+    NSString *fileName = [_allLoaclFiles objectAtIndex:indexPath.section];
+    NSString* thefileName = [fileName pathExtension];
+    
+    NSURL *fileURL = [self ConstituteURL:fileName];
+    
+    
+    [self lookupDocument:fileURL andThefileName:thefileName];
+    
+   
+    
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
