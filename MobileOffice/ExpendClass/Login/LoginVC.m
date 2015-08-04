@@ -11,7 +11,9 @@
 #import "CloudService.h"
 
 #import "WorkSpaceVC.h"
-#import "ChatVC.h"
+#import "IMMainMessageC.h"
+#import "IMContactsC.h"
+#import "IIViewDeckController.h"
 #import "ContactsVC.h"
 #import "FileUploadVC.h"
 #import "SettingVC.h"
@@ -103,8 +105,15 @@
     FileUploadVC *fileUploadVC = [[FileUploadVC alloc] initWithNibName:@"FileUploadVC" bundle:nil];
     UINavigationController *fileUploadNav = [[UINavigationController alloc] initWithRootViewController:fileUploadVC];
     
-    ChatVC *chatVC = [[ChatVC alloc] initWithNibName:@"ChatVC" bundle:nil];
+    ///////////chat
+    IMMainMessageC *chatVC = [[IMMainMessageC alloc] init];
     UINavigationController *chatNav = [[UINavigationController alloc] initWithRootViewController:chatVC];
+    
+    IMContactsC *imContactsC = [[IMContactsC alloc] init];
+    UINavigationController *imContactsNav = [[UINavigationController alloc] initWithRootViewController:imContactsC];
+    
+    IIViewDeckController *viewDeckController = [[IIViewDeckController alloc] initWithCenterViewController:chatNav leftViewController:imContactsNav];
+    ///////////
     
     ContactsVC *contactsVC = [[ContactsVC alloc] initWithNibName:@"ContactsVC" bundle:nil];
     UINavigationController *contactsNav = [[UINavigationController alloc] initWithRootViewController:contactsVC];
@@ -113,7 +122,7 @@
     UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:settingVC];
     
     UITabBarController *myTabBarController = [[UITabBarController alloc] init];
-    myTabBarController.viewControllers = @[workSpaceNav, fileUploadNav, chatNav, contactsNav, settingNav];
+    myTabBarController.viewControllers = @[workSpaceNav, fileUploadNav, viewDeckController, contactsNav, settingNav];
     
     workSpaceNav.tabBarItem.title = @"我的文档";
     workSpaceNav.tabBarItem.image = [UIImage imageNamed:@"tabbarItem_workSpace.png"];
@@ -121,8 +130,8 @@
     fileUploadNav.tabBarItem.title = @"文件上传";
     fileUploadNav.tabBarItem.image = [UIImage imageNamed:@"tabbarItem_fileUpload.png"];
     
-    chatNav.tabBarItem.title = @"即时通讯";
-    chatNav.tabBarItem.image = [UIImage imageNamed:@"tabbarItem_jishitong.png"];
+    viewDeckController.tabBarItem.title = @"即时通讯";
+    viewDeckController.tabBarItem.image = [UIImage imageNamed:@"tabbarItem_jishitong.png"];
     
     contactsNav.tabBarItem.title = @"通讯录";
     contactsNav.tabBarItem.image = [UIImage imageNamed:@"tabbarItem_txl.png"];

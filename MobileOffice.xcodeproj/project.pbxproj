@@ -183,8 +183,6 @@
 		A60B14ED1B5F3B1500A398AE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60B14EC1B5F3B1500A398AE /* CoreLocation.framework */; };
 		A6981E291B156CFA00F45DAC /* WorkSpaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */; };
 		A6981E2A1B156CFA00F45DAC /* WorkSpaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */; };
-		A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E2C1B156D3E00F45DAC /* ChatVC.m */; };
-		A6981E2F1B156D3E00F45DAC /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E2D1B156D3E00F45DAC /* ChatVC.xib */; };
 		A6981E331B156D5000F45DAC /* ContactsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E311B156D5000F45DAC /* ContactsVC.m */; };
 		A6981E341B156D5000F45DAC /* ContactsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6981E321B156D5000F45DAC /* ContactsVC.xib */; };
 		A6981E381B156D6500F45DAC /* FileUploadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6981E361B156D6500F45DAC /* FileUploadVC.m */; };
@@ -344,6 +342,12 @@
 		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
 		A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EED1B5908070030C25E /* SystemConfiguration.framework */; };
 		C92189F51B6B298A004595DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92189F71B6B298A004595DE /* Localizable.strings */; };
+		C9A439011B6B4E6B00C7B6A1 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A438FE1B6B4E6B00C7B6A1 /* IIViewDeckController.m */; };
+		C9A439021B6B4E6B00C7B6A1 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439001B6B4E6B00C7B6A1 /* IIWrapController.m */; };
+		C9A439071B6B4F0C00C7B6A1 /* IMMainMessageC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */; };
+		C9A4390A1B6B4F2600C7B6A1 /* IMContactsC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439091B6B4F2600C7B6A1 /* IMContactsC.m */; };
+		C9A4390D1B6B4F9100C7B6A1 /* IMChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */; };
+		C9A4390F1B6B5B1F00C7B6A1 /* chat_showleft.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A4390E1B6B5B1F00C7B6A1 /* chat_showleft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -693,9 +697,6 @@
 		A6981E261B156CFA00F45DAC /* WorkSpaceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSpaceVC.h; sourceTree = "<group>"; };
 		A6981E271B156CFA00F45DAC /* WorkSpaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkSpaceVC.m; sourceTree = "<group>"; };
 		A6981E281B156CFA00F45DAC /* WorkSpaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkSpaceVC.xib; sourceTree = "<group>"; };
-		A6981E2B1B156D3E00F45DAC /* ChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatVC.h; sourceTree = "<group>"; };
-		A6981E2C1B156D3E00F45DAC /* ChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatVC.m; sourceTree = "<group>"; };
-		A6981E2D1B156D3E00F45DAC /* ChatVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
 		A6981E301B156D5000F45DAC /* ContactsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsVC.h; sourceTree = "<group>"; };
 		A6981E311B156D5000F45DAC /* ContactsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsVC.m; sourceTree = "<group>"; };
 		A6981E321B156D5000F45DAC /* ContactsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsVC.xib; sourceTree = "<group>"; };
@@ -939,6 +940,17 @@
 		A6E68EED1B5908070030C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C92189F61B6B298A004595DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C92189F81B6B29AC004595DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C9A438FD1B6B4E6B00C7B6A1 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		C9A438FE1B6B4E6B00C7B6A1 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		C9A438FF1B6B4E6B00C7B6A1 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
+		C9A439001B6B4E6B00C7B6A1 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
+		C9A439051B6B4F0C00C7B6A1 /* IMMainMessageC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMainMessageC.h; sourceTree = "<group>"; };
+		C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMainMessageC.m; sourceTree = "<group>"; };
+		C9A439081B6B4F2600C7B6A1 /* IMContactsC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMContactsC.h; sourceTree = "<group>"; };
+		C9A439091B6B4F2600C7B6A1 /* IMContactsC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMContactsC.m; sourceTree = "<group>"; };
+		C9A4390B1B6B4F9100C7B6A1 /* IMChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatVC.h; sourceTree = "<group>"; };
+		C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChatVC.m; sourceTree = "<group>"; };
+		C9A4390E1B6B5B1F00C7B6A1 /* chat_showleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_showleft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2102,6 +2114,7 @@
 		A6BEA5101B05CA1800EA2934 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				C9A438FC1B6B4E6B00C7B6A1 /* ViewDeck */,
 				A60B14E91B5F3A6B00A398AE /* XMPPFramework.h */,
 				A60B13851B5F39FD00A398AE /* Extensions */,
 				A60B13211B5F384000A398AE /* Authentication */,
@@ -2230,9 +2243,8 @@
 		A6BEA57C1B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				A6981E2B1B156D3E00F45DAC /* ChatVC.h */,
-				A6981E2C1B156D3E00F45DAC /* ChatVC.m */,
-				A6981E2D1B156D3E00F45DAC /* ChatVC.xib */,
+				C9A439031B6B4EBA00C7B6A1 /* IM_Models */,
+				C9A439041B6B4EBA00C7B6A1 /* IM_UI */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2332,6 +2344,7 @@
 		A6BEA5851B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C9A4390E1B6B5B1F00C7B6A1 /* chat_showleft.png */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2458,6 +2471,37 @@
 			path = ChooseSharer;
 			sourceTree = "<group>";
 		};
+		C9A438FC1B6B4E6B00C7B6A1 /* ViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				C9A438FD1B6B4E6B00C7B6A1 /* IIViewDeckController.h */,
+				C9A438FE1B6B4E6B00C7B6A1 /* IIViewDeckController.m */,
+				C9A438FF1B6B4E6B00C7B6A1 /* IIWrapController.h */,
+				C9A439001B6B4E6B00C7B6A1 /* IIWrapController.m */,
+			);
+			path = ViewDeck;
+			sourceTree = "<group>";
+		};
+		C9A439031B6B4EBA00C7B6A1 /* IM_Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IM_Models;
+			sourceTree = "<group>";
+		};
+		C9A439041B6B4EBA00C7B6A1 /* IM_UI */ = {
+			isa = PBXGroup;
+			children = (
+				C9A439051B6B4F0C00C7B6A1 /* IMMainMessageC.h */,
+				C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */,
+				C9A439081B6B4F2600C7B6A1 /* IMContactsC.h */,
+				C9A439091B6B4F2600C7B6A1 /* IMContactsC.m */,
+				C9A4390B1B6B4F9100C7B6A1 /* IMChatVC.h */,
+				C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */,
+			);
+			path = IM_UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2551,7 +2595,6 @@
 				09C9C3771B294A1100B1F902 /* bg_tab_selected1.png in Resources */,
 				A6981E8A1B15A1CF00F45DAC /* h12.jpg in Resources */,
 				A6981E491B1593CB00F45DAC /* tabbarItem_workSpace.png in Resources */,
-				A6981E2F1B156D3E00F45DAC /* ChatVC.xib in Resources */,
 				A6981E8C1B15A1CF00F45DAC /* h14.jpg in Resources */,
 				A6BEA5B41B05F02D00EA2934 /* login_mmBg.png in Resources */,
 				A6981E391B156D6500F45DAC /* FileUploadVC.xib in Resources */,
@@ -2609,6 +2652,7 @@
 				A6BC6ED21B1ED4DA007FFA93 /* upload_add.png in Resources */,
 				A6981E521B1593CB00F45DAC /* tabbarItem_setting@2x.png in Resources */,
 				A600B1E61B30235300C1BC18 /* NoticeDetailVC.xib in Resources */,
+				C9A4390F1B6B5B1F00C7B6A1 /* chat_showleft.png in Resources */,
 				A6BEA5B71B05F02D00EA2934 /* login_uncheck.png in Resources */,
 				A6C8B87D1B3257E00010E7F4 /* file_comment.png in Resources */,
 				A6981E9D1B15AD3700F45DAC /* ContactsFirstCell.xib in Resources */,
@@ -2737,6 +2781,7 @@
 				A6BEA5711B05CA1800EA2934 /* UIView+MJExtension.m in Sources */,
 				A60B14BC1B5F39FD00A398AE /* XMPPPubSub.m in Sources */,
 				09C9C37B1B29521F00B1F902 /* WSUploadCell.m in Sources */,
+				C9A439011B6B4E6B00C7B6A1 /* IIViewDeckController.m in Sources */,
 				A6981E331B156D5000F45DAC /* ContactsVC.m in Sources */,
 				A60B14931B5F39FD00A398AE /* XMPPResourceMemoryStorageObject.m in Sources */,
 				A6BEA56B1B05CA1800EA2934 /* MJRefreshBaseView.m in Sources */,
@@ -2746,6 +2791,7 @@
 				A60B14BD1B5F39FD00A398AE /* TURNSocket.m in Sources */,
 				A60B148B1B5F39FD00A398AE /* XMPPGoogleSharedStatus.m in Sources */,
 				A60B14A11B5F39FD00A398AE /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
+				C9A439071B6B4F0C00C7B6A1 /* IMMainMessageC.m in Sources */,
 				A6BEA56F1B05CA1800EA2934 /* UIScrollView+MJExtension.m in Sources */,
 				A60B14AD1B5F39FD00A398AE /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				A6C8B89A1B32A7FB0010E7F4 /* LocalFileDic.m in Sources */,
@@ -2764,7 +2810,6 @@
 				A60B14A81B5F39FD00A398AE /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				A6BEA56E1B05CA1800EA2934 /* MJRefreshHeaderView.m in Sources */,
 				A60B149A1B5F39FD00A398AE /* XMPPJabberRPCModule.m in Sources */,
-				A6981E2E1B156D3E00F45DAC /* ChatVC.m in Sources */,
 				A6981E9C1B15AD3700F45DAC /* ContactsFirstCell.m in Sources */,
 				A60B14CD1B5F39FD00A398AE /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				A60B14BB1B5F39FD00A398AE /* XMPPIQ+XEP_0060.m in Sources */,
@@ -2824,6 +2869,7 @@
 				A60B148C1B5F39FD00A398AE /* XMPPProcessOne.m in Sources */,
 				A6BEA55C1B05CA1800EA2934 /* AFHTTPRequestOperationManager.m in Sources */,
 				A60B14E71B5F39FD00A398AE /* XMPPMessage+XEP_0333.m in Sources */,
+				C9A4390D1B6B4F9100C7B6A1 /* IMChatVC.m in Sources */,
 				A60B14961B5F39FD00A398AE /* XMPPRoster.m in Sources */,
 				09CC65D41B33C12100F2F08E /* ImagePickerVC.m in Sources */,
 				A60B14901B5F39FD00A398AE /* XMPPRoster.xcdatamodel in Sources */,
@@ -2846,6 +2892,7 @@
 				09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */,
 				A60B13121B5F370800A398AE /* DDContextFilterLogFormatter.m in Sources */,
 				A60B14891B5F39FD00A398AE /* XMPPIncomingFileTransfer.m in Sources */,
+				C9A4390A1B6B4F2600C7B6A1 /* IMContactsC.m in Sources */,
 				A60B130F1B5F370800A398AE /* DDFileLogger.m in Sources */,
 				A60B13701B5F384000A398AE /* NSData+XMPP.m in Sources */,
 				A60B14941B5F39FD00A398AE /* XMPPRosterMemoryStorage.m in Sources */,
@@ -2870,6 +2917,7 @@
 				A600B1F51B31068200C1BC18 /* CommentCell.m in Sources */,
 				A6C8B8B51B33158F0010E7F4 /* SharerThirdCell.m in Sources */,
 				A60B136D1B5F384000A398AE /* XMPPSCRAMSHA1Authentication.m in Sources */,
+				C9A439021B6B4E6B00C7B6A1 /* IIWrapController.m in Sources */,
 				A60B14C71B5F39FD00A398AE /* XMPPCapabilities.xcdatamodel in Sources */,
 				A6C8B88B1B325C2F0010E7F4 /* fileToolButton.m in Sources */,
 				09C9C3831B295EFD00B1F902 /* NoticeVC.m in Sources */,

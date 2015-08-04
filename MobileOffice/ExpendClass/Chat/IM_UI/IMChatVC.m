@@ -1,25 +1,22 @@
 //
-//  ChatVC.m
+//  IMChatVC.m
 //  MobileOffice
 //
-//  Created by MacAir2 on 15/5/27.
+//  Created by 李祥 on 15/7/31.
 //  Copyright (c) 2015年 lixiang. All rights reserved.
 //
 
-#import "ChatVC.h"
-#import "AppCore.h"
-#import "User.h"
+#import "IMChatVC.h"
 
-@interface ChatVC ()
+@interface IMChatVC ()
 
 @end
 
-@implementation ChatVC
+@implementation IMChatVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = [[[User sharedUser] getUserGlobalDic] objectForKey:uNickName];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

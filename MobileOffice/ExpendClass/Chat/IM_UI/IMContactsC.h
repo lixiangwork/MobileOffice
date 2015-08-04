@@ -1,13 +1,13 @@
 //
-//  ChatVC.h
+//  IMContactsC.h
 //  MobileOffice
 //
-//  Created by MacAir2 on 15/5/27.
+//  Created by 李祥 on 15/7/31.
 //  Copyright (c) 2015年 lixiang. All rights reserved.
 //
 
 #import "BaseVC.h"
 
-@interface ChatVC : BaseVC
+@interface IMContactsC : BaseVC
 
 @end
