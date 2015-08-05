@@ -342,6 +342,7 @@
 		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
 		A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EED1B5908070030C25E /* SystemConfiguration.framework */; };
 		C92189F51B6B298A004595DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92189F71B6B298A004595DE /* Localizable.strings */; };
+		C97C384A1B71AC2700DD2F23 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */; };
 		C9A439011B6B4E6B00C7B6A1 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A438FE1B6B4E6B00C7B6A1 /* IIViewDeckController.m */; };
 		C9A439021B6B4E6B00C7B6A1 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439001B6B4E6B00C7B6A1 /* IIWrapController.m */; };
 		C9A439071B6B4F0C00C7B6A1 /* IMMainMessageC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */; };
@@ -940,6 +941,8 @@
 		A6E68EED1B5908070030C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C92189F61B6B298A004595DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C92189F81B6B29AC004595DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C97C38481B71AC2700DD2F23 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
+		C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		C9A438FD1B6B4E6B00C7B6A1 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
 		C9A438FE1B6B4E6B00C7B6A1 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
 		C9A438FF1B6B4E6B00C7B6A1 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
@@ -2243,6 +2246,7 @@
 		A6BEA57C1B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C97C38A51B71EA3900DD2F23 /* IM_ViewModels */,
 				C9A439031B6B4EBA00C7B6A1 /* IM_Models */,
 				C9A439041B6B4EBA00C7B6A1 /* IM_UI */,
 			);
@@ -2471,6 +2475,22 @@
 			path = ChooseSharer;
 			sourceTree = "<group>";
 		};
+		C97C38471B71AC2700DD2F23 /* ModalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				C97C38481B71AC2700DD2F23 /* ZFModalTransitionAnimator.h */,
+				C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */,
+			);
+			path = ModalTransition;
+			sourceTree = "<group>";
+		};
+		C97C38A51B71EA3900DD2F23 /* IM_ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IM_ViewModels;
+			sourceTree = "<group>";
+		};
 		C9A438FC1B6B4E6B00C7B6A1 /* ViewDeck */ = {
 			isa = PBXGroup;
 			children = (
@@ -2492,6 +2512,7 @@
 		C9A439041B6B4EBA00C7B6A1 /* IM_UI */ = {
 			isa = PBXGroup;
 			children = (
+				C97C38471B71AC2700DD2F23 /* ModalTransition */,
 				C9A439051B6B4F0C00C7B6A1 /* IMMainMessageC.h */,
 				C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */,
 				C9A439081B6B4F2600C7B6A1 /* IMContactsC.h */,
@@ -2714,6 +2735,7 @@
 				A60B14921B5F39FD00A398AE /* XMPPUserCoreDataStorageObject.m in Sources */,
 				A6BEA5601B05CA1800EA2934 /* AFURLConnectionOperation.m in Sources */,
 				A60B14DA1B5F39FD00A398AE /* XMPPStreamManagement.m in Sources */,
+				C97C384A1B71AC2700DD2F23 /* ZFModalTransitionAnimator.m in Sources */,
 				A60B14DD1B5F39FD00A398AE /* XMPPAutoTime.m in Sources */,
 				A60B14C61B5F39FD00A398AE /* NSString+XEP_0106.m in Sources */,
 				A60B14D31B5F39FD00A398AE /* XMPPMessage+XEP_0172.m in Sources */,

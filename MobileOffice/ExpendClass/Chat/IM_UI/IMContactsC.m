@@ -12,10 +12,12 @@
 #import "IMMainMessageC.h"
 #import "IMChatVC.h"
 
+
 @interface IMContactsC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *tableList;
 @property (strong, nonatomic) UITableView *tableView;
+
 
 @end
 
@@ -33,6 +35,8 @@
     self.navigationItem.title = @"我的好友";
     
     _tableList = @[@"lixiang", @"lx"];
+    
+    
 }
 
 - (void)initUI {
@@ -51,11 +55,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -83,21 +91,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    /*[self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
-        IMChatVC *chatVC = [[IMChatVC alloc] init];
-        
-        UINavigationController *mainNav = (UINavigationController *)controller.centerController;
-        [mainNav pushViewController:chatVC animated:YES];
-    }];*/
+    IMChatVC *chatVC = [[IMChatVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chatVC];
     
-    [self.viewDeckController closeLeftViewBouncing:nil completion:^(IIViewDeckController *controller, BOOL success) {
-        
-        IMChatVC *chatVC = [[IMChatVC alloc] init];
-        
-    UINavigationController *mainNav = (UINavigationController *)controller.centerController;
-    [mainNav pushViewController:chatVC animated:YES];
+    nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:nav animated:YES completion:nil];
     
-    }];
+    ///////////
+    
+//      [self.viewDeckController closeLeftViewAnimated:NO completion:^(IIViewDeckController *controller, BOOL success) {
+//          
+//          IMChatVC *chatVC = [[IMChatVC alloc] init];
+//          //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chatVC];
+//          
+//          ///////////
+//          UINavigationController *nav = (UINavigationController *)controller.centerController;
+//         
+//        [nav pushViewController:chatVC animated:YES];
+//          
+//
+//    }];
 }
 
 @end

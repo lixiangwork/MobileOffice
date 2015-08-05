@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 lixiang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface IMChatVC : UIViewController
+@interface IMChatVC : BaseVC
 
 @end

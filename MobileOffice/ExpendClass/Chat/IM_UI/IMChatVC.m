@@ -17,7 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIButton *button = [UIFactory createButtonWithRect:CGRectMake(15, 0, 54, 44) normal:@"nav_backButtonBg.png" highlight:nil selector:@selector(backButtonClicked:) target:self];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+
 }
+- (void)backButtonClicked:(id)sender{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
