@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)md5Hash {
   unsigned char result[CC_MD5_DIGEST_LENGTH];
-  CC_MD5([self bytes], [self length], result);
+  CC_MD5([self bytes], (int)[self length], result);
 
   return [NSString stringWithFormat:
     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",

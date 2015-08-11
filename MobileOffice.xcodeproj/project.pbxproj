@@ -349,6 +349,38 @@
 		C972DFD11B79DF53008D5012 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFC51B79DF53008D5012 /* UIImageAdditions.m */; };
 		C972DFD21B79DF53008D5012 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFC71B79DF53008D5012 /* UIViewAdditions.m */; };
 		C972DFD31B79DF53008D5012 /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFC91B79DF53008D5012 /* UIWindowAdditions.m */; };
+		C972DFE91B79E3B6008D5012 /* IMAudioRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFD61B79E3B6008D5012 /* IMAudioRecordView.m */; };
+		C972DFEA1B79E3B6008D5012 /* IMChatSendBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFD81B79E3B6008D5012 /* IMChatSendBar.m */; };
+		C972DFEB1B79E3B6008D5012 /* IMChatShareMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFDA1B79E3B6008D5012 /* IMChatShareMoreView.m */; };
+		C972DFEC1B79E3B6008D5012 /* IMContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFDC1B79E3B6008D5012 /* IMContactCell.m */; };
+		C972DFED1B79E3B6008D5012 /* IMEmotionMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFDE1B79E3B6008D5012 /* IMEmotionMainView.m */; };
+		C972DFEE1B79E3B6008D5012 /* IMMessageCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFE01B79E3B6008D5012 /* IMMessageCellFactory.m */; };
+		C972DFEF1B79E3B6008D5012 /* IMRecentContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFE21B79E3B6008D5012 /* IMRecentContactCell.m */; };
+		C972DFF01B79E3B6008D5012 /* IMSearchChatContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFE41B79E3B6008D5012 /* IMSearchChatContactCell.m */; };
+		C972DFF11B79E3B6008D5012 /* IMStaticContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFE61B79E3B6008D5012 /* IMStaticContactCell.m */; };
+		C972DFF51B79E6A8008D5012 /* IMUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFF41B79E6A8008D5012 /* IMUIHelper.m */; };
+		C972DFF91B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFF81B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.m */; };
+		C972DFFD1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DFFC1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.m */; };
+		C972E0011B79EA97008D5012 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0001B79EA97008D5012 /* UIImage+Utils.m */; };
+		C972E0051B79EAB5008D5012 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0041B79EAB5008D5012 /* UIView+findViewController.m */; };
+		C972E02C1B79EBE8008D5012 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0091B79EBE8008D5012 /* FUIAlertView.m */; };
+		C972E02D1B79EBE8008D5012 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E00B1B79EBE8008D5012 /* FUIButton.m */; };
+		C972E02E1B79EBE8008D5012 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E00D1B79EBE8008D5012 /* FUICellBackgroundView.m */; };
+		C972E02F1B79EBE8008D5012 /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E00F1B79EBE8008D5012 /* FUIPopoverBackgroundView.m */; };
+		C972E0301B79EBE8008D5012 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0111B79EBE8008D5012 /* FUISegmentedControl.m */; };
+		C972E0311B79EBE8008D5012 /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0131B79EBE8008D5012 /* FUISwitch.m */; };
+		C972E0321B79EBE8008D5012 /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0151B79EBE8008D5012 /* UIBarButtonItem+FlatUI.m */; };
+		C972E0331B79EBE8008D5012 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0171B79EBE8008D5012 /* UIColor+FlatUI.m */; };
+		C972E0341B79EBE8008D5012 /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0191B79EBE8008D5012 /* UIFont+FlatUI.m */; };
+		C972E0351B79EBE8008D5012 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E01B1B79EBE8008D5012 /* UIImage+FlatUI.m */; };
+		C972E0361B79EBE8008D5012 /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E01D1B79EBE8008D5012 /* UINavigationBar+FlatUI.m */; };
+		C972E0371B79EBE8008D5012 /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E01F1B79EBE8008D5012 /* UIPopoverController+FlatUI.m */; };
+		C972E0381B79EBE8008D5012 /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0211B79EBE8008D5012 /* UIProgressView+FlatUI.m */; };
+		C972E0391B79EBE8008D5012 /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0231B79EBE8008D5012 /* UISlider+FlatUI.m */; };
+		C972E03A1B79EBE8008D5012 /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0251B79EBE8008D5012 /* UIStepper+FlatUI.m */; };
+		C972E03B1B79EBE8008D5012 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0271B79EBE8008D5012 /* UITabBar+FlatUI.m */; };
+		C972E03C1B79EBE8008D5012 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E0291B79EBE8008D5012 /* UITableViewCell+FlatUI.m */; };
+		C972E03D1B79EBE8008D5012 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C972E02B1B79EBE8008D5012 /* UIToolbar+FlatUI.m */; };
 		C97C384A1B71AC2700DD2F23 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */; };
 		C97C38AA1B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C97C38A81B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodeld */; };
 		C97C394C1B74830700DD2F23 /* head_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97C38AC1B74830600DD2F23 /* head_s@2x.png */; };
@@ -1126,6 +1158,71 @@
 		C972DFC71B79DF53008D5012 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		C972DFC81B79DF53008D5012 /* UIWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindowAdditions.h; sourceTree = "<group>"; };
 		C972DFC91B79DF53008D5012 /* UIWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWindowAdditions.m; sourceTree = "<group>"; };
+		C972DFD51B79E3B6008D5012 /* IMAudioRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAudioRecordView.h; sourceTree = "<group>"; };
+		C972DFD61B79E3B6008D5012 /* IMAudioRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAudioRecordView.m; sourceTree = "<group>"; };
+		C972DFD71B79E3B6008D5012 /* IMChatSendBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatSendBar.h; sourceTree = "<group>"; };
+		C972DFD81B79E3B6008D5012 /* IMChatSendBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChatSendBar.m; sourceTree = "<group>"; };
+		C972DFD91B79E3B6008D5012 /* IMChatShareMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatShareMoreView.h; sourceTree = "<group>"; };
+		C972DFDA1B79E3B6008D5012 /* IMChatShareMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChatShareMoreView.m; sourceTree = "<group>"; };
+		C972DFDB1B79E3B6008D5012 /* IMContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMContactCell.h; sourceTree = "<group>"; };
+		C972DFDC1B79E3B6008D5012 /* IMContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMContactCell.m; sourceTree = "<group>"; };
+		C972DFDD1B79E3B6008D5012 /* IMEmotionMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEmotionMainView.h; sourceTree = "<group>"; };
+		C972DFDE1B79E3B6008D5012 /* IMEmotionMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEmotionMainView.m; sourceTree = "<group>"; };
+		C972DFDF1B79E3B6008D5012 /* IMMessageCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMessageCellFactory.h; sourceTree = "<group>"; };
+		C972DFE01B79E3B6008D5012 /* IMMessageCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMessageCellFactory.m; sourceTree = "<group>"; };
+		C972DFE11B79E3B6008D5012 /* IMRecentContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRecentContactCell.h; sourceTree = "<group>"; };
+		C972DFE21B79E3B6008D5012 /* IMRecentContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRecentContactCell.m; sourceTree = "<group>"; };
+		C972DFE31B79E3B6008D5012 /* IMSearchChatContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSearchChatContactCell.h; sourceTree = "<group>"; };
+		C972DFE41B79E3B6008D5012 /* IMSearchChatContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSearchChatContactCell.m; sourceTree = "<group>"; };
+		C972DFE51B79E3B6008D5012 /* IMStaticContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMStaticContactCell.h; sourceTree = "<group>"; };
+		C972DFE61B79E3B6008D5012 /* IMStaticContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMStaticContactCell.m; sourceTree = "<group>"; };
+		C972DFF31B79E6A8008D5012 /* IMUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUIHelper.h; sourceTree = "<group>"; };
+		C972DFF41B79E6A8008D5012 /* IMUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUIHelper.m; sourceTree = "<group>"; };
+		C972DFF71B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLFullScreenPhotoBrowseView.h; sourceTree = "<group>"; };
+		C972DFF81B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLFullScreenPhotoBrowseView.m; sourceTree = "<group>"; };
+		C972DFFB1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ZoomToPoint.h"; sourceTree = "<group>"; };
+		C972DFFC1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ZoomToPoint.m"; sourceTree = "<group>"; };
+		C972DFFF1B79EA97008D5012 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		C972E0001B79EA97008D5012 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		C972E0031B79EAB5008D5012 /* UIView+findViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+findViewController.h"; sourceTree = "<group>"; };
+		C972E0041B79EAB5008D5012 /* UIView+findViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+findViewController.m"; sourceTree = "<group>"; };
+		C972E0071B79EBE8008D5012 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
+		C972E0081B79EBE8008D5012 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		C972E0091B79EBE8008D5012 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		C972E00A1B79EBE8008D5012 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		C972E00B1B79EBE8008D5012 /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		C972E00C1B79EBE8008D5012 /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
+		C972E00D1B79EBE8008D5012 /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
+		C972E00E1B79EBE8008D5012 /* FUIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		C972E00F1B79EBE8008D5012 /* FUIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverBackgroundView.m; sourceTree = "<group>"; };
+		C972E0101B79EBE8008D5012 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
+		C972E0111B79EBE8008D5012 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
+		C972E0121B79EBE8008D5012 /* FUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISwitch.h; sourceTree = "<group>"; };
+		C972E0131B79EBE8008D5012 /* FUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISwitch.m; sourceTree = "<group>"; };
+		C972E0141B79EBE8008D5012 /* UIBarButtonItem+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0151B79EBE8008D5012 /* UIBarButtonItem+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0161B79EBE8008D5012 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0171B79EBE8008D5012 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0181B79EBE8008D5012 /* UIFont+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0191B79EBE8008D5012 /* UIFont+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FlatUI.m"; sourceTree = "<group>"; };
+		C972E01A1B79EBE8008D5012 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		C972E01B1B79EBE8008D5012 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		C972E01C1B79EBE8008D5012 /* UINavigationBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+FlatUI.h"; sourceTree = "<group>"; };
+		C972E01D1B79EBE8008D5012 /* UINavigationBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+FlatUI.m"; sourceTree = "<group>"; };
+		C972E01E1B79EBE8008D5012 /* UIPopoverController+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+FlatUI.h"; sourceTree = "<group>"; };
+		C972E01F1B79EBE8008D5012 /* UIPopoverController+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0201B79EBE8008D5012 /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0211B79EBE8008D5012 /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0221B79EBE8008D5012 /* UISlider+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0231B79EBE8008D5012 /* UISlider+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0241B79EBE8008D5012 /* UIStepper+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0251B79EBE8008D5012 /* UIStepper+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0261B79EBE8008D5012 /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0271B79EBE8008D5012 /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
+		C972E0281B79EBE8008D5012 /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
+		C972E0291B79EBE8008D5012 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
+		C972E02A1B79EBE8008D5012 /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
+		C972E02B1B79EBE8008D5012 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
 		C97C38481B71AC2700DD2F23 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		C97C38A91B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeiKeMeiShi.xcdatamodel; sourceTree = "<group>"; };
@@ -2810,6 +2907,8 @@
 			children = (
 				C972DFA71B79DDE4008D5012 /* IMCache.h */,
 				C972DFA81B79DDE4008D5012 /* IMCache.m */,
+				C972DFF31B79E6A8008D5012 /* IMUIHelper.h */,
+				C972DFF41B79E6A8008D5012 /* IMUIHelper.m */,
 				C972DFA91B79DDE4008D5012 /* IMAudioRecordPlayManager.h */,
 				C972DFAA1B79DDE4008D5012 /* IMAudioRecordPlayManager.m */,
 			);
@@ -2853,6 +2952,111 @@
 				C972DFC91B79DF53008D5012 /* UIWindowAdditions.m */,
 			);
 			path = 320Categories;
+			sourceTree = "<group>";
+		};
+		C972DFD41B79E3B6008D5012 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C972DFD51B79E3B6008D5012 /* IMAudioRecordView.h */,
+				C972DFD61B79E3B6008D5012 /* IMAudioRecordView.m */,
+				C972DFD71B79E3B6008D5012 /* IMChatSendBar.h */,
+				C972DFD81B79E3B6008D5012 /* IMChatSendBar.m */,
+				C972DFD91B79E3B6008D5012 /* IMChatShareMoreView.h */,
+				C972DFDA1B79E3B6008D5012 /* IMChatShareMoreView.m */,
+				C972DFDB1B79E3B6008D5012 /* IMContactCell.h */,
+				C972DFDC1B79E3B6008D5012 /* IMContactCell.m */,
+				C972DFDD1B79E3B6008D5012 /* IMEmotionMainView.h */,
+				C972DFDE1B79E3B6008D5012 /* IMEmotionMainView.m */,
+				C972DFDF1B79E3B6008D5012 /* IMMessageCellFactory.h */,
+				C972DFE01B79E3B6008D5012 /* IMMessageCellFactory.m */,
+				C972DFE11B79E3B6008D5012 /* IMRecentContactCell.h */,
+				C972DFE21B79E3B6008D5012 /* IMRecentContactCell.m */,
+				C972DFE31B79E3B6008D5012 /* IMSearchChatContactCell.h */,
+				C972DFE41B79E3B6008D5012 /* IMSearchChatContactCell.m */,
+				C972DFE51B79E3B6008D5012 /* IMStaticContactCell.h */,
+				C972DFE61B79E3B6008D5012 /* IMStaticContactCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C972DFF61B79E9E7008D5012 /* JLFullScreenPhotoBrowseView */ = {
+			isa = PBXGroup;
+			children = (
+				C972DFF71B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.h */,
+				C972DFF81B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.m */,
+			);
+			path = JLFullScreenPhotoBrowseView;
+			sourceTree = "<group>";
+		};
+		C972DFFA1B79EA0C008D5012 /* UIScrollView+ZoomToPoint */ = {
+			isa = PBXGroup;
+			children = (
+				C972DFFB1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.h */,
+				C972DFFC1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.m */,
+			);
+			path = "UIScrollView+ZoomToPoint";
+			sourceTree = "<group>";
+		};
+		C972DFFE1B79EA97008D5012 /* UIImage+Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C972DFFF1B79EA97008D5012 /* UIImage+Utils.h */,
+				C972E0001B79EA97008D5012 /* UIImage+Utils.m */,
+			);
+			path = "UIImage+Utils";
+			sourceTree = "<group>";
+		};
+		C972E0021B79EAB5008D5012 /* UIView+findViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C972E0031B79EAB5008D5012 /* UIView+findViewController.h */,
+				C972E0041B79EAB5008D5012 /* UIView+findViewController.m */,
+			);
+			path = "UIView+findViewController";
+			sourceTree = "<group>";
+		};
+		C972E0061B79EBE8008D5012 /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C972E0071B79EBE8008D5012 /* FlatUIKit.h */,
+				C972E0081B79EBE8008D5012 /* FUIAlertView.h */,
+				C972E0091B79EBE8008D5012 /* FUIAlertView.m */,
+				C972E00A1B79EBE8008D5012 /* FUIButton.h */,
+				C972E00B1B79EBE8008D5012 /* FUIButton.m */,
+				C972E00C1B79EBE8008D5012 /* FUICellBackgroundView.h */,
+				C972E00D1B79EBE8008D5012 /* FUICellBackgroundView.m */,
+				C972E00E1B79EBE8008D5012 /* FUIPopoverBackgroundView.h */,
+				C972E00F1B79EBE8008D5012 /* FUIPopoverBackgroundView.m */,
+				C972E0101B79EBE8008D5012 /* FUISegmentedControl.h */,
+				C972E0111B79EBE8008D5012 /* FUISegmentedControl.m */,
+				C972E0121B79EBE8008D5012 /* FUISwitch.h */,
+				C972E0131B79EBE8008D5012 /* FUISwitch.m */,
+				C972E0141B79EBE8008D5012 /* UIBarButtonItem+FlatUI.h */,
+				C972E0151B79EBE8008D5012 /* UIBarButtonItem+FlatUI.m */,
+				C972E0161B79EBE8008D5012 /* UIColor+FlatUI.h */,
+				C972E0171B79EBE8008D5012 /* UIColor+FlatUI.m */,
+				C972E0181B79EBE8008D5012 /* UIFont+FlatUI.h */,
+				C972E0191B79EBE8008D5012 /* UIFont+FlatUI.m */,
+				C972E01A1B79EBE8008D5012 /* UIImage+FlatUI.h */,
+				C972E01B1B79EBE8008D5012 /* UIImage+FlatUI.m */,
+				C972E01C1B79EBE8008D5012 /* UINavigationBar+FlatUI.h */,
+				C972E01D1B79EBE8008D5012 /* UINavigationBar+FlatUI.m */,
+				C972E01E1B79EBE8008D5012 /* UIPopoverController+FlatUI.h */,
+				C972E01F1B79EBE8008D5012 /* UIPopoverController+FlatUI.m */,
+				C972E0201B79EBE8008D5012 /* UIProgressView+FlatUI.h */,
+				C972E0211B79EBE8008D5012 /* UIProgressView+FlatUI.m */,
+				C972E0221B79EBE8008D5012 /* UISlider+FlatUI.h */,
+				C972E0231B79EBE8008D5012 /* UISlider+FlatUI.m */,
+				C972E0241B79EBE8008D5012 /* UIStepper+FlatUI.h */,
+				C972E0251B79EBE8008D5012 /* UIStepper+FlatUI.m */,
+				C972E0261B79EBE8008D5012 /* UITabBar+FlatUI.h */,
+				C972E0271B79EBE8008D5012 /* UITabBar+FlatUI.m */,
+				C972E0281B79EBE8008D5012 /* UITableViewCell+FlatUI.h */,
+				C972E0291B79EBE8008D5012 /* UITableViewCell+FlatUI.m */,
+				C972E02A1B79EBE8008D5012 /* UIToolbar+FlatUI.h */,
+				C972E02B1B79EBE8008D5012 /* UIToolbar+FlatUI.m */,
+			);
+			path = FlatUIKit;
 			sourceTree = "<group>";
 		};
 		C97C38471B71AC2700DD2F23 /* ModalTransition */ = {
@@ -3076,6 +3280,7 @@
 		C9A439041B6B4EBA00C7B6A1 /* IM_UI */ = {
 			isa = PBXGroup;
 			children = (
+				C972DFD41B79E3B6008D5012 /* Views */,
 				C97C38471B71AC2700DD2F23 /* ModalTransition */,
 				C9A439051B6B4F0C00C7B6A1 /* IMMainMessageC.h */,
 				C9A439061B6B4F0C00C7B6A1 /* IMMainMessageC.m */,
@@ -3134,6 +3339,11 @@
 		C9EF42631B79CF0B00789BEB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C972E0061B79EBE8008D5012 /* FlatUIKit */,
+				C972E0021B79EAB5008D5012 /* UIView+findViewController */,
+				C972DFFE1B79EA97008D5012 /* UIImage+Utils */,
+				C972DFFA1B79EA0C008D5012 /* UIScrollView+ZoomToPoint */,
+				C972DFF61B79E9E7008D5012 /* JLFullScreenPhotoBrowseView */,
 				C972DFB41B79DF53008D5012 /* 320Categories */,
 				C972DFAD1B79DEE1008D5012 /* JLKeywordRegularParser */,
 				C9EF42641B79CF1800789BEB /* JLPinyinSort */,
@@ -3564,7 +3774,9 @@
 			files = (
 				A60B13691B5F384000A398AE /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				A6C8B8971B32A7AF0010E7F4 /* User.m in Sources */,
+				C972E03B1B79EBE8008D5012 /* UITabBar+FlatUI.m in Sources */,
 				C972DFCE1B79DF53008D5012 /* TTGlobalCoreLocale.m in Sources */,
+				C972DFEA1B79E3B6008D5012 /* IMChatSendBar.m in Sources */,
 				A6981EC51B15BD4600F45DAC /* NSString+DDXML.m in Sources */,
 				A6981E6A1B159AFD00F45DAC /* SetingsThreeCell.m in Sources */,
 				A6981EC71B15BD4600F45DAC /* DDXMLElement.m in Sources */,
@@ -3577,9 +3789,15 @@
 				A60B14D41B5F39FD00A398AE /* XMPPPresence+XEP_0172.m in Sources */,
 				A60B14921B5F39FD00A398AE /* XMPPUserCoreDataStorageObject.m in Sources */,
 				A60B14DA1B5F39FD00A398AE /* XMPPStreamManagement.m in Sources */,
+				C972DFF91B79E9E7008D5012 /* JLFullScreenPhotoBrowseView.m in Sources */,
+				C972E0321B79EBE8008D5012 /* UIBarButtonItem+FlatUI.m in Sources */,
+				C972E0301B79EBE8008D5012 /* FUISegmentedControl.m in Sources */,
+				C972DFF01B79E3B6008D5012 /* IMSearchChatContactCell.m in Sources */,
+				C972E0051B79EAB5008D5012 /* UIView+findViewController.m in Sources */,
 				C97C384A1B71AC2700DD2F23 /* ZFModalTransitionAnimator.m in Sources */,
 				A60B14DD1B5F39FD00A398AE /* XMPPAutoTime.m in Sources */,
 				A60B14C61B5F39FD00A398AE /* NSString+XEP_0106.m in Sources */,
+				C972DFEF1B79E3B6008D5012 /* IMRecentContactCell.m in Sources */,
 				A60B14D31B5F39FD00A398AE /* XMPPMessage+XEP_0172.m in Sources */,
 				A60B13131B5F370800A398AE /* DDDispatchQueueLogFormatter.m in Sources */,
 				A60B13101B5F370800A398AE /* DDLog.m in Sources */,
@@ -3598,9 +3816,13 @@
 				A6981ED01B15BEA200F45DAC /* UserItems.m in Sources */,
 				A6981E381B156D6500F45DAC /* FileUploadVC.m in Sources */,
 				A6981EB31B15B94100F45DAC /* ContentItems.m in Sources */,
+				C972DFE91B79E3B6008D5012 /* IMAudioRecordView.m in Sources */,
+				C972E02F1B79EBE8008D5012 /* FUIPopoverBackgroundView.m in Sources */,
 				A60B130D1B5F370800A398AE /* DDAbstractDatabaseLogger.m in Sources */,
 				A60B149B1B5F39FD00A398AE /* XMPPIQ+LastActivity.m in Sources */,
+				C972E0371B79EBE8008D5012 /* UIPopoverController+FlatUI.m in Sources */,
 				A60B14A61B5F39FD00A398AE /* XMPPRoomMemoryStorage.m in Sources */,
+				C972E0361B79EBE8008D5012 /* UINavigationBar+FlatUI.m in Sources */,
 				C972DF951B79DB05008D5012 /* IMContactsViewModel.m in Sources */,
 				A60B14C91B5F39FD00A398AE /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				A60B14B11B5F39FD00A398AE /* XMPPvCardTemp.m in Sources */,
@@ -3610,11 +3832,13 @@
 				A60B14D51B5F39FD00A398AE /* XMPPMessage+XEP_0184.m in Sources */,
 				A60B14A01B5F39FD00A398AE /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				A60B14971B5F39FD00A398AE /* XMPPSystemInputActivityMonitor.m in Sources */,
+				C972E0351B79EBE8008D5012 /* UIImage+FlatUI.m in Sources */,
 				A60B148F1B5F39FD00A398AE /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				A60B149C1B5F39FD00A398AE /* XMPPLastActivity.m in Sources */,
 				A60B137D1B5F384000A398AE /* GCDMulticastDelegate.m in Sources */,
 				A6BC6ED91B1EE330007FFA93 /* PropertyItem.m in Sources */,
 				C972DFD21B79DF53008D5012 /* UIViewAdditions.m in Sources */,
+				C972DFEB1B79E3B6008D5012 /* IMChatShareMoreView.m in Sources */,
 				09C9C38C1B29671200B1F902 /* LocalFileVC.m in Sources */,
 				A6981EAE1B15AFCC00F45DAC /* TreeViewNode.m in Sources */,
 				A60B14D61B5F39FD00A398AE /* XMPPMessageDeliveryReceipts.m in Sources */,
@@ -3634,23 +3858,29 @@
 				C972DF991B79DD11008D5012 /* IMContactModel.m in Sources */,
 				A60B149D1B5F39FD00A398AE /* XMPPPrivacy.m in Sources */,
 				A60B14DF1B5F39FD00A398AE /* NSXMLElement+XEP_0203.m in Sources */,
+				C972DFFD1B79EA0C008D5012 /* UIScrollView+ZoomToPoint.m in Sources */,
+				C972DFED1B79E3B6008D5012 /* IMEmotionMainView.m in Sources */,
 				09CC65D11B33A7D100F2F08E /* HelpVC.m in Sources */,
 				A60B14BA1B5F39FD00A398AE /* XMPPResultSet.m in Sources */,
 				A60B13721B5F384000A398AE /* NSXMLElement+XMPP.m in Sources */,
 				A60B14D11B5F39FD00A398AE /* XMPPURI.m in Sources */,
 				A60B14CB1B5F39FD00A398AE /* XMPPCapabilities.m in Sources */,
 				A60B14E81B5F39FD00A398AE /* NSXMLElement+XEP_0335.m in Sources */,
+				C972E02D1B79EBE8008D5012 /* FUIButton.m in Sources */,
 				A60B14C81B5F39FD00A398AE /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				A6BEA5711B05CA1800EA2934 /* UIView+MJExtension.m in Sources */,
 				A60B14BC1B5F39FD00A398AE /* XMPPPubSub.m in Sources */,
+				C972E0011B79EA97008D5012 /* UIImage+Utils.m in Sources */,
 				09C9C37B1B29521F00B1F902 /* WSUploadCell.m in Sources */,
 				C9A439011B6B4E6B00C7B6A1 /* IIViewDeckController.m in Sources */,
 				A6981E331B156D5000F45DAC /* ContactsVC.m in Sources */,
 				A60B14931B5F39FD00A398AE /* XMPPResourceMemoryStorageObject.m in Sources */,
+				C972E0341B79EBE8008D5012 /* UIFont+FlatUI.m in Sources */,
 				A6BEA56B1B05CA1800EA2934 /* MJRefreshBaseView.m in Sources */,
 				A600B1E51B30235300C1BC18 /* NoticeDetailVC.m in Sources */,
 				C972DFCC1B79DF53008D5012 /* NSStringAdditions.m in Sources */,
 				A60B14AA1B5F39FD00A398AE /* XMPPMUC.m in Sources */,
+				C972DFEE1B79E3B6008D5012 /* IMMessageCellFactory.m in Sources */,
 				A60B148E1B5F39FD00A398AE /* XMPPGroupCoreDataStorageObject.m in Sources */,
 				A60B14BD1B5F39FD00A398AE /* TURNSocket.m in Sources */,
 				A60B148B1B5F39FD00A398AE /* XMPPGoogleSharedStatus.m in Sources */,
@@ -3662,6 +3892,7 @@
 				C9EF426E1B79CF1800789BEB /* pinyin.c in Sources */,
 				A6C8B89A1B32A7FB0010E7F4 /* LocalFileDic.m in Sources */,
 				A6BEA5AC1B05E08100EA2934 /* UIFactory.m in Sources */,
+				C972E03C1B79EBE8008D5012 /* UITableViewCell+FlatUI.m in Sources */,
 				A6981E3D1B156D7C00F45DAC /* SettingVC.m in Sources */,
 				A60B130E1B5F370800A398AE /* DDASLLogger.m in Sources */,
 				C972DFD11B79DF53008D5012 /* UIImageAdditions.m in Sources */,
@@ -3683,6 +3914,7 @@
 				A60B14BB1B5F39FD00A398AE /* XMPPIQ+XEP_0060.m in Sources */,
 				09C9C3731B2943BE00B1F902 /* LXSegmentView.m in Sources */,
 				A60B13821B5F384000A398AE /* XMPPTimer.m in Sources */,
+				C972E0331B79EBE8008D5012 /* UIColor+FlatUI.m in Sources */,
 				A6C8B8931B32A2AF0010E7F4 /* FileDealedVC.m in Sources */,
 				A6E68EDD1B58F87A0030C25E /* PickUserIconImageVC.m in Sources */,
 				A60B14D91B5F39FD00A398AE /* XMPPStreamManagementStanzas.m in Sources */,
@@ -3691,18 +3923,22 @@
 				A600B1F41B31068200C1BC18 /* ShareCell.m in Sources */,
 				A6BEA56D1B05CA1800EA2934 /* MJRefreshFooterView.m in Sources */,
 				A60B14BE1B5F39FD00A398AE /* XMPPIQ+XEP_0066.m in Sources */,
+				C972E02C1B79EBE8008D5012 /* FUIAlertView.m in Sources */,
 				A60B137C1B5F384000A398AE /* DDList.m in Sources */,
 				A60B13801B5F384000A398AE /* XMPPSRVResolver.m in Sources */,
 				A6BEA4EB1B05C3B300EA2934 /* AppDelegate.m in Sources */,
 				A60B14CC1B5F39FD00A398AE /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				A60B14991B5F39FD00A398AE /* XMPPIQ+JabberRPCResonse.m in Sources */,
+				C972E0311B79EBE8008D5012 /* FUISwitch.m in Sources */,
 				A60B14CE1B5F39FD00A398AE /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
+				C972DFF51B79E6A8008D5012 /* IMUIHelper.m in Sources */,
 				A6BEA5701B05CA1800EA2934 /* UIScrollView+MJRefresh.m in Sources */,
 				A60B13741B5F384000A398AE /* XMPPElement.m in Sources */,
 				A60B137A1B5F384000A398AE /* XMPPPresence.m in Sources */,
 				A60B14B21B5F39FD00A398AE /* XMPPvCardTempAdr.m in Sources */,
 				A6C8B89D1B32AD090010E7F4 /* DocumentItem.m in Sources */,
 				C9EF426D1B79CF1800789BEB /* JLPinyinSortModel.m in Sources */,
+				C972DFF11B79E3B6008D5012 /* IMStaticContactCell.m in Sources */,
 				A60B14AE1B5F39FD00A398AE /* XMPPvCardCoreDataStorage.m in Sources */,
 				A600B1F21B31068200C1BC18 /* FileDetailCell.m in Sources */,
 				A60B149F1B5F39FD00A398AE /* XMPPRoomCoreDataStorage.m in Sources */,
@@ -3714,6 +3950,7 @@
 				C972DFD31B79DF53008D5012 /* UIWindowAdditions.m in Sources */,
 				A60B14B31B5F39FD00A398AE /* XMPPvCardTempAdrTypes.m in Sources */,
 				A60B14BF1B5F39FD00A398AE /* XMPPMessage+XEP_0066.m in Sources */,
+				C972DFEC1B79E3B6008D5012 /* IMContactCell.m in Sources */,
 				A6C8B8A11B32D9100010E7F4 /* CustomIOSAlertView.m in Sources */,
 				A60B14C21B5F39FD00A398AE /* XMPPDateTimeProfiles.m in Sources */,
 				A60B14E41B5F39FD00A398AE /* XMPPMessageCarbons.m in Sources */,
@@ -3727,15 +3964,18 @@
 				A60B14B61B5F39FD00A398AE /* XMPPvCardTempLabel.m in Sources */,
 				A60B136E1B5F384000A398AE /* XMPPXFacebookPlatformAuthentication.m in Sources */,
 				A60B14A91B5F39FD00A398AE /* XMPPMessage+XEP0045.m in Sources */,
+				C972E02E1B79EBE8008D5012 /* FUICellBackgroundView.m in Sources */,
 				A60B137E1B5F384000A398AE /* RFImageToDataTransformer.m in Sources */,
 				A60B13681B5F384000A398AE /* XMPPAnonymousAuthentication.m in Sources */,
 				A60B13711B5F384000A398AE /* NSNumber+XMPP.m in Sources */,
+				C972E03D1B79EBE8008D5012 /* UIToolbar+FlatUI.m in Sources */,
 				A6981E581B1599E000F45DAC /* SetingsItem.m in Sources */,
 				C972DFB31B79DEE1008D5012 /* JLPaserdKeyword.m in Sources */,
 				C972DFCF1B79DF53008D5012 /* TTGlobalUICommon.m in Sources */,
 				A60B13781B5F384000A398AE /* XMPPModule.m in Sources */,
 				A6B989C51B33A85300AE8DDE /* ChooseSharerVC.m in Sources */,
 				A60B148C1B5F39FD00A398AE /* XMPPProcessOne.m in Sources */,
+				C972E0381B79EBE8008D5012 /* UIProgressView+FlatUI.m in Sources */,
 				A60B14E71B5F39FD00A398AE /* XMPPMessage+XEP_0333.m in Sources */,
 				C9A4390D1B6B4F9100C7B6A1 /* IMChatVC.m in Sources */,
 				A60B14961B5F39FD00A398AE /* XMPPRoster.m in Sources */,
@@ -3761,6 +4001,7 @@
 				A60B14A31B5F39FD00A398AE /* XMPPRoomHybridStorage.m in Sources */,
 				09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */,
 				A60B13121B5F370800A398AE /* DDContextFilterLogFormatter.m in Sources */,
+				C972E03A1B79EBE8008D5012 /* UIStepper+FlatUI.m in Sources */,
 				A60B14891B5F39FD00A398AE /* XMPPIncomingFileTransfer.m in Sources */,
 				C9EF42621B79CD4A00789BEB /* IMEmotionManager.m in Sources */,
 				C9A4390A1B6B4F2600C7B6A1 /* IMContactsC.m in Sources */,
@@ -3769,6 +4010,7 @@
 				A60B14941B5F39FD00A398AE /* XMPPRosterMemoryStorage.m in Sources */,
 				C972DFA31B79DD28008D5012 /* XMPPMessageArchiving_Contact_CoreDataObject+RecentContact.m in Sources */,
 				A60B14CA1B5F39FD00A398AE /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
+				C972E0391B79EBE8008D5012 /* UISlider+FlatUI.m in Sources */,
 				A60B14D21B5F39FD00A398AE /* XMPPvCardAvatarModule.m in Sources */,
 				A60B14A41B5F39FD00A398AE /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
 				A60B14D71B5F39FD00A398AE /* XMPPBlocking.m in Sources */,

@@ -25,6 +25,58 @@ PODS:
     - ReactiveCocoa (~> 2.0)
   - HPGrowingTextView (1.1)
   - JSCustomBadge (1.0.1)
+  - Nimbus (1.2.0):
+    - Nimbus/AttributedLabel (= 1.2.0)
+    - Nimbus/Badge (= 1.2.0)
+    - Nimbus/Collections (= 1.2.0)
+    - Nimbus/Collections (= 1.2.0)
+    - Nimbus/Core (= 1.2.0)
+    - Nimbus/CSS (= 1.2.0)
+    - Nimbus/Interapp (= 1.2.0)
+    - Nimbus/Launcher (= 1.2.0)
+    - Nimbus/Models (= 1.2.0)
+    - Nimbus/NetworkControllers (= 1.2.0)
+    - Nimbus/NetworkImage (= 1.2.0)
+    - Nimbus/Overview (= 1.2.0)
+    - Nimbus/PagingScrollView (= 1.2.0)
+    - Nimbus/Photos (= 1.2.0)
+    - Nimbus/Textfield (= 1.2.0)
+    - Nimbus/WebController (= 1.2.0)
+  - Nimbus/AttributedLabel (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Badge (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Collections (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Core (1.2.0)
+  - Nimbus/CSS (1.2.0):
+    - AFNetworking (~> 2.1)
+    - Nimbus/Core
+    - Nimbus/Textfield
+  - Nimbus/Interapp (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Launcher (1.2.0):
+    - Nimbus/Core
+    - Nimbus/PagingScrollView
+  - Nimbus/Models (1.2.0):
+    - Nimbus/Core
+  - Nimbus/NetworkControllers (1.2.0):
+    - Nimbus/Core
+  - Nimbus/NetworkImage (1.2.0):
+    - AFNetworking (~> 2.1)
+    - Nimbus/Core
+  - Nimbus/Overview (1.2.0):
+    - Nimbus/Core
+    - Nimbus/Models
+  - Nimbus/PagingScrollView (1.2.0):
+    - Nimbus/Core
+  - Nimbus/Photos (1.2.0):
+    - Nimbus/Core
+    - Nimbus/PagingScrollView
+  - Nimbus/Textfield (1.2.0):
+    - Nimbus/Core
+  - Nimbus/WebController (1.2.0):
+    - Nimbus/Core
   - QBImagePickerController (2.5.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -43,6 +95,7 @@ DEPENDENCIES:
   - AFNetworking2-RACExtensions (~> 0.0.1)
   - HPGrowingTextView (~> 1.1)
   - JSCustomBadge (~> 1.0.1)
+  - Nimbus (~> 1.2.0)
   - QBImagePickerController (~> 2.1)
   - ReactiveCocoa (~> 2.3)
   - ReactiveViewModel (~> 0.2)
@@ -53,6 +106,7 @@ SPEC CHECKSUMS:
   AFNetworking2-RACExtensions: 7da57313a9cdd9d32b4ed17ea35d59dfd084df83
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
   JSCustomBadge: a1a98378af72db32b799a8ec164b26cd01673ddb
+  Nimbus: 3d6dfdeabf548ba4eb43be24e74fd202fb8c4e22
   QBImagePickerController: 96c2e340edb7fcac5acf21b72314fac9201ffb8e
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   ReactiveViewModel: 58918dcbcec2d3151195ab1ed9163c57a8163999

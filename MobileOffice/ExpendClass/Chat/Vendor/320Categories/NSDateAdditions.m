@@ -96,7 +96,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)formatShortTime {
-  NSTimeInterval diff = abs([self timeIntervalSinceNow]);
+  NSTimeInterval diff = fabs([self timeIntervalSinceNow]);
 
   if (diff < TT_DAY) {
     return [self formatTime];

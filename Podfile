@@ -12,3 +12,5 @@ pod 'HPGrowingTextView', '~> 1.1'
 pod 'QBImagePickerController', '~> 2.1'
 pod 'JSCustomBadge', '~> 1.0.1'
 
+platform :ios, '6.1'
+pod 'Nimbus', '~> 1.2.0'
