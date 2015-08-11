@@ -342,6 +342,7 @@
 		A6E68EEC1B5907FC0030C25E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EEB1B5907FC0030C25E /* AVFoundation.framework */; };
 		A6E68EEE1B5908070030C25E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E68EED1B5908070030C25E /* SystemConfiguration.framework */; };
 		C92189F51B6B298A004595DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C92189F71B6B298A004595DE /* Localizable.strings */; };
+		C972DF8C1B79DA76008D5012 /* NSDate+IM.m in Sources */ = {isa = PBXBuildFile; fileRef = C972DF891B79DA76008D5012 /* NSDate+IM.m */; };
 		C97C384A1B71AC2700DD2F23 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */; };
 		C97C38AA1B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C97C38A81B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodeld */; };
 		C97C394C1B74830700DD2F23 /* head_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97C38AC1B74830600DD2F23 /* head_s@2x.png */; };
@@ -1106,6 +1107,8 @@
 		A6E68EED1B5908070030C25E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C92189F61B6B298A004595DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C92189F81B6B29AC004595DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C972DF881B79DA76008D5012 /* NSDate+IM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IM.h"; sourceTree = "<group>"; };
+		C972DF891B79DA76008D5012 /* NSDate+IM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IM.m"; sourceTree = "<group>"; };
 		C97C38481B71AC2700DD2F23 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		C97C38491B71AC2700DD2F23 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		C97C38A91B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeiKeMeiShi.xcdatamodel; sourceTree = "<group>"; };
@@ -2582,6 +2585,7 @@
 		A6BEA57C1B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C972DF871B79DA76008D5012 /* Categories */,
 				C9EF42631B79CF0B00789BEB /* Vendor */,
 				C9EF42571B79CA6100789BEB /* IM_Models */,
 				C9EF42581B79CA6100789BEB /* IM_ViewModels */,
@@ -2811,6 +2815,15 @@
 				A6C8B8AF1B33158E0010E7F4 /* SharerThirdCell.xib */,
 			);
 			path = ChooseSharer;
+			sourceTree = "<group>";
+		};
+		C972DF871B79DA76008D5012 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C972DF881B79DA76008D5012 /* NSDate+IM.h */,
+				C972DF891B79DA76008D5012 /* NSDate+IM.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		C97C38471B71AC2700DD2F23 /* ModalTransition */ = {
@@ -3689,6 +3702,7 @@
 				A60B14AF1B5F39FD00A398AE /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				A69E4A8B1B1337B600749A0B /* CloudService.m in Sources */,
 				C97C38AA1B7482EB00DD2F23 /* MeiKeMeiShi.xcdatamodeld in Sources */,
+				C972DF8C1B79DA76008D5012 /* NSDate+IM.m in Sources */,
 				A60B14E11B5F39FD00A398AE /* XMPPAttentionModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
