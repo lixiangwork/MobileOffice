@@ -77,3 +77,6 @@
 //#import "XMPPAutoTime.h"
 //
 //#import "XMPPElement+Delay.h"
+
+#import "XMPPMessageArchiving.h"
+#import "XMPPMessageArchivingCoreDataStorage.h"

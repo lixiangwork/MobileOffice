@@ -45,8 +45,35 @@
 
 
 
+//////////////////////////////////////////////////////////////////////////////////
+//IM
+
+// 是否为本地地址测试
+#define LOCAL_TEST 0
+
+#if LOCAL_TEST
+#define XMPP_DOMAIN         @"127.0.0.1"
+#define XMPP_HOST_NAME      @"127.0.0.1"
+#else
+#define XMPP_DOMAIN         @"211.152.38.164"
+#define XMPP_HOST_NAME      @"211.152.38.164"
+#endif//LOCAL_TEST
+
+// XMPP
+#define XMPP_RESOURCE       @"iPhoneXMPP"
+#define XMPP_DEFAULT_GROUP_NAME @"friends"
+
+#define XMPP_USER_ID        @"XMPP_USER_ID"
+#define XMPP_PASSWORD       @"XMPP_PASSWORD"
+
+#define DEFAULT_MESSAGE_MAX_COUNT 100
+#define DEFAULT_ROSTER_MAX_COUNT 100
+
+//#define IM_MOC [IMDataBaseManager sharedManager].managedObjectContext
+#define MY_JID [IMXMPPManager sharedManager].myJID
 
 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 

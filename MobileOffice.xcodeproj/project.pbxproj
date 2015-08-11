@@ -508,6 +508,12 @@
 		C9A4390A1B6B4F2600C7B6A1 /* IMContactsC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A439091B6B4F2600C7B6A1 /* IMContactsC.m */; };
 		C9A4390D1B6B4F9100C7B6A1 /* IMChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */; };
 		C9A4390F1B6B5B1F00C7B6A1 /* chat_showleft.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A4390E1B6B5B1F00C7B6A1 /* chat_showleft.png */; };
+		C9EF425B1B79CA7700789BEB /* IMXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF425A1B79CA7700789BEB /* IMXMPPManager.m */; };
+		C9EF425F1B79CD3A00789BEB /* IMEmotionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF425E1B79CD3A00789BEB /* IMEmotionEntity.m */; };
+		C9EF42621B79CD4A00789BEB /* IMEmotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42611B79CD4A00789BEB /* IMEmotionManager.m */; };
+		C9EF426C1B79CF1800789BEB /* JLPinyinSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42661B79CF1800789BEB /* JLPinyinSortItem.m */; };
+		C9EF426D1B79CF1800789BEB /* JLPinyinSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42681B79CF1800789BEB /* JLPinyinSortModel.m */; };
+		C9EF426E1B79CF1800789BEB /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = C9EF426A1B79CF1800789BEB /* pinyin.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1272,6 +1278,18 @@
 		C9A4390B1B6B4F9100C7B6A1 /* IMChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatVC.h; sourceTree = "<group>"; };
 		C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMChatVC.m; sourceTree = "<group>"; };
 		C9A4390E1B6B5B1F00C7B6A1 /* chat_showleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_showleft.png; sourceTree = "<group>"; };
+		C9EF42591B79CA7700789BEB /* IMXMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMXMPPManager.h; sourceTree = "<group>"; };
+		C9EF425A1B79CA7700789BEB /* IMXMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMXMPPManager.m; sourceTree = "<group>"; };
+		C9EF425D1B79CD3A00789BEB /* IMEmotionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEmotionEntity.h; sourceTree = "<group>"; };
+		C9EF425E1B79CD3A00789BEB /* IMEmotionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEmotionEntity.m; sourceTree = "<group>"; };
+		C9EF42601B79CD4A00789BEB /* IMEmotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEmotionManager.h; sourceTree = "<group>"; };
+		C9EF42611B79CD4A00789BEB /* IMEmotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEmotionManager.m; sourceTree = "<group>"; };
+		C9EF42651B79CF1800789BEB /* JLPinyinSortItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPinyinSortItem.h; sourceTree = "<group>"; };
+		C9EF42661B79CF1800789BEB /* JLPinyinSortItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPinyinSortItem.m; sourceTree = "<group>"; };
+		C9EF42671B79CF1800789BEB /* JLPinyinSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPinyinSortModel.h; sourceTree = "<group>"; };
+		C9EF42681B79CF1800789BEB /* JLPinyinSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPinyinSortModel.m; sourceTree = "<group>"; };
+		C9EF426A1B79CF1800789BEB /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		C9EF426B1B79CF1800789BEB /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2564,9 +2582,10 @@
 		A6BEA57C1B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C9EF42631B79CF0B00789BEB /* Vendor */,
+				C9EF42571B79CA6100789BEB /* IM_Models */,
+				C9EF42581B79CA6100789BEB /* IM_ViewModels */,
 				C97C38A61B7482C400DD2F23 /* IM_Resource */,
-				C97C38A51B71EA3900DD2F23 /* IM_ViewModels */,
-				C9A439031B6B4EBA00C7B6A1 /* IM_Models */,
 				C9A439041B6B4EBA00C7B6A1 /* IM_UI */,
 			);
 			path = Chat;
@@ -2803,13 +2822,6 @@
 			path = ModalTransition;
 			sourceTree = "<group>";
 		};
-		C97C38A51B71EA3900DD2F23 /* IM_ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IM_ViewModels;
-			sourceTree = "<group>";
-		};
 		C97C38A61B7482C400DD2F23 /* IM_Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -3019,13 +3031,6 @@
 			path = ViewDeck;
 			sourceTree = "<group>";
 		};
-		C9A439031B6B4EBA00C7B6A1 /* IM_Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IM_Models;
-			sourceTree = "<group>";
-		};
 		C9A439041B6B4EBA00C7B6A1 /* IM_UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -3038,6 +3043,63 @@
 				C9A4390C1B6B4F9100C7B6A1 /* IMChatVC.m */,
 			);
 			path = IM_UI;
+			sourceTree = "<group>";
+		};
+		C9EF42571B79CA6100789BEB /* IM_Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF425C1B79CD2900789BEB /* Entities */,
+				C9EF42591B79CA7700789BEB /* IMXMPPManager.h */,
+				C9EF425A1B79CA7700789BEB /* IMXMPPManager.m */,
+				C9EF42601B79CD4A00789BEB /* IMEmotionManager.h */,
+				C9EF42611B79CD4A00789BEB /* IMEmotionManager.m */,
+			);
+			path = IM_Models;
+			sourceTree = "<group>";
+		};
+		C9EF42581B79CA6100789BEB /* IM_ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IM_ViewModels;
+			sourceTree = "<group>";
+		};
+		C9EF425C1B79CD2900789BEB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF425D1B79CD3A00789BEB /* IMEmotionEntity.h */,
+				C9EF425E1B79CD3A00789BEB /* IMEmotionEntity.m */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C9EF42631B79CF0B00789BEB /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF42641B79CF1800789BEB /* JLPinyinSort */,
+				C9EF42691B79CF1800789BEB /* Pinyin */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C9EF42641B79CF1800789BEB /* JLPinyinSort */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF42651B79CF1800789BEB /* JLPinyinSortItem.h */,
+				C9EF42661B79CF1800789BEB /* JLPinyinSortItem.m */,
+				C9EF42671B79CF1800789BEB /* JLPinyinSortModel.h */,
+				C9EF42681B79CF1800789BEB /* JLPinyinSortModel.m */,
+			);
+			path = JLPinyinSort;
+			sourceTree = "<group>";
+		};
+		C9EF42691B79CF1800789BEB /* Pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				C9EF426A1B79CF1800789BEB /* pinyin.c */,
+				C9EF426B1B79CF1800789BEB /* pinyin.h */,
+			);
+			path = Pinyin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3423,6 +3485,7 @@
 				A60B13761B5F384000A398AE /* XMPPJID.m in Sources */,
 				A60B137B1B5F384000A398AE /* XMPPStream.m in Sources */,
 				A6BEA5751B05CA1800EA2934 /* UIButton+AFNetworking.m in Sources */,
+				C9EF426C1B79CF1800789BEB /* JLPinyinSortItem.m in Sources */,
 				A60B137F1B5F384000A398AE /* XMPPIDTracker.m in Sources */,
 				A60B136F1B5F384000A398AE /* XMPPXOAuth2Google.m in Sources */,
 				A60B136A1B5F384000A398AE /* XMPPDeprecatedPlainAuthentication.m in Sources */,
@@ -3491,6 +3554,7 @@
 				C9A439071B6B4F0C00C7B6A1 /* IMMainMessageC.m in Sources */,
 				A6BEA56F1B05CA1800EA2934 /* UIScrollView+MJExtension.m in Sources */,
 				A60B14AD1B5F39FD00A398AE /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
+				C9EF426E1B79CF1800789BEB /* pinyin.c in Sources */,
 				A6C8B89A1B32A7FB0010E7F4 /* LocalFileDic.m in Sources */,
 				A6BEA5AC1B05E08100EA2934 /* UIFactory.m in Sources */,
 				A6981E3D1B156D7C00F45DAC /* SettingVC.m in Sources */,
@@ -3501,6 +3565,7 @@
 				A6BDECBF1B58CE5E000D03CA /* ChangePassword.m in Sources */,
 				A60B14B81B5F39FD00A398AE /* XMPPvCardTempTel.m in Sources */,
 				A60B14881B5F39FD00A398AE /* XMPPFileTransfer.m in Sources */,
+				C9EF425B1B79CA7700789BEB /* IMXMPPManager.m in Sources */,
 				09C9C3861B295F3400B1F902 /* NoticeVCCell.m in Sources */,
 				A60B14871B5F39FD00A398AE /* XMPPCoreDataStorage.m in Sources */,
 				A6C8B8B11B33158E0010E7F4 /* SharerFirstCell.m in Sources */,
@@ -3536,6 +3601,7 @@
 				A6BEA5741B05CA1800EA2934 /* UIAlertView+AFNetworking.m in Sources */,
 				A60B14B21B5F39FD00A398AE /* XMPPvCardTempAdr.m in Sources */,
 				A6C8B89D1B32AD090010E7F4 /* DocumentItem.m in Sources */,
+				C9EF426D1B79CF1800789BEB /* JLPinyinSortModel.m in Sources */,
 				A60B14AE1B5F39FD00A398AE /* XMPPvCardCoreDataStorage.m in Sources */,
 				A600B1F21B31068200C1BC18 /* FileDetailCell.m in Sources */,
 				A60B149F1B5F39FD00A398AE /* XMPPRoomCoreDataStorage.m in Sources */,
@@ -3577,6 +3643,7 @@
 				A60B14981B5F39FD00A398AE /* XMPPIQ+JabberRPC.m in Sources */,
 				A60B14C51B5F39FD00A398AE /* XMPPTransports.m in Sources */,
 				A6981E9E1B15AD3700F45DAC /* ContactsSecondCell.m in Sources */,
+				C9EF425F1B79CD3A00789BEB /* IMEmotionEntity.m in Sources */,
 				A60B13811B5F384000A398AE /* XMPPStringPrep.m in Sources */,
 				A6C8B8851B3259E10010E7F4 /* FileDetailVC.m in Sources */,
 				A60B13111B5F370800A398AE /* DDTTYLogger.m in Sources */,
@@ -3589,6 +3656,7 @@
 				09C9C38F1B29673300B1F902 /* LocalFileVCCell.m in Sources */,
 				A60B13121B5F370800A398AE /* DDContextFilterLogFormatter.m in Sources */,
 				A60B14891B5F39FD00A398AE /* XMPPIncomingFileTransfer.m in Sources */,
+				C9EF42621B79CD4A00789BEB /* IMEmotionManager.m in Sources */,
 				C9A4390A1B6B4F2600C7B6A1 /* IMContactsC.m in Sources */,
 				A60B130F1B5F370800A398AE /* DDFileLogger.m in Sources */,
 				A60B13701B5F384000A398AE /* NSData+XMPP.m in Sources */,
