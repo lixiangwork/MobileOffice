@@ -29,6 +29,9 @@
 #define uRemenberPassword   @"uRemenberPassword"
 #define uAotoLogin          @"uAotoLogin"
 
+#define uOpenIM             @"uOpenIM"
+#define uOpenIMBeep         @"uOpenIMBeep"
+
 //本地文件
 #define LocalFileGlobalKey  @"LocalFileGlobalKey"
 

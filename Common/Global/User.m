@@ -21,11 +21,36 @@
     return sharedMyUser;
 }
 
+- (BOOL)isOpenIM {
+    NSString *openIm = [[self getUserGlobalDic] objectForKey:uOpenIM];
+    
+    NSLog(@"openIM:%@",openIm);
+    
+    if ([openIm isEqualToString:@"1"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+- (BOOL)isOpenIMBeep {
+    NSString *openImBeep = [[self getUserGlobalDic] objectForKey:uOpenIMBeep];
+    
+    if ([openImBeep isEqualToString:@"1"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+
+}
+
 - (void)initUserGlobalDic{
     
     NSDictionary *userDic = [self getUserGlobalDic];
     if (!userDic) {
-        userDic = @{uUserName:@"", uPassword:@"", uNickName:@"", uRemenberPassword:@"1", uAotoLogin:@"0"};
+        userDic = @{uUserName:@"", uPassword:@"", uNickName:@"", uRemenberPassword:@"1", uAotoLogin:@"0",uOpenIM:@"1",uOpenIMBeep:@"1"};
         [self setUserGlobalDic:userDic];
         
         NSLog(@"userDic ready");

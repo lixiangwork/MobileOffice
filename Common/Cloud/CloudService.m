@@ -60,7 +60,7 @@
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         if ([[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr]) {
             if (block) {
@@ -89,7 +89,7 @@
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         [[XMLParser sharedInstance] parsedContentWithXMLString:responseStr];
         
@@ -112,7 +112,7 @@
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         NSString *theContentID = [[XMLParser sharedInstance] parsedInsertXMLString:responseStr];
         NSLog(@"contentID:%@",theContentID);
@@ -137,7 +137,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         [[XMLParser sharedInstance] parsedContentWithXMLString:responseStr];
         NSLog(@"result:%@",[XMLParser sharedInstance].parserResultArray);
@@ -163,7 +163,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         [[XMLParser sharedInstance] parsedContentWithXMLString:responseStr];
         NSLog(@"result:%@",[XMLParser sharedInstance].parserResultArray);
@@ -216,7 +216,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
         
@@ -241,7 +241,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
         
@@ -267,7 +267,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *responseStr = operation.responseString;
-        NSLog(@"responseStr:%@",responseStr);
+        //NSLog(@"responseStr:%@",responseStr);
         
         BOOL isSuccess = [[XMLParser sharedInstance] ifReplaySuccessFromXMLString:responseStr];
         

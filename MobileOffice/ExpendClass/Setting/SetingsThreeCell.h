@@ -8,9 +8,17 @@
 
 #import "SetingsOneCell.h"
 
-@interface SetingsThreeCell : SetingsOneCell
+@protocol SettingsThreeCellDelegate <NSObject>
+
+- (void)SettingsThreeCellOpenIM ;
+
+@end
+
+@interface SetingsThreeCell : SetingsOneCell<UIAlertViewDelegate>
 {
     UISwitch *_switch;
 }
+
+@property (nonatomic, assign) id<SettingsThreeCellDelegate>delegate;
 
 @end

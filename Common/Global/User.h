@@ -13,6 +13,10 @@
 
 + (User *)sharedUser;
 
+- (BOOL)isOpenIM;
+
+- (BOOL)isOpenIMBeep;
+
 - (void)initUserGlobalDic;
 
 - (NSDictionary *)getUserGlobalDic;

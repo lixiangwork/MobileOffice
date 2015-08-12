@@ -19,7 +19,7 @@
 #import "ChangePassword.h"
 #import <PgySDK/PgyManager.h>
 
-@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickUserIconImageVCDelegate>
+@interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickUserIconImageVCDelegate, SettingsThreeCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (strong, nonatomic) UIImage *personImage;
@@ -141,15 +141,16 @@
         
         if (indexPath.row == 0) {
             
-            BOOL isOn = YES;
+            BOOL isOn = [[User sharedUser] isOpenIM];
             
             SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"开启聊天" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
+            ((SetingsThreeCell *)cell).delegate = self;
             ((SetingsThreeCell *)cell).cellEdge = 10;
         }
         else{
             
-            BOOL isOn = YES;
+            BOOL isOn = [[User sharedUser] isOpenIMBeep];
             SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"消息提示音" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
@@ -350,7 +351,10 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - pgy delegate
+#pragma mark - settingThreeCell delegate
+- (void)SettingsThreeCellOpenIM {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

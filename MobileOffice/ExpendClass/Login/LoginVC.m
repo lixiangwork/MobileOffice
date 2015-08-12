@@ -18,6 +18,8 @@
 #import "FileUploadVC.h"
 #import "SettingVC.h"
 
+#import "IMXMPPManager.h"
+
 @interface LoginVC ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
@@ -39,10 +41,16 @@
 
 @implementation LoginVC
 
+- (void)dealloc
+{
+    [[IMXMPPManager sharedManager].xmppStream removeDelegate:self delegateQueue:dispatch_get_main_queue()];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"移动办公";
+    
     
     _userGlobalDic = [[NSMutableDictionary alloc] initWithDictionary:[[User sharedUser] getUserGlobalDic]];
     
@@ -65,6 +73,9 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [[IMXMPPManager sharedManager].xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+
+    
     _userGlobalDic = [[NSMutableDictionary alloc] initWithDictionary:[[User sharedUser] getUserGlobalDic]];
     _remenberPasswordBtn.selected = [[_userGlobalDic objectForKey:uRemenberPassword] boolValue];
     _aotoLoginBtn.selected = [[_userGlobalDic objectForKey:uAotoLogin] boolValue];
@@ -78,6 +89,12 @@
         _passwordTF.text = @"";
     }
 
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+     [[IMXMPPManager sharedManager].xmppStream removeDelegate:self delegateQueue:dispatch_get_main_queue()];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +111,21 @@
         [_passwordTF resignFirstResponder];
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Private
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setField:(UITextField *)field forKey:(NSString *)key
+{
+    if (field.text != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:field.text forKey:key];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    }
+}
+
 
 #pragma mark - myself
 - (void)gotoNextViewController{
@@ -173,6 +205,15 @@
                     }
                     [[User sharedUser] setUserGlobalDic:_userGlobalDic];
                     [self gotoNextViewController];
+                    
+                    ///IM
+                    if ([[User sharedUser] isOpenIM]) {
+                        [self setField:_userNameTF forKey:XMPP_USER_ID];
+                        [self setField:_passwordTF forKey:XMPP_PASSWORD];
+                        
+                        [[IMXMPPManager sharedManager] connectThenLogin];
+                    }
+                    
                 }
                 else{
                     [UIFactory showAlert:@"用户名不存在或密码错误"];

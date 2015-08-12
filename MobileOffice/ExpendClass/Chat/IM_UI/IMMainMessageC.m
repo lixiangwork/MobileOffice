@@ -80,6 +80,24 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (![[User sharedUser] isOpenIM]) {
+        UIView *theView = [UIFactory waitingViewWithMessage:@"聊天未开启，请在设置中开启聊天!"];
+        theView.tag = 999;
+        [self.viewDeckController.view addSubview:theView];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (![[User sharedUser] isOpenIM]) {
+        
+        [[self.viewDeckController.view viewWithTag:999] removeFromSuperview];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,6 +7,7 @@
 //
 
 #import "UIFactory.h"
+#import "AppConfig.h"
 
 static UIFactory* factory;
 
@@ -19,6 +20,32 @@ static UIFactory* factory;
     
     return factory;
     
+}
+
+#pragma mark - UIView
++ (UIView *)waitingViewWithMessage:(NSString *)message {
+    
+    UILabel *waitingLable = [[UILabel alloc] initWithFrame:CGRectMake(0, kScreenHeight-100, kScreenWidth, 30)];
+    waitingLable.text = message;
+    waitingLable.textAlignment = NSTextAlignmentCenter;
+    waitingLable.textColor = [UIColor whiteColor];
+    waitingLable.font = [UIFont systemFontOfSize:20];;
+    waitingLable.backgroundColor = [UIColor clearColor];
+    
+    
+    UIView *theView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    theView.backgroundColor = [UIColor blackColor];
+    theView.alpha = 0.5;
+    
+    [theView addSubview:waitingLable];
+    
+    return theView;
+}
+
++ (void)showWaitingViewWithMessage:(NSString *)message {
+    UIView *theView = [UIFactory waitingViewWithMessage:message];
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:theView];
 }
 
 #pragma mark - Create Lable

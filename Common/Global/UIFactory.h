@@ -13,6 +13,13 @@
 + (UIFactory*)sharedUIFactory;
 
 /**--------------------------------
+ * set UIView
+ */
++ (UIView *)waitingViewWithMessage:(NSString *)message;
+
++ (void)showWaitingViewWithMessage:(NSString *)message;
+
+/**--------------------------------
  * set UILabel
  *
  * label :UILabel

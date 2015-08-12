@@ -47,6 +47,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
     self = [super init];
     if (self) {
+        
         self.model = [[IMXMPPManager sharedManager] managedObjectContext_messageArchiving];
 
         self.updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"%@ updatedContentSignal",
