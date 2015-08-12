@@ -79,7 +79,7 @@ static const char kUnreadMessagesKey;
                                                  managedObjectContext:[IMXMPPManager sharedManager].managedObjectContext_roster];
             
             // 不是当前聊天，则需要修改未读消息数
-            /*if (![[IMChatVC currentBuddyJid] isEqualToJID:rosterUser.jid options:XMPPJIDCompareBare]) {
+            if (![[IMChatVC currentBuddyJid] isEqualToJID:rosterUser.jid options:XMPPJIDCompareBare]) {
                 
                 rosterUser.unreadMessages = @1;
 #if 1
@@ -90,7 +90,7 @@ static const char kUnreadMessagesKey;
 #else
                 // auto call storage save
 #endif
-            }*/
+            }
         });
     }
 }
@@ -118,7 +118,7 @@ static const char kUnreadMessagesKey;
                                                  managedObjectContext:[IMXMPPManager sharedManager].managedObjectContext_roster];
             
             // 不是当前聊天，则需要修改未读消息数
-           /* if (![[IMChatC currentBuddyJid] isEqualToJID:rosterUser.jid options:XMPPJIDCompareBare]) {
+           if (![[IMChatVC currentBuddyJid] isEqualToJID:rosterUser.jid options:XMPPJIDCompareBare]) {
 
                 rosterUser.unreadMessages = [NSNumber numberWithInt:rosterUser.unreadMessages.intValue + 1];
     #if 1
@@ -129,7 +129,7 @@ static const char kUnreadMessagesKey;
     #else
                 // auto call storage save
     #endif
-            }*/
+            }
         });
     }
 }

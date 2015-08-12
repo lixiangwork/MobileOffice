@@ -8,6 +8,15 @@
 
 #import "BaseVC.h"
 
+@class XMPPJID;
+@class XMPPMessageArchiving_Contact_CoreDataObject;
+
+
 @interface IMChatVC : BaseVC
+
++ (XMPPJID *)currentBuddyJid;
++ (void)setCurrentBuddyJid:(XMPPJID *)jid;
+
+- (instancetype)initWithBuddyJID:(XMPPJID *)buddyJID buddyName:(NSString *)buddyName;
 
 @end

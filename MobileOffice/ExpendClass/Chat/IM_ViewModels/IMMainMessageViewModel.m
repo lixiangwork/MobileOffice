@@ -111,7 +111,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)decreaseTotalUnreadMessagesCountWithValue:(NSInteger)count
 {
-    self.totalUnreadMessagesNum = [NSNumber numberWithInt:self.totalUnreadMessagesNum.intValue - count];
+    self.totalUnreadMessagesNum = [NSNumber numberWithInt:self.totalUnreadMessagesNum.intValue - (int)count];
 }
 
 - (BOOL)deleteRecentContactWithJid:(XMPPJID *)recentContactJId

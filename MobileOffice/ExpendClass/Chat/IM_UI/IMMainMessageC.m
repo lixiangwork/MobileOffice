@@ -11,6 +11,12 @@
 #import "IIViewDeckController.h"
 #import "IMChatVC.h"
 
+#import "IMRecentContactCell.h"
+#import "IMXMPPManager.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "IMUIHelper.h"
+
+
 @interface IMMainMessageC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -19,21 +25,41 @@
 
 @implementation IMMainMessageC
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.viewModel = [IMMainMessageViewModel sharedViewModel];
+        
+        [[IMXMPPManager sharedManager].xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+        @weakify(self);
+        [self.viewModel.updatedContentSignal subscribeNext:^(id x) {
+            @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(resetCurrentContactUnreadMessagesCountNofity:)
+                                                     name:@"RESET_CURRENT_CONTACT_UNREAD_MESSAGES_COUNT"
+                                                   object:nil];
+
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.navigationItem.title = [[[User sharedUser] getUserGlobalDic] objectForKey:uNickName];
+    
+//    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    }
 
-//    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, kScreenWidth, 40)];
-//    tipLabel.text = @"功能正在开发中，暂不可用！";
-//    tipLabel.textAlignment = NSTextAlignmentCenter;
-//    [self.view addSubview:tipLabel];
+     self.tableView.tableFooterView = [IMUIHelper createDefaultTableFooterView];
     
 }
 
@@ -60,6 +86,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Private
+
+- (void)resetCurrentContactUnreadMessagesCountNofity:(NSNotification *)nofify
+{
+    id object = nofify.object;
+    if ([object isKindOfClass:[XMPPJID class]]) {
+        XMPPJID *contactJid = (XMPPJID *)object;
+        [self.viewModel resetUnreadMessagesCountForCurrentContact:contactJid];
+    }
+}
+
+
 #pragma mark - action
 - (void)leftButtonClicked:(id)sender {
     [self.viewDeckController toggleLeftView];
@@ -74,33 +112,70 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return [self.viewModel numberOfItemsInSection:section];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    static NSString *CellIdentifier = @"IMRecentContactCell";
+    
+    IMRecentContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[IMRecentContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%li",(long)indexPath.row];
+    XMPPMessageArchiving_Contact_CoreDataObject *contact = [self.viewModel objectAtIndexPath:indexPath];
+    [cell shouldUpdateCellWithObject:contact];
     
     return cell;
-
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.viewModel deleteObjectAtIndexPath:indexPath];
+    }
+}
+
 
 #pragma mark - tableView delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    IMChatVC *chatVC = [[IMChatVC alloc] init];
+     XMPPMessageArchiving_Contact_CoreDataObject *contact = [self.viewModel objectAtIndexPath:indexPath];
+    
+    IMChatVC *chatVC = [[IMChatVC alloc] initWithBuddyJID:contact.bareJid buddyName:contact.displayName];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chatVC];
     
     nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:nav animated:YES completion:nil];
+    
+    // reset unread message count
+    if ([self.viewModel resetUnreadMessagesCountForCurrentContact:contact.bareJid]) {
+        if ([self.tableView numberOfSections] > indexPath.section
+            && [self.tableView numberOfRowsInSection:indexPath.section] > indexPath.row) {
+            
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+
 }
+
+#pragma mark - XMPPStreamDelegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
+{
+    NSLog(@"%@: %@", THIS_FILE, THIS_METHOD);
+}
+
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
+{
+    NSLog(@"%@: %@", THIS_FILE, THIS_METHOD);
+}
+
 
 @end

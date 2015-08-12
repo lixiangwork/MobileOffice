@@ -8,6 +8,10 @@
 
 #import "BaseVC.h"
 
+#import "IMMainMessageViewModel.h"
+
 @interface IMMainMessageC : BaseVC
+
+@property (strong, nonatomic) IMMainMessageViewModel *viewModel;
 
 @end

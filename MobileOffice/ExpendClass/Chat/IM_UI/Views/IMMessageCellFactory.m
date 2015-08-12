@@ -682,7 +682,7 @@
     
     if ([object isKindOfClass:[IMChatMessageAudioEntity class]]) {
         self.audioEntity = (IMChatMessageAudioEntity *)object;
-        self.timeLabel.text = [NSString stringWithFormat:@"%d''", self.audioEntity.time];
+        self.timeLabel.text = [NSString stringWithFormat:@"%ld''", (long)self.audioEntity.time];
         self.isOutgoing = self.audioEntity.isOutgoing;
         
     }
