@@ -58,7 +58,7 @@
 //    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
 //        self.edgesForExtendedLayout = UIRectEdgeNone;
 //    }
-
+     self.tableView.rowHeight = MESSAGE_MAIN_ROW_HEIGHT;
      self.tableView.tableFooterView = [IMUIHelper createDefaultTableFooterView];
     
 }

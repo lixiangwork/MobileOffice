@@ -145,9 +145,9 @@ IMAudioRecordViewDelegate, IMChatSendBarDelegate, IMEmotionDelegate, IMChatShare
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
     
-//    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//    }
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     
     self.chatSendBar = [[IMChatSendBar alloc] initWithFunctionOptions:IMChatSendBarFunctionOption_Voice | IMChatSendBarFunctionOption_Text
                         | IMChatSendBarFunctionOption_Emotion | IMChatSendBarFunctionOption_More];

@@ -246,10 +246,10 @@ typedef void (^CompleteBlock)();
                                                                    options:kNilOptions
                                                                      error:&error];
         if (error) {
-            NSLog(@"message body json error : %@", error);
+           // NSLog(@"message body json error : %@", error);
             
-            JSONObject = @{@"type" : @"text",
-                           @"data" : @"NOT a json string"};
+            //JSONObject = @{@"type" : @"text",@"data" : @"NOT a json string"};
+            JSONObject = @{@"type" : @"text",@"data" : JSONString};
         }
         return JSONObject;
     }

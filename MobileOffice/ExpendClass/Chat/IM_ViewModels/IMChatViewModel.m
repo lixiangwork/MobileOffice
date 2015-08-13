@@ -172,8 +172,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)sendMessageWithText:(NSString *)text
 {
     if (text.length > 0) {
-        NSString *JSONString = [IMChatMessageTextEntity JSONStringFromText:text];
-        [[IMXMPPManager sharedManager] sendChatMessage:JSONString
+        //NSString *JSONString = [IMChatMessageTextEntity JSONStringFromText:text];
+        [[IMXMPPManager sharedManager] sendChatMessage:text
                                                toJID:self.buddyJID];
     }
 }

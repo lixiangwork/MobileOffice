@@ -19,6 +19,8 @@
 #import "ChangePassword.h"
 #import <PgySDK/PgyManager.h>
 
+#import "IMXMPPManager.h"
+
 @interface SettingVC ()<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickUserIconImageVCDelegate, SettingsThreeCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -224,6 +226,7 @@
             [self changeImage];
         }
         else if (indexPath.row == 2) {
+            [[IMXMPPManager sharedManager] disconnect];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         

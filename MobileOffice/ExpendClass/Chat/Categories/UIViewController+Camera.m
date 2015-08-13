@@ -89,6 +89,13 @@ static const char kAllowsEditingKey;
 
 - (void)photoFromCamera:(CameraBlock)block allowsEditing:(BOOL)allowsEditing
 {
+    //检查相机模式是否可用
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSLog(@"sorry, no camera or camera is unavailable.");
+        return;
+    }
+    
+    
     self.cameraBlock = block;
     self.allowsEditing = allowsEditing;
     

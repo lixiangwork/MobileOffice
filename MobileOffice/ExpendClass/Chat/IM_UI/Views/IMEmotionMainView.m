@@ -11,12 +11,13 @@
 #import "IMEmotionManager.h"
 
 #import "UIViewAdditions.h"
+#import "AppConfig.h"
 
 #define LEFT_MARGIN 16
 #define TOP_MARGIN 20
 #define ROW_COUNT 3
 #define COLUMN_COUNT 7
-#define ROW_SPACE 13 //(320 - LEFT_MARGIN * 2 - FACE_WIDTH * COLUMN_COUNT) / 6
+#define ROW_SPACE (kScreenWidth - LEFT_MARGIN * 2 - FACE_WIDTH * COLUMN_COUNT) / 6 //13 //
 #define COLUMN_SPACE 20
 #define FACE_WIDTH 30
 #define PAGE_CONTROL_HEIGHT 20

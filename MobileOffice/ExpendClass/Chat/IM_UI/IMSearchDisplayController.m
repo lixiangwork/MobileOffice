@@ -119,14 +119,22 @@
         XMPPUserCoreDataStorageObject *contact = (XMPPUserCoreDataStorageObject *)object;
         IMChatVC *chatC = [[IMChatVC alloc] initWithBuddyJID:contact.jid
                                                                buddyName:contact.displayName];
-        [self.searchContentsController.navigationController pushViewController:chatC animated:YES];
+        //[self.searchContentsController.navigationController pushViewController:chatC animated:YES];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chatC];
+        
+        nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.searchContentsController presentViewController:nav animated:YES completion:nil];
     }
     else if ([object isKindOfClass:[XMPPMessageArchiving_Contact_CoreDataObject class]]) {
         XMPPMessageArchiving_Contact_CoreDataObject *contact = (XMPPMessageArchiving_Contact_CoreDataObject *)object;
         
         IMChatVC *chatC = [[IMChatVC alloc] initWithBuddyJID:contact.bareJid
                                                                buddyName:contact.displayName];
-        [self.searchContentsController.navigationController pushViewController:chatC animated:YES];
+        //[self.searchContentsController.navigationController pushViewController:chatC animated:YES];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:chatC];
+        
+        nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.searchContentsController presentViewController:nav animated:YES completion:nil];
     }
 }
 

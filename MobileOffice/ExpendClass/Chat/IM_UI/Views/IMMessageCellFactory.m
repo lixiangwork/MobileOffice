@@ -124,10 +124,10 @@
                              placeholderImage:[UIImage imageNamed:@"head_s.png"]];
         }
         else {
-            /*if ([IMChatVC currentBuddyJid]) {
+            if ([IMChatVC currentBuddyJid]) {
                 [self.headView  sd_setImageWithURL:nil//[NSURL URLWithString:HEAD_IMAGE([IMChatC currentBuddyJid].user)]
                               placeholderImage:[UIImage imageNamed:@"head_s.png"]];
-            }*/
+            }
         }
     }
     
@@ -213,7 +213,7 @@
                 
                 if (emotionImageName.length) {
                     imageData = UIImagePNGRepresentation([UIImage imageNamed:emotionImageName]);
-                    [contentLabel insertImage:[UIImage imageWithData:imageData scale:2.4f]
+                    [contentLabel insertImage:[UIImage imageWithData:imageData scale:1.4f]
                                       atIndex:keyworkEntity.range.location
                                       margins:UIEdgeInsetsZero];
                 }

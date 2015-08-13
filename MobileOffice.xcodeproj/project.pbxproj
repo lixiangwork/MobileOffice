@@ -550,6 +550,7 @@
 		C9D1D4EA1B7B1DFF0076614B /* UIViewController+Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1D4E91B7B1DFF0076614B /* UIViewController+Camera.m */; };
 		C9D1D4ED1B7B21D20076614B /* IMLocalSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1D4EC1B7B21D20076614B /* IMLocalSearchViewModel.m */; };
 		C9D1D4F01B7B225D0076614B /* IMSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1D4EF1B7B225D0076614B /* IMSearchDisplayController.m */; };
+		C9D1D4F41B7C7B810076614B /* IMDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1D4F31B7C7B810076614B /* IMDataBaseManager.m */; };
 		C9EF425B1B79CA7700789BEB /* IMXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF425A1B79CA7700789BEB /* IMXMPPManager.m */; };
 		C9EF425F1B79CD3A00789BEB /* IMEmotionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF425E1B79CD3A00789BEB /* IMEmotionEntity.m */; };
 		C9EF42621B79CD4A00789BEB /* IMEmotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42611B79CD4A00789BEB /* IMEmotionManager.m */; };
@@ -1404,6 +1405,8 @@
 		C9D1D4EC1B7B21D20076614B /* IMLocalSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMLocalSearchViewModel.m; sourceTree = "<group>"; };
 		C9D1D4EE1B7B225D0076614B /* IMSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSearchDisplayController.h; sourceTree = "<group>"; };
 		C9D1D4EF1B7B225D0076614B /* IMSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSearchDisplayController.m; sourceTree = "<group>"; };
+		C9D1D4F21B7C7B810076614B /* IMDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDataBaseManager.h; sourceTree = "<group>"; };
+		C9D1D4F31B7C7B810076614B /* IMDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDataBaseManager.m; sourceTree = "<group>"; };
 		C9EF42591B79CA7700789BEB /* IMXMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMXMPPManager.h; sourceTree = "<group>"; };
 		C9EF425A1B79CA7700789BEB /* IMXMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMXMPPManager.m; sourceTree = "<group>"; };
 		C9EF425D1B79CD3A00789BEB /* IMEmotionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEmotionEntity.h; sourceTree = "<group>"; };
@@ -2660,6 +2663,7 @@
 		A6BEA57C1B05CA3800EA2934 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C9D1D4F11B7C7B810076614B /* DataBase */,
 				C972DFA61B79DDD9008D5012 /* Utilities */,
 				C972DF871B79DA76008D5012 /* Categories */,
 				C9EF42631B79CF0B00789BEB /* Vendor */,
@@ -3303,6 +3307,15 @@
 				C9D1D4EF1B7B225D0076614B /* IMSearchDisplayController.m */,
 			);
 			path = IM_UI;
+			sourceTree = "<group>";
+		};
+		C9D1D4F11B7C7B810076614B /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C9D1D4F21B7C7B810076614B /* IMDataBaseManager.h */,
+				C9D1D4F31B7C7B810076614B /* IMDataBaseManager.m */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		C9EF42571B79CA6100789BEB /* IM_Models */ = {
@@ -3986,6 +3999,7 @@
 				A60B13711B5F384000A398AE /* NSNumber+XMPP.m in Sources */,
 				C972E03D1B79EBE8008D5012 /* UIToolbar+FlatUI.m in Sources */,
 				A6981E581B1599E000F45DAC /* SetingsItem.m in Sources */,
+				C9D1D4F41B7C7B810076614B /* IMDataBaseManager.m in Sources */,
 				C972DFB31B79DEE1008D5012 /* JLPaserdKeyword.m in Sources */,
 				C972DFCF1B79DF53008D5012 /* TTGlobalUICommon.m in Sources */,
 				A60B13781B5F384000A398AE /* XMPPModule.m in Sources */,

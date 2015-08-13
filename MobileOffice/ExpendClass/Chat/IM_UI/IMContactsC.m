@@ -16,7 +16,6 @@
 #import "IMLocalSearchViewModel.h"
 #import "IMContactCell.h"
 #import "IMStaticContactCell.h"
-#import "IMChatVC.h"
 #import "IMSearchDisplayController.h"
 #import "IMMainMessageViewModel.h"
 #import "IMContactEntity.h"
@@ -83,7 +82,7 @@
 - (void)initUI {
     [super initUI];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-49) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth*7/8, kScreenHeight-64-49) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -153,6 +152,7 @@
     
     UITableViewCell *cell = nil;
     id object = [self.viewModel objectAtIndexPath:indexPath];
+    
     if ([object isKindOfClass:[XMPPUserCoreDataStorageObject class]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:IMContactCellIdentifier];
         if (!cell) {
@@ -179,13 +179,14 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 0) {
-        return YES;
-    }
-    else {
-        // section 0 不可删除
-        return NO;
-    }
+//    if (indexPath.section > 0) {
+//        return YES;
+//    }
+//    else {
+//        // section 0 不可删除
+//        return NO;
+//    }
+    return NO;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

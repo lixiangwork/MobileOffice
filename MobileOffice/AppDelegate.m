@@ -12,6 +12,10 @@
 #import "User.h"
 #import <PgySDK/PgyManager.h>
 
+#import <AFNetworkReachabilityManager.h>
+#import "IMCache.h"
+#import "IMDataBaseManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -29,6 +33,12 @@
     
 }
 
+- (void)configAppCapabilities
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+
 #pragma mark -
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -43,6 +53,8 @@
     
     ////////////
     [self setNavAndTabBg];
+    
+    [self configAppCapabilities];
     
     ///初始化UserGlobalDic
     [[User sharedUser] initUserGlobalDic];
@@ -79,6 +91,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[IMDataBaseManager sharedManager] saveContext];
 }
 
 @end
