@@ -26,7 +26,7 @@
         // Initialization code
         self.accessoryType= UITableViewCellAccessoryNone;
       
-        [_titleLabel setTextColor:[UIColor redColor]];
+       // [_titleLabel setTextColor:[UIColor redColor]];
         
     }
     return self;

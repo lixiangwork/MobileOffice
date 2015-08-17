@@ -84,7 +84,7 @@
                 cell = [[SetingsTwoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer2];
             }
             
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"退出登陆" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"退出登录" andIsSwitchOn:NO];
             
             ((SetingsTwoCell *)cell).item = item;
             ((SetingsTwoCell *)cell).cellEdge = 10;
@@ -128,7 +128,7 @@
         else{
             
             BOOL isOn = [[[[User sharedUser] getUserGlobalDic] objectForKey:uAotoLogin] boolValue];
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"自动登陆" andIsSwitchOn:isOn];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"自动登录" andIsSwitchOn:isOn];
             ((SetingsThreeCell *)cell).item = item;
             ((SetingsThreeCell *)cell).cellEdge = 10;
             
@@ -177,7 +177,7 @@
             ((SetingsOneCell *)cell).cellEdge = 10;
         }
         else{
-            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"移动办公Beta1.0.2版" andIsSwitchOn:NO];
+            SetingsItem *item = [[SetingsItem alloc] initWithIconImg:nil andTitleName:@"移动办公Beta1.0.2版本" andIsSwitchOn:NO];
             ((SetingsOneCell *)cell).item = item;
             ((SetingsOneCell *)cell).cellEdge = 10;
 

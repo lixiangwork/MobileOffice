@@ -20,7 +20,7 @@
         _iconImgView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth-65, 4, 35, 35)];
         [self.contentView addSubview:_iconImgView];
         
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 11, 120, 21)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 11, 200, 21)];
         [_titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
         [_titleLabel setTextColor:[UIColor blackColor]];

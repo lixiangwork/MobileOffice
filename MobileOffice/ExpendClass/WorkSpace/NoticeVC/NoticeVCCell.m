@@ -14,7 +14,8 @@
     [super layoutSubviews];
     
     _noticeTitleLabel.text = [_contentItem.Properties objectForKey:@"news_title"];
-    _noticeTimeLable.text = [_contentItem.Properties objectForKey:@"news_createtime"];
+    NSString *time = [_contentItem.Properties objectForKey:@"news_createtime"];
+    _noticeTimeLable.text = time.length > 19 ? [time substringToIndex:19] : time;
     _noticeBriefLable.text = [_contentItem.Properties objectForKey:@"news_detail"];
 }
 
