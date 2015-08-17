@@ -16,6 +16,8 @@
 
 #import "UIViewAdditions.h"
 
+#import "IMContactsImages.h"
+
 #define NAME_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
 
 #define HEAD_IAMGE_HEIGHT 35
@@ -25,6 +27,7 @@ typedef void (^ContactCompleteBlock)(BOOL complete);
 @interface IMContactCell() <XMPPStreamDelegate>
 
 @property (nonatomic, strong) UIImageView *headView;
+@property (nonatomic, strong) UILabel *stateLabel;
 @property (nonatomic, strong) XMPPUserCoreDataStorageObject* contact;
 @property (nonatomic, strong) RACSignal* loadImageSignal;
 @property (nonatomic, strong) ContactCompleteBlock completeBlock;
@@ -50,10 +53,18 @@ typedef void (^ContactCompleteBlock)(BOOL complete);
         self.textLabel.textColor = [UIColor blackColor];
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
         
+        //state
+        self.stateLabel = [[UILabel alloc] init];
+        self.stateLabel.font = [UIFont systemFontOfSize:14];
+        self.stateLabel.textColor = [UIColor grayColor];
+        self.stateLabel.highlightedTextColor = self.stateLabel.textColor;
+        [self.contentView addSubview:self.stateLabel];
+        
         // background color
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = [UIColor clearColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
+        self.stateLabel.backgroundColor = [UIColor clearColor];
         
         self.selectionStyle = UITableViewCellSelectionStyleGray;
     }
@@ -125,7 +136,11 @@ typedef void (^ContactCompleteBlock)(BOOL complete);
     // name
     self.textLabel.frame = CGRectMake(self.headView.right + padding, 0.f,
                                       textMaxWidth, self.textLabel.font.lineHeight);
-    self.textLabel.centerY = self.contentView.height / 2;
+    //self.textLabel.centerY = self.contentView.height / 3;
+    
+    
+    //state
+    self.stateLabel.frame = CGRectMake(self.headView.right + padding,self.textLabel.bottom, textMaxWidth, self.stateLabel.font.lineHeight);
     
 #if 0
     if (self.contact.photo) {
@@ -148,7 +163,21 @@ typedef void (^ContactCompleteBlock)(BOOL complete);
         self.contact = o;
         self.textLabel.text = o.displayName;
         
-        [self.headView setImageWithURL:nil//[NSURL URLWithString:HEAD_IMAGE(o.jid.user)]
+        NSString *state = @"离线";
+        if (o.section == 0) {
+            state = @"在线";
+        }
+        else if (o.section == 1){
+            state = @"离开";
+        }
+        
+        self.stateLabel.text = [NSString stringWithFormat:@"[%@]",state];
+        
+        //NSLog(@"userName:%@",o.jid.user);
+        
+        NSString *documentID = [[IMContactsImages sharedInstance] getDocumentIDForTheContact:o.jid.user];
+        
+        [self.headView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@/head_s.png",IMAGEURL,documentID]]//nil//[NSURL URLWithString:HEAD_IMAGE(o.jid.user)]
                       placeholderImage:[UIImage imageNamed:@"head_s.png"]];
     }
     return YES;

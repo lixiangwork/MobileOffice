@@ -557,6 +557,7 @@
 		C9EF426C1B79CF1800789BEB /* JLPinyinSortItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42661B79CF1800789BEB /* JLPinyinSortItem.m */; };
 		C9EF426D1B79CF1800789BEB /* JLPinyinSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42681B79CF1800789BEB /* JLPinyinSortModel.m */; };
 		C9EF426E1B79CF1800789BEB /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = C9EF426A1B79CF1800789BEB /* pinyin.c */; };
+		C9F6380C1B8158CA00313975 /* IMContactsImages.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F6380B1B8158CA00313975 /* IMContactsImages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1419,6 +1420,8 @@
 		C9EF42681B79CF1800789BEB /* JLPinyinSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPinyinSortModel.m; sourceTree = "<group>"; };
 		C9EF426A1B79CF1800789BEB /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
 		C9EF426B1B79CF1800789BEB /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		C9F6380A1B8158CA00313975 /* IMContactsImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMContactsImages.h; sourceTree = "<group>"; };
+		C9F6380B1B8158CA00313975 /* IMContactsImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMContactsImages.m; sourceTree = "<group>"; };
 		E4CA545AC1A7369DE817D701 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2926,6 +2929,8 @@
 				C972DFF41B79E6A8008D5012 /* IMUIHelper.m */,
 				C972DFA91B79DDE4008D5012 /* IMAudioRecordPlayManager.h */,
 				C972DFAA1B79DDE4008D5012 /* IMAudioRecordPlayManager.m */,
+				C9F6380A1B8158CA00313975 /* IMContactsImages.h */,
+				C9F6380B1B8158CA00313975 /* IMContactsImages.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -3980,6 +3985,7 @@
 				A60B14B31B5F39FD00A398AE /* XMPPvCardTempAdrTypes.m in Sources */,
 				A60B14BF1B5F39FD00A398AE /* XMPPMessage+XEP_0066.m in Sources */,
 				C972DFEC1B79E3B6008D5012 /* IMContactCell.m in Sources */,
+				C9F6380C1B8158CA00313975 /* IMContactsImages.m in Sources */,
 				A6C8B8A11B32D9100010E7F4 /* CustomIOSAlertView.m in Sources */,
 				A60B14C21B5F39FD00A398AE /* XMPPDateTimeProfiles.m in Sources */,
 				A60B14E41B5F39FD00A398AE /* XMPPMessageCarbons.m in Sources */,

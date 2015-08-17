@@ -27,6 +27,8 @@
 #import "UIViewAdditions.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+#import "IMContactsImages.h"
+
 #define HEAD_IAMGE_HEIGHT 40
 #define CELL_BOTTOM_CLEAN_MARGIN 10
 
@@ -119,13 +121,19 @@
     if ([object isKindOfClass:[IMChatMessageBaseEntity class]]) {
         IMChatMessageBaseEntity *entity = (IMChatMessageBaseEntity *)object;
         
+    
         if (entity.isOutgoing) {
-            [self.headView sd_setImageWithURL:nil//[NSURL URLWithString:HEAD_IMAGE(MY_JID.user)]
+            
+            NSString *documentID = [[IMContactsImages sharedInstance] getDocumentIDForTheContact:MY_JID.user];
+            
+            [self.headView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@/head_s.png",IMAGEURL,documentID]]//nil//[NSURL URLWithString:HEAD_IMAGE(MY_JID.user)]
                              placeholderImage:[UIImage imageNamed:@"head_s.png"]];
         }
         else {
             if ([IMChatVC currentBuddyJid]) {
-                [self.headView  sd_setImageWithURL:nil//[NSURL URLWithString:HEAD_IMAGE([IMChatC currentBuddyJid].user)]
+                
+                 NSString *documentID = [[IMContactsImages sharedInstance] getDocumentIDForTheContact:[IMChatVC currentBuddyJid].user];
+                [self.headView  sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@/head_s.png",IMAGEURL,documentID]]//nil//[NSURL URLWithString:HEAD_IMAGE([IMChatC currentBuddyJid].user)]
                               placeholderImage:[UIImage imageNamed:@"head_s.png"]];
             }
         }

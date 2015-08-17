@@ -27,7 +27,21 @@
     self.navigationItem.title = @"通讯录";
     
     
-    [self getContentData];
+    //[self getContentData];
+    
+    NSData *data = [[NSData alloc]initWithContentsOfFile:ContactsPath];
+    NSMutableArray *_contactsArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    if (_contactsArray.count == 0) {
+        [self getContentData];
+    }
+    else{
+        [self fillLevelArraysWithContactsArray:_contactsArray];
+        [self fillNodesArray];
+        [self fillDisplayArray];
+        [self.tableView reloadData];
+    }
+
 }
 
 - (void)initUI {
@@ -68,6 +82,10 @@
         [self hideHud];
         if (!error) {
             if (results.count != 0) {
+                
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:results];
+                [data writeToFile:ContactsPath atomically:NO];
+                
                 [self fillLevelArraysWithContactsArray:[results mutableCopy]];
                 [self fillNodesArray];
                 [self fillDisplayArray];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ContentItems : NSObject
+@interface ContentItems : NSObject<NSCopying, NSCoding>
 
 @property (nonatomic, strong) NSString* ContentID;
 @property (nonatomic, strong) NSString* MimeType;

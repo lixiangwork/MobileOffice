@@ -15,6 +15,8 @@
 #import <AFNetworkReachabilityManager.h>
 #import "IMCache.h"
 #import "IMDataBaseManager.h"
+#include <sys/xattr.h>
+
 
 @interface AppDelegate ()
 
@@ -37,6 +39,35 @@
 {
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
+
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL {
+    const char* filePath = [[URL path] fileSystemRepresentation];
+    
+    const char* attrName = "com.apple.MobileBackup";
+    u_int8_t attrValue = 1;
+    
+    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+    return result == 0;
+}
+
+#pragma mark - getDataFromNet
+- (void)getContentData{
+    [[CloudService sharedInstance] getAllContentTypeInfo:@"MobileConstacts" withBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            if (results.count != 0) {
+                
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:results];
+                [data writeToFile:ContactsPath atomically:NO];
+                
+                
+            }
+        }
+        else{
+           // [UIFactory showAlert:@"网络错误"];
+        }
+    }];
+}
+
 
 
 #pragma mark -
@@ -61,6 +92,23 @@
     
     //初始化LocalFileDic
     [[LocalFileDic sharedInstance] initLocalFileGlobalDic];
+    
+    ///
+    NSURL *dbURLPath = [NSURL URLWithString:ContactsPath];
+    [self addSkipBackupAttributeToItemAtURL:dbURLPath];
+    
+    NSData *data = [[NSData alloc]initWithContentsOfFile:ContactsPath];
+    if (!data) {
+        NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+        data = [NSKeyedArchiver archivedDataWithRootObject:mutArray];
+        BOOL flag = [data writeToFile:ContactsPath atomically:NO];
+        if (flag) {
+            NSLog(@"通讯录已经保存到本地");
+        }
+        
+    }
+
+    [self getContentData];
     
     ////////
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];

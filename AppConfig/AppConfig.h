@@ -37,6 +37,8 @@
 
 #define DOCUMENT_FOLDER_DIR [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
+#define ContactsPath [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Contacts.plist"]
+
 
 //用户头像名称
 #define UserIconImageName @"UserIconImageName.jpeg"

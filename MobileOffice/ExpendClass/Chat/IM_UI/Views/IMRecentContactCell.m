@@ -17,6 +17,8 @@
 
 #import "UIViewAdditions.h"
 
+#import "IMContactsImages.h"
+
 #define NAME_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
 #define MESSAGE_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:14.f]
@@ -154,8 +156,10 @@
         self.textLabel.text = o.displayName;
         self.detailTextLabel.text = [IMChatMessageEntityFactory recentContactLastMessageFromJSONString:o.mostRecentMessageBody];
         self.dateLabel.text = [o.mostRecentMessageTimestamp formatRecentContactDate];
-//        [self.headView setImageWithURL:[NSURL URLWithString:HEAD_IMAGE(o.bareJid.user)]
-//                      placeholderImage:[UIImage imageNamed:@"head_s.png"]];
+        
+        NSString *documentID = [[IMContactsImages sharedInstance] getDocumentIDForTheContact:o.bareJid.user];
+        [self.headView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@/head_s.png",IMAGEURL,documentID]]//[NSURL URLWithString:HEAD_IMAGE(o.bareJid.user)]
+                      placeholderImage:[UIImage imageNamed:@"head_s.png"]];
         
         if (self.contact.unreadMessages.intValue > 0) {
             self.badgeView.hidden = NO;
