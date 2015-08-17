@@ -105,12 +105,12 @@
             TreeViewNode *node = [_allSelectedThirdLevelNodes objectAtIndex:i];
             TreeNodeThirdLevel *thirdLevel = (TreeNodeThirdLevel *)node.nodeObject;
             
-            if ([newShares rangeOfString:thirdLevel.thirdLevelTitle].location != NSNotFound) {
+            if ([newShares rangeOfString:thirdLevel.userName].location != NSNotFound) {
                 continue;
             }
             else{
                 
-                newShares = [NSString stringWithFormat:@"%@%@,",newShares,thirdLevel.thirdLevelTitle];
+                newShares = [NSString stringWithFormat:@"%@%@,",newShares,thirdLevel.userName];
             }
         }
         
